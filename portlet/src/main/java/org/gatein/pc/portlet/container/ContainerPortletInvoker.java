@@ -66,7 +66,7 @@ public class ContainerPortletInvoker extends PortletInvokerInterceptor
    {
       Map<String, PortletImpl> portlets = new HashMap<String, PortletImpl>(this.portlets);
       PortletImpl portlet = new PortletImpl(portletContainer);
-      portlets.put(portlet.getContext().getId(), portlet);
+      portlets.put(portletContainer.getId(), portlet);
 
       //
       this.portlets = portlets;
@@ -75,8 +75,7 @@ public class ContainerPortletInvoker extends PortletInvokerInterceptor
    public synchronized void removePortletContainer(PortletContainer portletContainer)
    {
       Map<String, PortletImpl> portlets = new HashMap<String, PortletImpl>(this.portlets);
-      PortletImpl portlet = new PortletImpl(portletContainer);
-      portlets.remove(portlet.getContext().getId());
+      portlets.remove(portletContainer.getId());
 
       //
       this.portlets = portlets;
@@ -93,7 +92,7 @@ public class ContainerPortletInvoker extends PortletInvokerInterceptor
       {
          throw new IllegalArgumentException("The portlet context cannot be null");
       }
-      if (portlets.containsKey(portletContext.getId()))
+      if (portlets.containsKey(portletContext.getComponents().getPortletName()))
       {
          return PortletStatus.OFFERED;
       }
@@ -106,7 +105,7 @@ public class ContainerPortletInvoker extends PortletInvokerInterceptor
       {
          throw new IllegalArgumentException("No null portlet id accepted");
       }
-      String portletId = portletContext.getId();
+      String portletId = portletContext.getComponents().getPortletName();
       PortletImpl portlet = portlets.get(portletId);
       if (portlet == null)
       {
@@ -153,7 +152,7 @@ public class ContainerPortletInvoker extends PortletInvokerInterceptor
 
    public PropertyMap getProperties(PortletContext portletContext, Set<String> keys) throws IllegalArgumentException, PortletInvokerException, UnsupportedOperationException
    {
-      PortletImpl portlet = portlets.get(portletContext.getId());
+      PortletImpl portlet = portlets.get(portletContext.getComponents().getPortletName());
       if (portlet == null)
       {
          throw new NoSuchPortletException(portletContext.getId());
@@ -174,7 +173,7 @@ public class ContainerPortletInvoker extends PortletInvokerInterceptor
 
    public PropertyMap getProperties(PortletContext portletContext) throws IllegalArgumentException, PortletInvokerException, UnsupportedOperationException
    {
-      PortletImpl portlet = portlets.get(portletContext.getId());
+      PortletImpl portlet = portlets.get(portletContext.getComponents().getPortletName());
       if (portlet == null)
       {
          throw new NoSuchPortletException(portletContext.getId());
