@@ -55,6 +55,12 @@
    </scm>
 
    <properties>
+      <!-- ***************** -->
+      <!-- Repository Deployment URLs for eXo -->
+      <!-- ***************** -->
+      <jboss.releases.repo.url>http://repository.exoplatform.org/service/local/staging/deploy/maven2/</jboss.releases.repo.url>
+      <jboss.snapshots.repo.url>http://repository.exoplatform.org/content/repositories/exo-snapshots/</jboss.snapshots.repo.url>
+
       <version.gatein.common>2.2.2.Final</version.gatein.common>
       <version.gatein.dep>1.4.0.Final</version.gatein.dep>
       <version.apache.portals.bridges>1.0.4</version.apache.portals.bridges>
