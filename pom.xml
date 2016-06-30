@@ -71,6 +71,7 @@
 
      <!-- maven-release-plugin -->
       <useReleaseProfile>false</useReleaseProfile>
+      <version.release.plugin>2.5.1</version.release.plugin>
       <pushChanges>false</pushChanges>
       <autoVersionSubmodules>true</autoVersionSubmodules>
 
