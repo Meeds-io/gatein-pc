@@ -56,8 +56,8 @@ public class PortletContextTestCase extends TestCase
 
    public void testGetComponents()
    {
-      PortletContext context = PortletContext.createPortletContext("/applicationName.portletName");
-      assertEquals("/applicationName.portletName", context.getId());
+      PortletContext context = PortletContext.createPortletContext("/applicationName:portletName");
+      assertEquals("/applicationName:portletName", context.getId());
       PortletContext.PortletContextComponents components = context.getComponents();
       assertNotNull(components);
       assertTrue(components.isInterpreted());
@@ -67,8 +67,8 @@ public class PortletContextTestCase extends TestCase
       assertFalse(components.isCloned());
       assertNull(components.getStateId());
 
-      context = PortletContext.createPortletContext("\t\t\n    /applicationName.portletName   \t");
-      assertEquals("/applicationName.portletName", context.getId());
+      context = PortletContext.createPortletContext("\t\t\n    /applicationName:portletName   \t");
+      assertEquals("/applicationName:portletName", context.getId());
       components = context.getComponents();
       assertNotNull(components);
       assertTrue(components.isInterpreted());
@@ -110,13 +110,13 @@ public class PortletContextTestCase extends TestCase
       assertFalse(components.isCloned());
       assertNull(components.getStateId());
 
-      context = PortletContext.createPortletContext("/applicationName.portlet.Name");
-      assertEquals("/applicationName.portlet.Name", context.getId());
+      context = PortletContext.createPortletContext("/application.Name:portlet.Name");
+      assertEquals("/application.Name:portlet.Name", context.getId());
       components = context.getComponents();
       assertNotNull(components);
       assertTrue(components.isInterpreted());
       assertNull(components.getInvokerName());
-      assertEquals("applicationName", components.getApplicationName());
+      assertEquals("application.Name", components.getApplicationName());
       assertEquals("portlet.Name", components.getPortletName());
       assertFalse(components.isCloned());
       assertNull(components.getStateId());
@@ -131,8 +131,8 @@ public class PortletContextTestCase extends TestCase
          // expected
       }
 
-      context = PortletContext.createPortletContext("/  applicationName\t.  portlet Name");
-      assertEquals("/applicationName.portlet Name", context.getId());
+      context = PortletContext.createPortletContext("/  applicationName\t:  portlet Name");
+      assertEquals("/applicationName:portlet Name", context.getId());
       components = context.getComponents();
       assertNotNull(components);
       assertTrue(components.isInterpreted());
@@ -145,7 +145,7 @@ public class PortletContextTestCase extends TestCase
 
    public void testPortletContextWithInvokerId()
    {
-      String id = "local" + PortletContext.INVOKER_SEPARATOR + "/foo.bar";
+      String id = "local" + PortletContext.INVOKER_SEPARATOR + "/foo:bar";
       PortletContext context = PortletContext.createPortletContext(id);
       assertEquals(id, context.getId());
       PortletContext.PortletContextComponents components = context.getComponents();
@@ -157,8 +157,8 @@ public class PortletContextTestCase extends TestCase
       assertFalse(components.isCloned());
       assertNull(components.getStateId());
 
-      context = PortletContext.createPortletContext("   local\t  " + PortletContext.INVOKER_SEPARATOR + "  /  foo \t. \t\n bar");
-      assertEquals("local" + PortletContext.INVOKER_SEPARATOR + "/foo.bar", context.getId());
+      context = PortletContext.createPortletContext("   local\t  " + PortletContext.INVOKER_SEPARATOR + "  /  foo \t: \t\n bar");
+      assertEquals("local" + PortletContext.INVOKER_SEPARATOR + "/foo:bar", context.getId());
       components = context.getComponents();
       assertNotNull(components);
       assertTrue(components.isInterpreted());
@@ -168,7 +168,7 @@ public class PortletContextTestCase extends TestCase
       assertFalse(components.isCloned());
       assertNull(components.getStateId());
 
-      id = "local" + PortletContext.INVOKER_SEPARATOR + "foo.bar";
+      id = "local" + PortletContext.INVOKER_SEPARATOR + "foo:bar";
       context = PortletContext.createPortletContext(id);
       assertEquals(id, context.getId());
       components = context.getComponents();
@@ -176,7 +176,7 @@ public class PortletContextTestCase extends TestCase
       assertTrue(components.isInterpreted());
       assertEquals("local", components.getInvokerName());
       assertNull(components.getApplicationName());
-      assertEquals("foo.bar", components.getPortletName());
+      assertEquals("foo:bar", components.getPortletName());
       assertFalse(components.isCloned());
       assertNull(components.getStateId());
 
@@ -195,10 +195,10 @@ public class PortletContextTestCase extends TestCase
 
    public void testCreateFromAppAndPortletName()
    {
-      PortletContext fromId = PortletContext.createPortletContext("/applicationName.portletName");
+      PortletContext fromId = PortletContext.createPortletContext("/applicationName:portletName");
 
       PortletContext context = PortletContext.createPortletContext("applicationName", "portletName");
-      assertEquals("/applicationName.portletName", context.getId());
+      assertEquals("/applicationName:portletName", context.getId());
       PortletContext.PortletContextComponents components = context.getComponents();
       assertNotNull(components);
       assertTrue(components.isInterpreted());
@@ -212,10 +212,10 @@ public class PortletContextTestCase extends TestCase
 
    public void testShouldProperlyHandleApplicationNameStartingWithSlash()
    {
-      PortletContext fromId = PortletContext.createPortletContext("/applicationName.portletName");
+      PortletContext fromId = PortletContext.createPortletContext("/applicationName:portletName");
 
       PortletContext context = PortletContext.createPortletContext("/applicationName", "portletName");
-      assertEquals("/applicationName.portletName", context.getId());
+      assertEquals("/applicationName:portletName", context.getId());
       PortletContext.PortletContextComponents components = context.getComponents();
       assertNotNull(components);
       assertTrue(components.isInterpreted());

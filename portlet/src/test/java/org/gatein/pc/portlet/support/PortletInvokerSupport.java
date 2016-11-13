@@ -52,8 +52,8 @@ import java.util.Set;
 public class PortletInvokerSupport implements PortletInvoker
 {
 
-   public static final String FOO_PORTLET_ID = "/webapp1.foo";
-   public static final String BAR_PORTLET_ID = "/webapp2.bar";
+   public static final String FOO_PORTLET_ID = "/webapp1:foo";
+   public static final String BAR_PORTLET_ID = "/webapp2:bar";
    /** . */
    private Map<String, PortletSupport> portlets;
 

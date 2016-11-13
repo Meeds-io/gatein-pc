@@ -63,9 +63,9 @@ import java.util.Arrays;
  */
 public abstract class AbstractStatefulPortletInvokerTestCase extends TestCase
 {
-   public static final String PORTLET_ID = "/foo.PortletId";
-   public static final String NON_EXISTING_PORTLET_ID = "/foo.NonExistingPortletId";
-   public static final String INVALID_PORTLET_ID = "/foo.InvalidPortletId";
+   public static final String PORTLET_ID = "/foo:PortletId";
+   public static final String NON_EXISTING_PORTLET_ID = "/foo:NonExistingPortletId";
+   public static final String INVALID_PORTLET_ID = "/foo:InvalidPortletId";
 
    /** . */
    protected final boolean persistLocally;
