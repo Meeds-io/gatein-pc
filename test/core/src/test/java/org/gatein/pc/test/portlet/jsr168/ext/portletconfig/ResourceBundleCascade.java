@@ -57,8 +57,11 @@ public class ResourceBundleCascade
       {
          protected Response run(Portlet portlet, RenderRequest request, RenderResponse response, PortletTestContext context)
          {
+            Locale defaultLocale = Locale.getDefault();
+
             PortletConfig cfg = ((AbstractUniversalTestPortlet)portlet).getPortletConfig();
 
+            ResourceBundle bundle_default = cfg.getResourceBundle(defaultLocale);
             ResourceBundle bundle_en = cfg.getResourceBundle(Locale.ENGLISH);
             ResourceBundle bundle_it = cfg.getResourceBundle(Locale.ITALIAN);
             ResourceBundle bundle_zz = cfg.getResourceBundle(new Locale("zz"));
@@ -69,19 +72,22 @@ public class ResourceBundleCascade
             ResourceBundle bundle_fr_FR = cfg.getResourceBundle(Locale.FRANCE);
             ResourceBundle bundle_fr_FR_aa = cfg.getResourceBundle(new Locale(Locale.FRANCE.getLanguage(), Locale.FRANCE.getCountry(), "aa"));
 
-            assertEquals(Locale.ENGLISH, bundle_en.getLocale());
-            assertEquals(Locale.ENGLISH, bundle_it.getLocale());
-            assertEquals(Locale.ENGLISH, bundle_zz.getLocale());
+            // not existing bundle (en, it, zz) -> must fallback on the default locale
+            assertEquals(bundle_default.getLocale(), bundle_en.getLocale());
+            assertEquals(bundle_default.getLocale(), bundle_it.getLocale());
+            assertEquals(bundle_default.getLocale(), bundle_zz.getLocale());
+            // existing bundle (en_GB, de, de_DE, fr, fr_FR)
             assertEquals(Locale.UK, bundle_en_GB.getLocale());
             assertEquals(Locale.GERMAN, bundle_de.getLocale());
             assertEquals(Locale.GERMANY, bundle_de_DE.getLocale());
             assertEquals(Locale.FRENCH, bundle_fr.getLocale());
             assertEquals(Locale.FRANCE, bundle_fr_FR.getLocale());
+            // not existing bundle but with existing "sublocale" (fr_FR_aa) -> must fallback to the "sublocale" bundle
             assertEquals(Locale.FRANCE, bundle_fr_FR_aa.getLocale());
 
-            assertEquals("title", bundle_en.getString("javax.portlet.title"));
-            assertEquals("title", bundle_it.getString("javax.portlet.title"));
-            assertEquals("title", bundle_zz.getString("javax.portlet.title"));
+            assertEquals(bundle_default.getString("javax.portlet.title"), bundle_en.getString("javax.portlet.title"));
+            assertEquals(bundle_default.getString("javax.portlet.title"), bundle_it.getString("javax.portlet.title"));
+            assertEquals(bundle_default.getString("javax.portlet.title"), bundle_zz.getString("javax.portlet.title"));
             assertEquals("title", bundle_en_GB.getString("javax.portlet.title"));
             assertEquals("title", bundle_de.getString("javax.portlet.title"));
             assertEquals("title", bundle_de_DE.getString("javax.portlet.title"));
@@ -89,9 +95,9 @@ public class ResourceBundleCascade
             assertEquals("title", bundle_fr_FR.getString("javax.portlet.title"));
             assertEquals("title", bundle_fr_FR_aa.getString("javax.portlet.title"));
 
-            assertEquals("short-title", bundle_en.getString("javax.portlet.short-title"));
-            assertEquals("short-title", bundle_it.getString("javax.portlet.short-title"));
-            assertEquals("short-title", bundle_zz.getString("javax.portlet.short-title"));
+            assertEquals(bundle_default.getString("javax.portlet.short-title"), bundle_en.getString("javax.portlet.short-title"));
+            assertEquals(bundle_default.getString("javax.portlet.short-title"), bundle_it.getString("javax.portlet.short-title"));
+            assertEquals(bundle_default.getString("javax.portlet.short-title"), bundle_zz.getString("javax.portlet.short-title"));
             assertEquals("short-title", bundle_de.getString("javax.portlet.short-title"));
             assertEquals("short-title_de_DE", bundle_de_DE.getString("javax.portlet.short-title"));
             assertEquals("short-title_fr", bundle_fr.getString("javax.portlet.short-title"));
