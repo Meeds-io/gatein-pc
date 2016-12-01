@@ -69,6 +69,9 @@
       <version.discovery>0.4</version.discovery>
       <version.junit>4.8.2</version.junit>
 
+      <!-- Servers -->
+      <version.jboss.as>7.1.1.Final</version.jboss.as>
+
      <!-- maven-release-plugin -->
       <useReleaseProfile>false</useReleaseProfile>
       <version.release.plugin>2.5.1</version.release.plugin>
@@ -353,6 +356,14 @@
             <groupId>javax.servlet.jsp</groupId>
             <artifactId>jsp-api</artifactId>
             <version>2.2</version>
+         </dependency>
+
+         <!-- JBoss 7 -->
+         <dependency>
+            <groupId>org.jboss.as</groupId>
+            <artifactId>jboss-as-dist</artifactId>
+            <version>${version.jboss.as}</version>
+            <type>zip</type>
          </dependency>
 
       </dependencies>
