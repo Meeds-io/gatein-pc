@@ -48,9 +48,9 @@ import java.util.Set;
 public class FederatingPortletInvokerTestCase extends TestCase
 {
 
-   private static final PortletContext PORTLET = PortletContext.createPortletContext("/webapp.portlet", false);
+   private static final PortletContext PORTLET = PortletContext.createPortletContext("/webapp:portlet", false);
    private static final String INVOKER_ID = "foo";
-   private static final PortletContext LOCAL_PORTLET = PortletContext.createPortletContext("/web.local", false);
+   private static final PortletContext LOCAL_PORTLET = PortletContext.createPortletContext("/web:local", false);
    private static final PortletContext REFERENCED_PORTLET = PortletContext.reference(INVOKER_ID, PORTLET);
    private static final PortletContext REFERENCED_LOCAL_PORTLET = PortletContext.reference(PortletInvoker.LOCAL_PORTLET_INVOKER_ID, LOCAL_PORTLET);
 
@@ -201,7 +201,7 @@ public class FederatingPortletInvokerTestCase extends TestCase
       final TestFederatedPortletInvoker remote = new TestFederatedPortletInvoker();
       PortletInfoSupport remoteInfo = new PortletInfoSupport();
       remoteInfo.getMeta().setDisplayName("RemotePortlet");
-      final PortletContext context = PortletContext.createPortletContext("/app.RemotePortlet");
+      final PortletContext context = PortletContext.createPortletContext("/app:RemotePortlet");
       Portlet portlet = remote.addPortlet(context.getId(), remoteInfo);
 
       // this invoker is not registered
