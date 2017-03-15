@@ -27,7 +27,7 @@ import javax.portlet.ResourceURL;
 import javax.servlet.jsp.tagext.TagData;
 
 /**
- * @author <a href="mailto:boleslaw dot dawidowicz at redhat anotherdot com">Boleslaw Dawidowicz</a>
+ * @author Boleslaw Dawidowicz
  * @version : 0.1 $
  */
 public class ResourceURL286TagTEI extends GenerateURL286TagTEI

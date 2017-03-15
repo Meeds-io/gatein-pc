@@ -26,7 +26,7 @@ import javax.portlet.PortletURL;
 import javax.portlet.BaseURL;
 
 /**
- * @author <a href="mailto:boleslaw dot dawidowicz at redhat anotherdot com">Boleslaw Dawidowicz</a>
+ * @author Boleslaw Dawidowicz
  * @version : 0.1 $
  */
 public class ActionURL286Tag extends GenerateURL286Tag

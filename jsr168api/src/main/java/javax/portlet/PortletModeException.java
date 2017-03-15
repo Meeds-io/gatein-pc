@@ -55,9 +55,9 @@ public class PortletModeException extends PortletException
    }
 
    /**
-    * Constructs a new portlet mode exception when the portlet needs to do the following: <ul> <il>throw an exception
-    * <li>include a message about the "root cause" that interfered with its normal operation <li>include a description
-    * message <li>include the portlet mode that caused this exception </ul>
+    * Constructs a new portlet mode exception when the portlet needs to do the following: <ul> <li>throw an exception</li>
+    * <li>include a message about the "root cause" that interfered with its normal operation</li><li>include a description
+    * message</li><li>include the portlet mode that caused this exception</li></ul>
     *
     * @param text  the exception text
     * @param cause the root cause

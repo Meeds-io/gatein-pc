@@ -113,7 +113,7 @@ public interface EventControllerContext
     * The session argument only provides querying capabilities and it is not possible to queue event
     * or interrupt the session.</p>
     *
-    * <p>The cause value is an integer among the constants
+    * The cause value is an integer among the constants
     * <ul>
     *    <li>{@link #CONSUMED_EVENT_FLOODED}</li>
     *    <li>{@link #EVENT_CONSUMER_INFO_NOT_AVAILABLE}</li>
@@ -122,7 +122,7 @@ public interface EventControllerContext
     *    <li>{@link #EVENT_PRODUCER_NOT_AVAILABLE}</li>
     *    <li>{@link #PORTLET_DOES_NOT_CONSUME_EVENT}</li>
     *    <li>{@link #PRODUCED_EVENT_FLOODED}</li>
-    * <p/>
+    * </ul>
     *
     * <p>During the invocation of this method, any runtime exception thrown will
     * be ignored by the controller.</p>

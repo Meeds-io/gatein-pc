@@ -38,7 +38,6 @@ public interface PortletRequestDispatcher
    /**
     * Includes the content of a resource (servlet, JSP page, HTML file) in the response. In essence, this method enables
     * programmatic server-side includes.
-    * <p/>
     * The included servlet cannot set or change the response status code or set headers; any attempt to make a change is
     * ignored.
     *

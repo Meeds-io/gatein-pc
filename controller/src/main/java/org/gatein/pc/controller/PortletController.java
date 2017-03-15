@@ -46,9 +46,7 @@ import java.util.List;
  *
  * <p>The event distribution is based on a fifo policy.</p>
  *
- * <p/>
  * 1/ introduce EventRequest so the portal can send events directly to a portlet
- * <p/>
  * 2/ make the event controller return a decision for a given event. Today it just returns a list of events to process.
  * An event can be handled in various manners by the controller: - produce new events (what exists today) - make it a
  * portal event which delivers the event to the portal

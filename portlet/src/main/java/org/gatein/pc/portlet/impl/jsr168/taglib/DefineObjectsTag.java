@@ -30,10 +30,9 @@ import javax.servlet.jsp.JspException;
 /**
  * The defineObjects tag for the JSR 168 Portlet specification.
  *
- * @author <a href="mailto:sgwood@ix.netcom.com">Sherman Wood</a>
- * @author <a href="mailto:boleslaw dot dawidowicz at redhat anotherdot com">Boleslaw Dawidowicz</a>
+ * @author Sherman Wood
+ * @author Boleslaw Dawidowicz
  * @version $Revision: 5448 $
- * @jsp.tag name="defineObjects" body-content="empty" tei-class="org.gatein.pc.portlet.impl.jsr168.taglib.DefineObjectsTagTEI"
  */
 public class DefineObjectsTag extends PortletTag
 {

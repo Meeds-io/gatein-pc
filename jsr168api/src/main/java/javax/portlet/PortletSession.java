@@ -27,9 +27,7 @@ import java.util.Enumeration;
 /**
  * The <CODE>PortletSession</CODE> interface provides a way to identify a user across more than one request and to store
  * transient information about that user.
- * <p/>
  * A <code>PortletSession</code> is created per user client per portlet application.
- * <p/>
  * A portlet can bind an object attribute into a <code>PortletSession</code> by name. The <code>PortletSession</code>
  * interface defines two scopes for storing objects: <ul> <li><code>APPLICATION_SCOPE</code>
  * <li><code>PORTLET_SCOPE</code> </ul> All objects stored in the session using the <code>APPLICATION_SCOPE</code> must
@@ -38,7 +36,6 @@ import java.util.Enumeration;
  * <code>PORTLET_SCOPE</code> must be available to the portlet during requests for the same portlet window that the
  * objects where stored from. Attributes stored in the <code>PORTLET_SCOPE</code> are not protected from other web
  * components of the portlet application. They are just conveniently namespaced.
- * <p/>
  * The portlet session is based on the <code>HttpSession</code>. Therefore all <code>HttpSession</code> listeners do
  * apply to the portlet session and attributes set in the portlet session are visible in the <code>HttpSession</code>
  * and vice versa.
@@ -51,17 +48,14 @@ public interface PortletSession
    /**
     * This constant defines an application wide scope for the session attribute. <code>APPLICATION_SCOPE</code> session
     * attributes enable Portlets within one portlet application to share data.
-    * <p/>
     * Portlets may need to prefix attributes set in this scope with some ID, to avoid overwriting each other's
     * attributes in the case where two portlets of the same portlet definition are created.
-    * <p/>
     * Value: <code>0x01</code>
     */
    int APPLICATION_SCOPE = 0x01;
 
    /**
     * This constant defines the scope of the session attribute to be private to the portlet and its included resources.
-    * <p/>
     * Value: <code>0x02</code>
     */
    int PORTLET_SCOPE = 0x02;
@@ -138,7 +132,6 @@ public interface PortletSession
    /**
     * Returns the last time the client sent a request associated with this session, as the number of milliseconds since
     * midnight January 1, 1970 GMT.
-    * <p/>
     * <p>Actions that your portlet takes, such as getting or setting a value associated with the session, do not affect
     * the access time.
     *
@@ -167,7 +160,6 @@ public interface PortletSession
 
    /**
     * Invalidates this session (all scopes) and unbinds any objects bound to it.
-    * <p/>
     * Invalidating the portlet session will result in invalidating the underlying <code>HttpSession</code>
     *
     * @throws java.lang.IllegalStateException
@@ -212,13 +204,11 @@ public interface PortletSession
    /**
     * Binds an object to this session under the <code>PORTLET_SCOPE</code>, using the name specified. If an object of
     * the same name in this scope is already bound to the session, that object is replaced.
-    * <p/>
     * <p>After this method has been executed, and if the new object implements <code>HttpSessionBindingListener</code>,
     * the container calls <code>HttpSessionBindingListener.valueBound</code>. The container then notifies any
     * <code>HttpSessionAttributeListeners</code> in the web application. <p>If an object was already bound to this
     * session that implements <code>HttpSessionBindingListener</code>, its <code>HttpSessionBindingListener.valueUnbound</code>
     * method is called.
-    * <p/>
     * <p>If the value is <code>null</code>, this has the same effect as calling <code>removeAttribute()</code>.
     *
     * @param name  the name to which the object is bound under the <code>PORTLET_SCOPE</code>; this cannot be
@@ -234,13 +224,11 @@ public interface PortletSession
    /**
     * Binds an object to this session in the given scope, using the name specified. If an object of the same name in
     * this scope is already bound to the session, that object is replaced.
-    * <p/>
     * <p>After this method has been executed, and if the new object implements <code>HttpSessionBindingListener</code>,
     * the container calls <code>HttpSessionBindingListener.valueBound</code>. The container then notifies any
     * <code>HttpSessionAttributeListeners</code> in the web application. <p>If an object was already bound to this
     * session that implements <code>HttpSessionBindingListener</code>, its <code>HttpSessionBindingListener.valueUnbound</code>
     * method is called.
-    * <p/>
     * <p>If the value is <code>null</code>, this has the same effect as calling <code>removeAttribute()</code>.
     *
     * @param name  the name to which the object is bound; this cannot be <code>null</code>.

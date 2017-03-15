@@ -59,7 +59,6 @@ public class ValidatorException extends PortletException
    /**
     * Constructs a new validator exception with the given text. The portlet container may use the text write it to a
     * log.
-    * <p/>
     * The collection of failed keys may contain all failed keys, only the first key that failed validation, or may be
     * <code>null</code>.
     *
@@ -75,9 +74,8 @@ public class ValidatorException extends PortletException
 
    /**
     * Constructs a new portlet validator exception. Used, when the portlet needs to do one of the following: <ul>
-    * <il>throw an exception <li>include a message about the "root cause" that interfered with its normal operation
-    * <li>include a description message </ul>
-    * <p/>
+    * <li>throw an exception <li>include a message about the "root cause" that interfered with its normal operation</li>
+    * <li>include a description message</li></ul>
     * The Collection of failed keys may contain all failed keys, only the first key that failed validation, or may be
     * <code>null</code>.
     *
@@ -94,7 +92,6 @@ public class ValidatorException extends PortletException
    /**
     * Constructs a new portlet validator exception when the portlet needs to throw an exception. The exception message
     * is based on the localized message of the underlying exception.
-    * <p/>
     * The Collection of failed keys may contain all failed keys, only the first key that failed validation, or may be
     * <code>null</code>.
     *
@@ -109,7 +106,6 @@ public class ValidatorException extends PortletException
 
    /**
     * Returns the keys that failed the validation.
-    * <p/>
     * The Enumeration of failed keys may contain all failed keys, only the first key that failed validation, or an empty
     * <code>Enumeration</code> if no failed keys are available.
     *

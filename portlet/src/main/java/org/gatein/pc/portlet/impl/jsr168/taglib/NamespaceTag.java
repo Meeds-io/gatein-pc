@@ -28,16 +28,13 @@ import java.io.IOException;
 
 /**
  * The namespace tag for the JSR 168 Portlet specification.
- * <p/>
  * This tag produces a unique value for the current portlet.
- * <p/>
  * This tag should be used for named elements in the portlet output (such as Javascript functions and variables). The
  * namespacing ensures that the given name is uniquely associated with this portlet and avoids name conflicts with other
  * elements on the portal page or with other portlets on the page.
  *
  * @author <a href="mailto:sgwood@ix.netcom.com">Sherman Wood</a>
  * @version $Revision: 5448 $
- * @jsp.tag name="namespace" body-content="empty"
  */
 public class NamespaceTag extends PortletTag
 {

@@ -49,10 +49,8 @@ import static org.gatein.pc.test.unit.Assert.fail;
  * cxxx: Only URLs with a cache level FULL are allowed in the response of the serveResource call triggered via a
  * ResourceURL with a cache level FULL. The same restriction is true for all downstream URLs that result from this
  * serveResource call. Setting a cachability different from  must result in an IllegalStateException.
- * <p/>
  * cxxxi: Attempts to create URLs that are not of type FULL or are not resource URLs in the current or a downstream
  * response must result in an IllegalStateException25
- * <p/>
  * cxxxii: Creating other URLs, e.g. resource URLs of type  or action or render URLs, must result in an
  * IllegalStateException
  *

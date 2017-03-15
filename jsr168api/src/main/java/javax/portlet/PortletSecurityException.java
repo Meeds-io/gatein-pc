@@ -47,9 +47,9 @@ public class PortletSecurityException extends PortletException
    }
 
    /**
-    * Constructs a new portlet security exception when the portlet needs to do the following: <ul> <il>throw an
-    * exception <li>include a message about the "root cause" that interfered with its normal operation <li>include a
-    * description message </ul>
+    * Constructs a new portlet security exception when the portlet needs to do the following: <ul><li>throw an
+    * exception</li><li>include a message about the "root cause" that interfered with its normal operation</li><li>include a
+    * description message</li></ul>
     *
     * @param text  the exception text
     * @param cause the root cause

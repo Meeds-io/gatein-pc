@@ -53,8 +53,8 @@ public interface PortletInvoker
     * returned
     * by {@link #getPortlets()}. In particular, cloned portlets wouldn't necessarily be exposed to getPortlets and
     * still
-    * be known by this PortletInvoker i.e. there exists PortletContexts <code>pc</code> as follows: <p> <code> assert
-    * getPortlet(pc) != null && !getPortlets().contains(portlet);<br/> </code> </p>
+    * be known by this PortletInvoker i.e. there exists PortletContexts {@code pc} as follows: <p> {@code assert
+    * getPortlet(pc) != null && !getPortlets().contains(portlet); } </p>
     *
     * @param portletContext the portlet context in the scope of this invoker
     * @return the <code>PortletInfo</code> for the specified portlet

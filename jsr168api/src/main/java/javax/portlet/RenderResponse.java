@@ -42,17 +42,14 @@ public interface RenderResponse extends PortletResponse
 {
    /**
     * Property to set the expiration time in seconds for this response using the <code>setProperty</code> method.
-    * <p/>
     * If the expiration value is set to 0, caching is disabled for this portlet; if the value is set to -1, the cache
     * does not expire.
-    * <p/>
     * The value is <code>"portlet.expiration-cache"</code>.
     */
    public static final String EXPIRATION_CACHE = "portlet.expiration-cache";
 
    /**
     * Returns the MIME type that can be used to contribute markup to the render response.
-    * <p/>
     * If no content type was set previously using the {@link #setContentType} method this method retuns
     * <code>null</code>.
     *
@@ -66,10 +63,8 @@ public interface RenderResponse extends PortletResponse
     * Creates a portlet URL targeting the portlet. If no portlet mode, window state or security modifier is set in the
     * PortletURL the current values are preserved. If a request is triggered by the PortletURL, it results in a render
     * request.
-    * <p/>
     * The returned URL can be further extended by adding portlet-specific parameters and portlet modes and window
     * states.
-    * <p/>
     * The created URL will per default not contain any parameters of the current render request.
     *
     * @return a portlet render URL
@@ -80,10 +75,8 @@ public interface RenderResponse extends PortletResponse
     * Creates a portlet URL targeting the portlet. If no portlet mode, window state or security modifier is set in the
     * PortletURL the current values are preserved. If a request is triggered by the PortletURL, it results in an action
     * request.
-    * <p/>
     * The returned URL can be further extended by adding portlet-specific parameters and portlet modes and window
     * states.
-    * <p/>
     * The created URL will per default not contain any parameters of the current render request.
     *
     * @return a portlet action URL
@@ -100,7 +93,6 @@ public interface RenderResponse extends PortletResponse
 
    /**
     * This method sets the title of the portlet.
-    * <p/>
     * The value can be a text String
     *
     * @param title portlet title as text String or resource URI
@@ -110,7 +102,6 @@ public interface RenderResponse extends PortletResponse
    /**
     * Sets the MIME type for the render response. The portlet must set the content type before calling {@link
     * #getWriter} or {@link #getPortletOutputStream}.
-    * <p/>
     * Calling <code>setContentType</code> after <code>getWriter</code> or <code>getOutputStream</code> does not change
     * the content type.
     *
@@ -124,7 +115,6 @@ public interface RenderResponse extends PortletResponse
 
    /**
     * Returns the name of the charset used for the MIME body sent in this response.
-    * <p/>
     * <p>See <a href="http://ds.internic.net/rfc/rfc2045.txt">RFC 2047</a> for more information about character encoding
     * and MIME.
     *
@@ -134,10 +124,8 @@ public interface RenderResponse extends PortletResponse
 
    /**
     * Returns a PrintWriter object that can send character text to the portal.
-    * <p/>
     * Before calling this method the content type of the render response must be set using the {@link #setContentType}
     * method.
-    * <p/>
     * Either this method or {@link #getPortletOutputStream} may be called to write the body, not both.
     *
     * @return a <code>PrintWriter</code> object that can return character data to the portal
@@ -160,7 +148,6 @@ public interface RenderResponse extends PortletResponse
    /**
     * Sets the preferred buffer size for the body of the response. The portlet container will use a buffer at least as
     * large as the size requested.
-    * <p/>
     * This method must be called before any response body content is written; if content has been written, or the
     * portlet container does not support buffering, this method may throw an <code>IllegalStateException</code>.
     *
@@ -237,12 +224,9 @@ public interface RenderResponse extends PortletResponse
    /**
     * Returns a <code>OutputStream</code> suitable for writing binary data in the response. The portlet container does
     * not encode the binary data.
-    * <p/>
     * Before calling this method the content type of the render response must be set using the {@link #setContentType}
     * method.
-    * <p/>
     * Calling <code>flush()</code> on the OutputStream commits the response.
-    * <p/>
     * Either this method or {@link #getWriter} may be called to write the body, not both.
     *
     * @throws java.lang.IllegalStateException

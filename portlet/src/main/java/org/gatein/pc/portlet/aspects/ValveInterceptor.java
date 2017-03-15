@@ -34,7 +34,7 @@ import org.gatein.pc.portlet.impl.jsr168.PortletContainerImpl;
 import org.gatein.pc.api.PortletInvokerException;
 
 /**
- * This aspect has two responsabilities :<br/> <ul> <li>continue the request only if the portlet container valve is
+ * This aspect has two responsabilities :<br> <ul> <li>continue the request only if the portlet container valve is
  * open. When the valve is closed, it will return an unavailable response to the caller. When the valve is open then the
  * current thread of execution enters the valve for the duration of the call.</li> <li> if the response from the next
  * aspect is an unavailable result, stop the container in order to destroy the portlet and implement this part of the

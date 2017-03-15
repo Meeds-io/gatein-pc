@@ -41,7 +41,6 @@ import java.util.Map;
 
 /**
  * Superclass of the actionURL and renderURL tags for the JSR 168 Portlet specification.
- * <p/>
  * Creates a URL that must point to the current portlet and must trigger a render or action request with the supplied
  * parameters.
  *
@@ -58,14 +57,11 @@ public abstract class GenerateURLTag extends PortletTag
 
    /**
     * Indicates the portlet mode that the portlet must have when this link is executed.
-    * <p/>
     * Predefined states: edit, view, help
-    * <p/>
     * Optional. Defaults to same as the portlet mode for the current request, by not being included as a parameter in
     * the URL.
     *
     * @return Returns the portletMode.
-    * @jsp.attribute rtexprvalue="true"
     */
    public String getPortletMode()
    {
@@ -80,13 +76,10 @@ public abstract class GenerateURLTag extends PortletTag
 
    /**
     * Indicates whether the resulting URL should be a secure or insecure connection.
-    * <p/>
     * "true" or "false"
-    * <p/>
     * Optional.  Defaults to security setting for the current request, by not being included as a parameter in the URL.
     *
     * @return Returns the secure connection value.
-    * @jsp.attribute rtexprvalue="true"
     */
    public String getSecure()
    {
@@ -101,7 +94,6 @@ public abstract class GenerateURLTag extends PortletTag
 
    /**
     * @return Returns the var - name of the exported scope variable.
-    * @jsp.attribute rtexprvalue="true"
     */
    public String getVar()
    {
@@ -116,14 +108,11 @@ public abstract class GenerateURLTag extends PortletTag
 
    /**
     * Indicates the window state that the portlet should have when this link is executed.
-    * <p/>
     * Predefined states: minimized, maximized, normal
-    * <p/>
     * Optional. Defaults to same as the window state for the current request, by not being included as a parameter in
     * the URL.
     *
     * @return Returns the windowState.
-    * @jsp.attribute rtexprvalue="true"
     */
    public String getWindowState()
    {

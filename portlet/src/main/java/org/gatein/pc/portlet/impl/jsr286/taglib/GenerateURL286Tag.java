@@ -35,7 +35,7 @@ import java.util.List;
 import java.io.StringWriter;
 
 /**
- * @author <a href="mailto:boleslaw dot dawidowicz at redhat anotherdot com">Boleslaw Dawidowicz</a>
+ * @author Boleslaw Dawidowicz
  * @version : 0.1 $
  */
 public abstract class GenerateURL286Tag extends GenerateURLTag

@@ -25,7 +25,6 @@ package javax.portlet;
 /**
  * The <CODE>PreferencesValidator</CODE> allows to validate the set of preferences of the associated portlet just before
  * they are stored in the persistent store.
- * <p/>
  * The portlet container invokes the <code>validate</code> method as part of the invocation of the <code>store</code>
  * method of the <code>PortletPreferences</code>.
  *

@@ -43,7 +43,6 @@ import java.util.Arrays;
  * <p>An implementation that relies on the <code>DataInputStream</code> and <code>DataOutputStream</code> to marshall
  * and unmarshall the producer state. The marshalled value starts with a magic value and a version id to ensure future
  * backward compatibility.</p>
- * <p/>
  * <p>It is an important matter because a migrated producer will probably have to take care of consumers that hold a
  * previous version of the producer state.</p>
  *

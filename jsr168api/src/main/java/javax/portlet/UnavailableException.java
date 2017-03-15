@@ -53,7 +53,6 @@ public class UnavailableException extends PortletException
    /**
     * Constructs a new exception with a descriptive message indicating that the portlet is temporarily unavailable and
     * giving an estimate of how long it will be unavailable.
-    * <p/>
     * <p>In some cases, the portlet cannot make an estimate. For example, the portlet might know that a server it needs
     * is not running, but it might not be able to report how long it will take to be restored to functionality. This can
     * be indicated with a negative or zero value for the <code>seconds</code> argument.
@@ -73,10 +72,8 @@ public class UnavailableException extends PortletException
 
    /**
     * Returns the time in seconds for which the portlet can be expected to be unavailable.
-    * <p/>
     * If the portlet is called again while it is still unavailable, it indicates the same time estimate. No effort is
     * made to correct for the time elapsed since the exception was first reported.
-    * <p/>
     * If this method returns zero or a negative number, the portlet is permanently unavailable or cannot provide an
     * estimate of how long it will be unavailable.
     *

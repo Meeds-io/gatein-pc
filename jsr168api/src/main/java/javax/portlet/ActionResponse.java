@@ -40,7 +40,6 @@ public interface ActionResponse extends PortletResponse
 {
    /**
     * Sets the window state of a portlet to the given window state.
-    * <p/>
     * Possible values are the standard window states and any custom window states supported by the portal and the
     * portlet. Standard window states are: <ul> <li>MINIMIZED <li>NORMAL <li>MAXIMIZED </ul>
     *
@@ -55,11 +54,9 @@ public interface ActionResponse extends PortletResponse
 
    /**
     * Sets the portlet mode of a portlet to the given portlet mode.
-    * <p/>
     * Possible values are the standard portlet modes and any custom portlet modes supported by the portal and the
     * portlet. Portlets must declare in the deployment descriptor the portlet modes they support for each markup type.
     * Standard portlet modes are: <ul> <li>EDIT <li>HELP <li>VIEW </ul>
-    * <p/>
     * Note: The portlet may still be called in a different window state in the next render call, depending on the
     * portlet container / portal.
     *
@@ -76,11 +73,9 @@ public interface ActionResponse extends PortletResponse
    /**
     * Instructs the portlet container to send a redirect response to the client using the specified redirect location
     * URL.
-    * <p/>
     * This method only accepts an absolute URL (e.g. <code>http://my.co/myportal/mywebap/myfolder/myresource.gif</code>)
     * or a full path URI (e.g. <code>/myportal/mywebap/myfolder/myresource.gif</code>). If required, the portlet
     * container may encode the given URL before the redirection is issued to the client.
-    * <p/>
     * The sendRedirect method can not be invoked after any of the following methods of the ActionResponse interface has
     * been called: <ul> <li>setPortletMode <li>setWindowState <li>setRenderParameter <li>setRenderParameters </ul>
     *
@@ -95,12 +90,9 @@ public interface ActionResponse extends PortletResponse
 
    /**
     * Sets a parameter map for the render request.
-    * <p/>
     * All previously set render parameters are cleared.
-    * <p/>
     * These parameters will be accessible in all sub-sequent render calls via the <code>PortletRequest.getParameter</code>
     * call until a new request is targeted to the portlet.
-    * <p/>
     * The given parameters do not need to be encoded prior to calling this method.
     *
     * @param parameters Map containing parameter names for the render phase as keys and parameter values as map values.
@@ -115,12 +107,9 @@ public interface ActionResponse extends PortletResponse
 
    /**
     * Sets a String parameter for the render request.
-    * <p/>
     * These parameters will be accessible in all sub-sequent render calls via the <code>PortletRequest.getParameter</code>
     * call until a request is targeted to the portlet.
-    * <p/>
     * This method replaces all parameters with the given key.
-    * <p/>
     * The given parameter do not need to be encoded prior to calling this method.
     *
     * @param key   key of the render parameter
@@ -133,12 +122,9 @@ public interface ActionResponse extends PortletResponse
 
    /**
     * Sets a String array parameter for the render request.
-    * <p/>
     * These parameters will be accessible in all sub-sequent render calls via the <code>PortletRequest.getParameter</code>
     * call until a request is targeted to the portlet.
-    * <p/>
     * This method replaces all parameters with the given key.
-    * <p/>
     * The given parameter do not need to be encoded prior to calling this method.
     *
     * @param key    key of the render parameter

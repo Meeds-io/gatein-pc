@@ -25,7 +25,7 @@ package org.gatein.pc.portlet.impl.jsr286.taglib;
 import org.gatein.pc.portlet.impl.jsr168.taglib.NamespaceTag;
 
 /**
- * @author <a href="mailto:boleslaw dot dawidowicz at redhat anotherdot com">Boleslaw Dawidowicz</a>
+ * @author Boleslaw Dawidowicz
  * @version : 0.1 $
  */
 public class Namespace286Tag extends NamespaceTag

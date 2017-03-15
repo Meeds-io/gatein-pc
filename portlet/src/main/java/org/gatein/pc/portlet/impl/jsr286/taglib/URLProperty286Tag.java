@@ -26,7 +26,7 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
 
 /**
- * @author <a href="mailto:boleslaw dot dawidowicz at redhat anotherdot com">Boleslaw Dawidowicz</a>
+ * @author Boleslaw Dawidowicz
  * @version : 0.1 $
  */
 public class URLProperty286Tag extends TagSupport
@@ -38,11 +38,9 @@ public class URLProperty286Tag extends TagSupport
 
    /**
     * The name of the property to add to the URL.
-    * <p/>
     * If null or empty, no action is performed.
     *
     * @return Returns the name.
-    * @jsp.attribute required="true" rtexprvalue="true"
     */
    public String getName()
    {
@@ -57,11 +55,9 @@ public class URLProperty286Tag extends TagSupport
 
    /**
     * The value of the property to add to the URL.
-    * <p/>
     * If null, it is processed as an empty value.
     *
     * @return Returns the value.
-    * @jsp.attribute required="true" rtexprvalue="true"
     */
    public String getValue()
    {

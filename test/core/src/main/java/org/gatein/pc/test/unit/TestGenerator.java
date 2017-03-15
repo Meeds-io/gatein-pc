@@ -38,7 +38,7 @@ import java.util.regex.Pattern;
 
 /** @author <a href="mailto:julien.viet@exoplatform.com">Julien Viet</a> */
 @SupportedAnnotationTypes("org.gatein.pc.test.unit.annotations.TestCase")
-@SupportedSourceVersion(SourceVersion.RELEASE_6)
+@SupportedSourceVersion(SourceVersion.RELEASE_8)
 public class TestGenerator extends AbstractProcessor
 {
 

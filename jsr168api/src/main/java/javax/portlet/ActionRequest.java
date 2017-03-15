@@ -67,7 +67,6 @@ public interface ActionRequest extends PortletRequest
    /**
     * Retrieves the body of the HTTP request from client to portal as binary data using an <CODE>InputStream</CODE>.
     * Either this method or {@link #getReader} may be called to read the body, but not both.
-    * <p/>
     * For HTTP POST data of type application/x-www-form-urlencoded this method throws an
     * <code>IllegalStateException</code> as this data has been already processed by the portal/portlet-container and is
     * available as request parameters.
@@ -84,7 +83,6 @@ public interface ActionRequest extends PortletRequest
     * Retrieves the body of the HTTP request from the client to the portal as character data using a
     * <code>BufferedReader</code>.  The reader translates the character data according to the character encoding used on
     * the body. Either this method or {@link #getPortletInputStream} may be called to read the body, not both.
-    * <p/>
     * For HTTP POST data of type application/x-www-form-urlencoded this method throws an
     * <code>IllegalStateException</code> as this data has been already processed by the portal/portlet-container and is
     * available as request parameters.
@@ -103,7 +101,6 @@ public interface ActionRequest extends PortletRequest
    /**
     * Overrides the name of the character encoding used in the body of this request. This method must be called prior to
     * reading input using {@link #getReader} or {@link #getPortletInputStream}.
-    * <p/>
     * This method only sets the character set for the Reader that the {@link #getReader} method returns.
     *
     * @param   enc   a <code>String</code> containing the name of the chararacter encoding.

@@ -29,17 +29,14 @@ import java.util.ResourceBundle;
 
 /**
  * The <CODE>GenericPortlet</CODE> class provides a default implementation for the <CODE>Portlet</CODE> interface.
- * <p/>
  * It provides an abstract class to be subclassed to create portlets. A subclass of <CODE>GenericPortlet</CODE> should
  * override at least one method, usually one of the following: <ul> <li>processAction, to handle action requests</li>
  * <li>doView, to handle render requests when in VIEW mode</li> <li>doEdit, to handle render requests when in EDIT
  * mode</li> <li>doHelp, to handle render request when in HELP mode</li> <li>init and destroy, to manage resources that
  * are held for the life of the servlet</li> </ul>
- * <p/>
  * Normally there is no need to override the render or the doDispatch methods. Render handles render requests setting
  * the title of the portlet in the response and invoking doDispatch. doDispatch dispatches the request to one of the
  * doView, doEdit or doHelp method depending on the portlet mode indicated in the request.
- * <p/>
  * Portlets typically run on multithreaded servers, so please note that a portlet must handle concurrent requests and be
  * careful to synchronize access to shared resources.  Shared resources include in-memory data such as  instance or
  * class variables and external objects  such as files, database connections, and network  connections.
@@ -59,7 +56,6 @@ public abstract class GenericPortlet implements Portlet
 
    /**
     * A convenience method which can be overridden so that there's no need to call <code>super.init(config)</code>.
-    * <p/>
     * <p>Instead of overriding {@link #init(PortletConfig)}, simply override this method and it will be called by
     * <code>GenericPortlet.init(PortletConfig config)</code>. The <code>PortletConfig</code> object can still be
     * retrieved via {@link #getPortletConfig}.
@@ -107,10 +103,8 @@ public abstract class GenericPortlet implements Portlet
     * current portlet mode the portlet is currently in. These methods are: <ul> <li><code>doView</code> for handling
     * <code>view</code> requests <li><code>doEdit</code> for handling <code>edit</code> requests <li><code>doHelp</code>
     * for handling <code>help</code> requests </ul>
-    * <p/>
     * If the window state of this portlet is <code>minimized</code>, this method does not invoke any of the portlet mode
     * rendering methods.
-    * <p/>
     * For handling custom portlet modes the portlet should override this method.
     *
     * @param request  the render request
@@ -145,7 +139,6 @@ public abstract class GenericPortlet implements Portlet
 
    /**
     * Helper method to serve up the mandatory <code>view</code> mode.
-    * <p/>
     * The default implementation throws an exception.
     *
     * @param request  the portlet request
@@ -162,7 +155,6 @@ public abstract class GenericPortlet implements Portlet
 
    /**
     * Helper method to serve up the <code>help</code> mode.
-    * <p/>
     * The default implementation throws an exception.
     *
     * @param request  the portlet request
@@ -179,7 +171,6 @@ public abstract class GenericPortlet implements Portlet
 
    /**
     * Helper method to serve up the <code>edit</code> mode.
-    * <p/>
     * The default implementation throws an exception.
     *
     * @param request  the portlet request
@@ -207,10 +198,8 @@ public abstract class GenericPortlet implements Portlet
 
    /**
     * Used by the render method to get the title.
-    * <p/>
     * The default implementation gets the title from the ResourceBundle of the PortletConfig of the portlet. The title
     * is retrieved using the 'javax.portlet.title' resource name.
-    * <p/>
     * Portlets can overwrite this method to provide dynamic titles (e.g. based on locale, client, and session
     * information). Examples are: <UL> <LI>language-dependant titles for multi-lingual portals <LI>shorter titles for
     * WAP phones <LI>the number of messages in a mailbox portlet </UL>
@@ -250,11 +239,9 @@ public abstract class GenericPortlet implements Portlet
 
    /**
     * Called by the portlet container to indicate to a portlet that the portlet is being placed into service.
-    * <p/>
     * The default implementation just stores the <code>PortletConfig</code> object. <p>The portlet container calls the
     * <code>init</code> method exactly once after instantiating the portlet. The <code>init</code> method must complete
     * successfully before the portlet can receive any requests.
-    * <p/>
     * <p>The portlet container cannot place the portlet into service if the <code>init</code> method does one of the
     * following: <ol> <li>it throws a <code>PortletException</code> <li>it does not return within a time period defined
     * by the Web server </ol>
@@ -274,7 +261,6 @@ public abstract class GenericPortlet implements Portlet
     * Called by the portlet container to allow the portlet to process an action request. This method is called if the
     * client request was originated by a URL created (by the portlet) with the <code>RenderResponse.createActionURL()</code>
     * method.
-    * <p/>
     * The default implementation throws an exception.
     *
     * @param request  the action request
@@ -308,7 +294,6 @@ public abstract class GenericPortlet implements Portlet
 
    /**
     * Called by the portlet container to indicate to a portlet that the portlet is being taken out of service.
-    * <p/>
     * The default implementation does nothing.
     */
    public void destroy()

@@ -30,7 +30,6 @@ import javax.servlet.jsp.tagext.TagSupport;
  *
  * @author <a href="mailto:sgwood@ix.netcom.com">Sherman Wood</a>
  * @version $Revision: 5448 $
- * @jsp.tag name="param" body-content="empty"
  */
 public class URLParameterTag extends TagSupport
 {
@@ -41,11 +40,9 @@ public class URLParameterTag extends TagSupport
 
    /**
     * The name of the parameter to add to the URL.
-    * <p/>
     * If null or empty, no action is performed.
     *
     * @return Returns the name.
-    * @jsp.attribute required="true" rtexprvalue="true"
     */
    public String getName()
    {
@@ -60,11 +57,9 @@ public class URLParameterTag extends TagSupport
 
    /**
     * The value of the parameter to add to the URL.
-    * <p/>
     * If null, it is processed as an empty value.
     *
     * @return Returns the value.
-    * @jsp.attribute required="true" rtexprvalue="true"
     */
    public String getValue()
    {

@@ -38,7 +38,6 @@ import java.io.Writer;
 /**
  * The goal is to test that cross context session attributes are set in container and are accessible from the direct
  * servlet.
- * <p/>
  * 1/ portlet put key=value in the http session 2/ portlet ask the client to perform get on /servlet 3/ servlet check
  * that key=value
  *

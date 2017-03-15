@@ -16,7 +16,6 @@ import org.gatein.common.logging.LoggerFactory;
 /**
  * <p>Manage a set of resource bundles. Obtention of bundles is delegated to a ResourceBundleFactory. A bundle
  * obtained successfully is cached in order to avoid the potential expensive cost of the bundle retrieval.</p>
- * <p/>
  * <p>The manager can also be used to build LocalizedString object from the loaded bundles.</p>
  *
  * @author <a href="mailto:julien@jboss.org">Julien Viet</a>
@@ -112,7 +111,6 @@ public class ResourceBundleManager
    /**
     * Return a bundle for the given locale. If the complete locale (language + country + variant) does not exist then it
     * falls back to (language + country) or (language) or the default file.
-    * <p/>
     * When the resource bundle object is found and was not in the global map, it put it in that map with a copy on
     * write.
     *

@@ -39,7 +39,7 @@ import javax.portlet.PortletPreferences;
 import java.util.Map;
 
 /**
- * @author <a href="mailto:boleslaw dot dawidowicz at redhat anotherdot com">Boleslaw Dawidowicz</a>
+ * @author Boleslaw Dawidowicz
  * @version : 0.1 $
  */
 public class DefineObjects286Tag extends PortletTag

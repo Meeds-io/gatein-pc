@@ -26,7 +26,6 @@ import java.util.Locale;
 
 /**
  * The <CODE>WindowState</CODE> class represents the possible window states that a portlet window can assume.
- * <p/>
  * This class defines a standard set of the most basic portlet window states. Additional window states may be defined by
  * calling the constructor of this class. If a portal/portlet-container does not support a custom window state defined
  * in the portlet application deployment descriptor, the custom window state will be ignored by the portal/portlet
@@ -42,7 +41,6 @@ public class WindowState
     * The <code>NORMAL</code> window state indicates that a portlet may be sharing the page with other portlets. It may
     * also indicate that the target device has limited display capabilities. Therefore, a portlet should restrict the
     * size of its rendered output in this window state.
-    * <p/>
     * The string value for this state is <code>"normal"</code>.
     */
    public static final WindowState NORMAL = new WindowState("normal");
@@ -50,7 +48,6 @@ public class WindowState
    /**
     * When a portlet is in <code>MINIMIZED</code> window state, the portlet should only render minimal output or no
     * output at all.
-    * <p/>
     * The string value for this state is <code>"minimized"</code>.
     */
    public static final WindowState MINIMIZED = new WindowState("minimized");
@@ -59,7 +56,6 @@ public class WindowState
     * The <code>MAXIMIZED</code> window state is an indication that a portlet may be the only portlet being rendered in
     * the portal page, or that the portlet has more space compared to other portlets in the portal page. A portlet may
     * generate richer content when its window state is <code>MAXIMIZED</code>.
-    * <p/>
     * The string value for this state is <code>"maximized"</code>.
     */
    public static final WindowState MAXIMIZED = new WindowState("maximized");
@@ -68,7 +64,6 @@ public class WindowState
 
    /**
     * Creates a new window state with the given name.
-    * <p/>
     * Upper case letters in the name are converted to lower case letters.
     *
     * @param name The name of the portlet mode

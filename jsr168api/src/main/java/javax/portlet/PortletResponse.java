@@ -37,9 +37,7 @@ public interface PortletResponse
 {
    /**
     * Adds a String property to an existing key to be returned to the portal.
-    * <p/>
     * This method allows response properties to have multiple values.
-    * <p/>
     * Properties can be used by portlets to provide vendor specific information to the portal.
     *
     * @param key   the key of the property to be returned to the portal
@@ -51,9 +49,7 @@ public interface PortletResponse
 
    /**
     * Sets a String property to be returned to the portal.
-    * <p/>
     * Properties can be used by portlets to provide vendor specific information to the portal.
-    * <p/>
     * This method resets all properties previously added with the same key.
     *
     * @param key   the key of the property to be returned to the portal
@@ -65,10 +61,8 @@ public interface PortletResponse
 
    /**
     * Returns the encoded URL of the resource, like servlets, JSPs, images and other static files, at the given path.
-    * <p/>
     * Some portal/portlet-container implementation may require those URLs to contain implementation specific data
     * encoded in it. Because of that, portlets should use this method to create such URLs.
-    * <p/>
     * The <code>encodeURL</code> method may include the session ID and other portal/portlet-container specific
     * information into the URL. If encoding is not needed, it returns the URL unchanged.
     *

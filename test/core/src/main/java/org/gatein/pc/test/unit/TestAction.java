@@ -60,10 +60,10 @@ public abstract class TestAction
     * ways that the <code>PortletRequest</code> API provides:
     *
     * <ul>
-    * <li><code>PortletRequest.getParameter(String)</li>
-    * <li><code>PortletRequest.getParameterValues(String)</li>
-    * <li><code>PortletRequest.getParameterNames()</li>
-    * <li><code>PortletRequest.getParameterMap()</li>
+    * <li><code>PortletRequest.getParameter(String)</code></li>
+    * <li><code>PortletRequest.getParameterValues(String)</code></li>
+    * <li><code>PortletRequest.getParameterNames()</code></li>
+    * <li><code>PortletRequest.getParameterMap()</code></li>
     * </ul>
     *
     * This method allows a full coverage of the API.

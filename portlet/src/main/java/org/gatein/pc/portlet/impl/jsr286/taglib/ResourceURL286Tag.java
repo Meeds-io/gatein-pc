@@ -28,7 +28,7 @@ import javax.portlet.ResourceURL;
 
 
 /**
- * @author <a href="mailto:boleslaw dot dawidowicz at redhat anotherdot com">Boleslaw Dawidowicz</a>
+ * @author Boleslaw Dawidowicz
  * @version : 0.1 $
  */
 public class ResourceURL286Tag extends GenerateURL286Tag

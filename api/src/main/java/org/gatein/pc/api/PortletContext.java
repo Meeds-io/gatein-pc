@@ -84,7 +84,6 @@ public class PortletContext implements Serializable
    /**
     * <p>Interprets the specified identifier and splits it into Components that can then be used to create a
     * PortletContext.</p>
-    * <p/>
     * <ul>Currently supported formats:
     * <li>portletContext := invokerId + {@link #INVOKER_SEPARATOR} + {@link #PREFIX} + applicationName + {@link
     * #SEPARATOR} + portletName</li>
@@ -332,7 +331,7 @@ public class PortletContext implements Serializable
     * @param portletId the portlet identifier to interpret as a PortletContext
     * @return a newly created PortletContext representing the portlet associated with the specified identifier
     * @throws IllegalArgumentException if the specified identifier cannot be properly interpreted into components
-    * @see {@link #interpretIntoComponents(String)}
+    * @see #interpretIntoComponents(String)
     */
    public static PortletContext createPortletContext(String portletId)
    {

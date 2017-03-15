@@ -32,16 +32,13 @@ import java.util.Set;
  * The <CODE>PortletContext</CODE> interface defines a portlet view of the portlet container. The
  * <CODE>PortletContext</CODE> also makes resources available to the portlet. Using the context, a portlet can access
  * the portlet log, and obtain URL references to resources.
- * <p/>
  * <p>There is one context per "portlet application" per Java Virtual Machine.  (A "portlet application" is a collection
  * of portlets, servlets, and content installed under a specific subset of the server URL namespace, such as
  * <code>/catalog</code>. They are possibly installed via a <code>.war</code> file.) As a web application, a portlet
  * application also has a servlet context. The portlet context leverages most of its functionality from the servlet
  * context of the portlet application.
- * <p/>
  * Attibutes stored in the context are global for <I>all</I> users and <I>all</I> components in the portlet
  * application.
- * <p/>
  * In the case of a web application marked "distributed" in its deployment descriptor, there will be one context
  * instance for each virtual machine.  In this situation, the context cannot be used as a location to share global
  * information (because the information is not truly global). Use an external resource, such as a database to achieve
@@ -54,8 +51,6 @@ public interface PortletContext
 {
    /**
     * Returns the name and version of the portlet container in which the portlet is running.
-    * <p/>
-    * <p/>
     * The form of the returned string is <code>containername/versionnumber</code>.
     *
     * @return the string containing at least name and version number
@@ -66,10 +61,8 @@ public interface PortletContext
     * Returns a {@link PortletRequestDispatcher} object that acts as a wrapper for the resource located at the given
     * path. A <code>PortletRequestDispatcher</code> object can be used include the resource in a response. The resource
     * can be dynamic or static.
-    * <p/>
     * <p>The pathname must begin with a slash (<code> / </code>) and is interpreted as relative to the current context
     * root.
-    * <p/>
     * <p>This method returns <code>null</code> if the <code>PortletContext</code> cannot return a
     * <code>PortletRequestDispatcher</code> for any reason.
     *
@@ -83,10 +76,8 @@ public interface PortletContext
 
    /**
     * Returns a {@link PortletRequestDispatcher} object that acts as a wrapper for the named servlet.
-    * <p/>
     * <p>Servlets (and also JSP pages) may be given names via server administration or via a web application deployment
     * descriptor.
-    * <p/>
     * <p>This method returns <code>null</code> if the <code>PortletContext</code> cannot return a
     * <code>PortletRequestDispatcher</code> for any reason.
     *
@@ -99,7 +90,6 @@ public interface PortletContext
    /**
     * Returns the resource located at the given path as an InputStream object. The data in the InputStream can be of any
     * type or length. The method returns null if no resource exists at the given path.
-    * <p/>
     * In order to access protected resources the path has to be prefixed with <code>/WEB-INF/</code> (for example
     * <code>/WEB-INF/myportlet/myportlet.jsp</code>). Otherwise, the direct path is used (for example
     * <code>/myportlet/myportlet.jsp</code>).
@@ -138,7 +128,6 @@ public interface PortletContext
    /**
     * Returns a <code>String</code> containing the real path for a given virtual path. For example, the path
     * <code>/index.html</code> returns the absolute file path of the portlet container file system.
-    * <p/>
     * <p>The real path returned will be in a form appropriate to the computer and operating system on which the portlet
     * container is running, including the proper path separators. This method returns <code>null</code> if the portlet
     * container cannot translate the virtual path to a real path for any reason (such as when the content is being made
@@ -156,7 +145,6 @@ public interface PortletContext
     * a web application containing<br><br> <code> /welcome.html<br> /catalog/index.html<br> /catalog/products.html<br>
     * /catalog/offers/books.html<br> /catalog/offers/music.html<br> /customer/login.jsp<br> /WEB-INF/web.xml<br>
     * /WEB-INF/classes/com.acme.OrderPortlet.class,<br><br> </code>
-    * <p/>
     * <code>getResourcePaths("/")</code> returns <code>{"/welcome.html", "/catalog/", "/customer/",
     * "/WEB-INF/"}</code><br> <code>getResourcePaths("/catalog/")</code> returns <code>{"/catalog/index.html",
     * "/catalog/products.html", "/catalog/offers/"}</code>.<br>
@@ -170,20 +158,14 @@ public interface PortletContext
    /**
     * Returns a URL to the resource that is mapped to a specified path. The path must begin with a slash
     * (<code>/</code>) and is interpreted as relative to the current context root.
-    * <p/>
     * <p>This method allows the portlet container to make a resource available to portlets from any source. Resources
     * can be located on a local or remote file system, in a database, or in a <code>.war</code> file.
-    * <p/>
     * <p>The portlet container must implement the URL handlers and <code>URLConnection</code> objects that are necessary
     * to access the resource.
-    * <p/>
     * <p>This method returns <code>null</code> if no resource is mapped to the pathname.
-    * <p/>
     * <p>Some containers may allow writing to the URL returned by this method using the methods of the URL class.
-    * <p/>
     * <p>The resource content is returned directly, so be aware that requesting a <code>.jsp</code> page returns the JSP
     * source code. Use a <code>RequestDispatcher</code> instead to include results of an execution.
-    * <p/>
     * <p>This method has a different purpose than <code>java.lang.Class.getResource</code>, which looks up resources
     * based on a class loader. This method does not use class loaders.
     *
@@ -197,7 +179,6 @@ public interface PortletContext
     * Returns the portlet container attribute with the given name, or null if there is no attribute by that name. An
     * attribute allows a portlet container to give the portlet additional information not already provided by this
     * interface. A list of supported attributes can be retrieved using <code>getAttributeNames</code>.
-    * <p/>
     * <p>The attribute is returned as a <code>java.lang.Object</code> or some subclass. Attribute names should follow
     * the same convention as package names. The Java Portlet API specification reserves names matching
     * <code>java.*</code>, <code>javax.*</code>, and <code>sun.*</code>.
@@ -246,7 +227,6 @@ public interface PortletContext
    /**
     * Writes the specified message to a portlet log file, usually an event log. The name and type of the portlet log
     * file is specific to the portlet container.
-    * <p/>
     * This method mapps to the <code>ServletContext.log</code> method. The portlet container may in addition log this
     * message in a portlet container specific log file.
     *
@@ -257,7 +237,6 @@ public interface PortletContext
    /**
     * Writes an explanatory message and a stack trace for a given Throwable exception to the portlet log file. The name
     * and type of the portlet log file is specific to the portlet container, usually an event log.
-    * <p/>
     * This method is mapped to the <code>ServletContext.log</code> method. The portlet container may in addition log
     * this message in a portlet container specific log file.
     *
@@ -278,9 +257,7 @@ public interface PortletContext
    /**
     * Binds an object to a given attribute name in this portlet context. If the name specified is already used for an
     * attribute, this method removes the old attribute and binds the name to the new attribute.
-    * <p/>
     * If a null value is passed, the effect is the same as calling <code>removeAttribute()</code>.
-    * <p/>
     * <p>Attribute names should follow the same convention as package names. The Java Portlet API specification reserves
     * names matching <code>java.*</code>, <code>javax.*</code>, and <code>sun.*</code>.
     *

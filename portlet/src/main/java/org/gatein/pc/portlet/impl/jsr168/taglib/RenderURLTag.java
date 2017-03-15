@@ -27,13 +27,11 @@ import javax.portlet.BaseURL;
 
 /**
  * The renderURL tag for the JSR 168 Portlet specification.
- * <p/>
  * Creates a URL that must point to the current portlet and must trigger an render request with the supplied
  * parameters.
  *
  * @author <a href="mailto:sgwood@ix.netcom.com">Sherman Wood</a>
  * @version $Revision: 5448 $
- * @jsp.tag name="renderURL" body-content="JSP" tei-class="org.gatein.pc.portlet.impl.jsr168.taglib.GenerateURLTagTEI"
  */
 public class RenderURLTag extends GenerateURLTag
 {

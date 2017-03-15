@@ -74,8 +74,8 @@ import javax.portlet.filter.ResourceResponseWrapper;
 /**
  * Define TCK assertions.
  *
- * @author <a href="mailto:julien@jboss.org">Julien Viet</a>
- * @author <a href="mailto:boleslaw dot dawidowicz at redhat anotherdot com">Boleslaw Dawidowicz</a>
+ * @author Julien Viet
+ * @author Boleslaw Dawidowicz
  * @version $Revision: 1.1 $
  */
 public enum Assertion

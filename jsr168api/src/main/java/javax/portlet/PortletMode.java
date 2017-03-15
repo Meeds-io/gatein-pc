@@ -26,13 +26,10 @@ import java.util.Locale;
 
 /**
  * The <CODE>PortletMode</CODE> class represents the possible modes that a portlet can assume.
- * <p/>
  * A portlet mode indicates the function a portlet is performing. Normally, portlets perform different tasks and create
  * different content depending on the function they are currently performing. When invoking a portlet, the portlet
  * container provides the current portlet mode to the portlet.
- * <p/>
  * Portlets can programmatically change their portlet mode when processing an action request.
- * <p/>
  * This class defines the default portlet modes <code>EDIT, HELP, VIEW</code>. Additional portlet modes may be defined
  * by calling the constructor of this class. If a portal/portlet-container does not support a custom portlet mode
  * defined in the portlet application deployment descriptor, the custom portlet mode will be ignored by the
@@ -48,11 +45,8 @@ public class PortletMode
     * Within the <code>EDIT</code> portlet mode, a portlet should provide content and logic that lets a user customize
     * the behavior of the portlet. The EDIT portlet mode may include one or more screens among which users can navigate
     * to enter their customization data.
-    * <p/>
     * Typically, portlets in <code>EDIT</code> portlet mode will set or update portlet preferences.
-    * <p/>
     * This mode is optional.
-    * <p/>
     * The string value for this mode is <code>"edit"</code>.
     */
    public static final PortletMode EDIT = new PortletMode("edit");
@@ -61,9 +55,7 @@ public class PortletMode
     * When in <code>HELP</code> portlet mode, a portlet should provide help information about the portlet. This help
     * information could be a simple help screen explaining the entire portlet in coherent text or it could be
     * context-sensitive help.
-    * <p/>
     * This mode is optional.
-    * <p/>
     * The string value for this mode is <code>"help"</code>.
     */
    public static final PortletMode HELP = new PortletMode("help");
@@ -73,9 +65,7 @@ public class PortletMode
     * current state of the portlet. For example, the <code>VIEW</code> portlet mode of a portlet may include one or more
     * screens that the user can navigate and interact with, or it may consist of static content that does not require
     * any user interaction.
-    * <p/>
     * This mode must be supported by the portlet.
-    * <p/>
     * The string value for this mode is <code>"view"</code>.
     */
    public static final PortletMode VIEW = new PortletMode("view");
@@ -84,7 +74,6 @@ public class PortletMode
 
    /**
     * Creates a new portlet mode with the given name.
-    * <p/>
     * Upper case letters in the name are converted to lower case letters.
     *
     * @param name The name of the portlet mode

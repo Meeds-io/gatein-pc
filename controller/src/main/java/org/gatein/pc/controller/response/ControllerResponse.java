@@ -26,11 +26,8 @@ package org.gatein.pc.controller.response;
 /**
  * Must be used as base class for high level response provided by the controller that will be translated into something
  * at the portal level. The goal is to avoid to manipulate the HTTP response directly.
- * <p/>
  * The test bed will of course use the HTTP response but the Presentation Framework will work differently.
- * <p/>
  * So we really need to abstract everything done with the HttpServletResponse and *never* use it in the controller.
- * <p/>
  * Typical usage should be : ControllerResponse response = controller.invoker(ControllerRequest request);
  */
 public abstract class ControllerResponse

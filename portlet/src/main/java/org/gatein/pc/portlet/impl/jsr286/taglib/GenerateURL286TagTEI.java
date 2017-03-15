@@ -27,7 +27,7 @@ import org.gatein.pc.portlet.impl.jsr168.taglib.GenerateURLTagTEI;
 import javax.servlet.jsp.tagext.TagData;
 
 /**
- * @author <a href="mailto:boleslaw dot dawidowicz at redhat anotherdot com">Boleslaw Dawidowicz</a>
+ * @author Boleslaw Dawidowicz
  * @version : 0.1 $
  */
 public class GenerateURL286TagTEI extends GenerateURLTagTEI

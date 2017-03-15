@@ -29,13 +29,11 @@ import java.util.Map;
 /**
  * The <CODE>PortletPreferences</CODE> interface allows the portlet to store configuration data. It is not the purpose
  * of this interface to replace general purpose databases.
- * <p/>
  * There are two different types of preferences: <ul> <li>modifiable preferences - these preferences can be changed by
  * the portlet in any standard portlet mode (<code>EDIT, HELP, VIEW</code>). Per default every preference is modifiable.
  * <li>read-only preferences - these preferences cannot be changed by the portlet in any standard portlet mode, but may
  * be changed by administrative modes. Preferences are read-only, if the are defined in the deployment descriptor with
  * <code>read-only</code> set to <code>true</code>, or if the portlet container restricts write access. </ul>
- * <p/>
  * Changes are persisted when the <code>store</code> method is called. The <code>store</code> method can only be invoked
  * within the scope of a <code>processAction</code> call. Changes that are not persisted are discarded when the
  * <code>processAction</code> or <code>render</code> method ends.
@@ -47,9 +45,7 @@ public interface PortletPreferences
 {
    /**
     * Returns a <code>Map</code> of the preferences.
-    * <p/>
     * The values in the returned <code>Map</code> are from type String array (<code>String[]</code>).
-    * <p/>
     * If no preferences exist this method returns an empty <code>Map</code>.
     *
     * @return an immutable <code>Map</code> containing preference names as keys and preference values as map values, or
@@ -87,10 +83,8 @@ public interface PortletPreferences
 
    /**
     * Returns the String array value associated with the specified key in this preference.
-    * <p/>
     * <p>Returns the specified default if there is no value associated with the key, or if the backing store is
     * inaccessible.
-    * <p/>
     * <p>If the implementation supports <i>stored defaults</i> and such a default exists and is accessible, it is used
     * in favor of the specified default.
     *
@@ -109,10 +103,8 @@ public interface PortletPreferences
 
    /**
     * Returns true, if the value of this key cannot be modified by the user.
-    * <p/>
     * Modifiable preferences can be changed by the portlet in any standard portlet mode (<code>EDIT, HELP, VIEW</code>).
     * Per default every preference is modifiable.
-    * <p/>
     * Read-only preferences cannot be changed by the portlet in any standard portlet mode, but inside of custom modes it
     * may be allowed changing them. Preferences are read-only, if they are defined in the deployment descriptor with
     * <code>read-only</code> set to <code>true</code>, or if the portlet container restricts write access.
@@ -125,10 +117,8 @@ public interface PortletPreferences
 
    /**
     * Resets or removes the value associated with the specified key.
-    * <p/>
     * If this implementation supports stored defaults, and there is such a default for the specified preference, the
     * given key will be reset to the stored default.
-    * <p/>
     * If there is no default available the key will be removed.
     *
     * @param key to reset
@@ -140,7 +130,6 @@ public interface PortletPreferences
 
    /**
     * Associates the specified String value with the specified key in this preference.
-    * <p/>
     * The key cannot be <code>null</code>, but <code>null</code> values for the value parameter are allowed.
     *
     * @param key   key with which the specified value is to be associated.
@@ -155,7 +144,6 @@ public interface PortletPreferences
 
    /**
     * Associates the specified String array value with the specified key in this preference.
-    * <p/>
     * The key cannot be <code>null</code>, but <code>null</code> values in the values parameter are allowed.
     *
     * @param key    key with which the  value is to be associated
@@ -171,14 +159,11 @@ public interface PortletPreferences
 
    /**
     * Commits all changes made to the preferences via the <code>set</code> methods in the persistent store.
-    * <p/>
     * If this call returns succesfull, all changes are made persistent. If this call fails, no changes are made in the
     * persistent store. This call is an atomic operation regardless of how many preference attributes have been
     * modified.
-    * <p/>
     * All changes made to preferences not followed by a call to the <code>store</code> method are discarded when the
     * portlet finishes the <code>processAction</code> method.
-    * <p/>
     * If a validator is defined for this preferences in the deployment descriptor, this validator is called before the
     * actual store is performed to check wether the given preferences are vaild. If this check fails a
     * <code>ValidatorException</code> is thrown.

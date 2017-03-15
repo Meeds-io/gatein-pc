@@ -46,11 +46,10 @@ import java.util.HashMap;
 
 /**
  * Superclass of the portlet tags for the JSR 168 Portlet specification.
- * <p/>
  * Provides hooks into the portlet environment
  *
- * @author <a href="mailto:sgwood@ix.netcom.com">Sherman Wood</a>
- * @author <a href="mailto:boleslaw dot dawidowicz at redhat anotherdot com">Boleslaw Dawidowicz</a>
+ * @author Sherman Wood
+ * @author Boleslaw Dawidowicz
  * @version $Revision: 5448 $
  */
 public class PortletTag extends TagSupport

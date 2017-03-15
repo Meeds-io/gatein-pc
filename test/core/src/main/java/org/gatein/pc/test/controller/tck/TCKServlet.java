@@ -44,7 +44,7 @@ import java.util.Set;
 import java.util.LinkedHashSet;
 
 /**
- * @author <a href="mailto:boleslaw dot dawidowicz at redhat anotherdot com">Boleslaw Dawidowicz</a>
+ * @author Boleslaw Dawidowicz
  * @version : 0.1 $
  */
 public class TCKServlet extends HttpServlet

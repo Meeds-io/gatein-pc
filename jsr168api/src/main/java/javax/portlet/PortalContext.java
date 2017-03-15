@@ -27,7 +27,6 @@ import java.util.Enumeration;
 /**
  * The <CODE>PortalContext</CODE> interface gives the portlet the ability to retrieve information about the portal
  * calling this portlet.
- * <p/>
  * The portlet can only read the <CODE>PortalContext</CODE> data.
  *
  * @author <a href="mailto:julien@jboss.org">Julien Viet</a>
@@ -37,10 +36,8 @@ public interface PortalContext
 {
    /**
     * Returns information about the portal like vendor, version, etc.
-    * <p/>
     * The form of the returned string is <I>servername/versionnumber</I>. For example, the reference implementation
     * Pluto may return the string <CODE>Pluto/1.0</CODE>.
-    * <p/>
     * The portlet container may return other optional information  after the primary string in parentheses, for example,
     * <CODE>Pluto/1.0 (JDK 1.3.1; Windows NT 4.0 x86)</CODE>.
     *
@@ -66,7 +63,6 @@ public interface PortalContext
 
    /**
     * Returns all supported portlet modes by the portal as an enumertation of <code>PorltetMode</code> objects.
-    * <p/>
     * The portlet modes must at least include the standard portlet modes <code>EDIT, HELP, VIEW</code>.
     *
     * @return All supported portal modes by the portal as an enumertation of <code>PorltetMode</code> objects.
@@ -75,7 +71,6 @@ public interface PortalContext
 
    /**
     * Returns all supported window states by the portal as an enumertation of <code>WindowState</code> objects.
-    * <p/>
     * The window states must at least include the standard window states <code> MINIMIZED, NORMAL, MAXIMIZED</code>.
     *
     * @return All supported window states by the portal as an enumertation of <code>WindowState</code> objects.

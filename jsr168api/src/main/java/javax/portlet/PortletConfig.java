@@ -30,7 +30,6 @@ import java.util.ResourceBundle;
  * The <CODE>PortletConfig</CODE> interface provides the portlet with its configuration. The configuration holds
  * information about the portlet that is valid for all users. The configuration is retrieved from the portlet definition
  * in the deployment descriptor. The portlet can only read the configuration data.
- * <p/>
  * The configuration information contains the portlet name, the portlet initialization parameters, the portlet resource
  * bundle and the portlet application context.
  *
@@ -42,7 +41,6 @@ public interface PortletConfig
 {
    /**
     * Returns the name of the portlet.
-    * <p/>
     * The name may be provided via server administration, assigned in the portlet application deployment descriptor with
     * the <code>portlet-name</code> tag.
     *

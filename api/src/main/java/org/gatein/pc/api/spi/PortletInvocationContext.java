@@ -51,7 +51,6 @@ public interface PortletInvocationContext
     * unchanged. The implementation of this method includes the logic to determine whether the session ID needs to be
     * encoded in the URL. For example, if the browser supports cookies, or session tracking is turned off, URL encoding
     * is unnecessary.</p>
-    * <p/>
     * <p>For robust session tracking, all URLs emitted by a servlet should be run through this method. Otherwise, URL
     * rewriting cannot be used with browsers which do not support cookies.</p>
     *

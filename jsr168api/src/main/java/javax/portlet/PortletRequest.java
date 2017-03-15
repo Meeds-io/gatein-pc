@@ -60,9 +60,7 @@ public interface PortletRequest
     * the current runtime system it will not show up in the user attribute map.<BR> If the user-attribute is supported
     * by the runtime system, but not defined for a particular user, then for that user the attribute exists in the
     * returned map and the attribute has a <code>null</code> value.
-    * <p/>
     * If the user-attribute is not defined for the current user it will not show up in the Map.
-    * <p/>
     * The value is <code>javax.portlet.userinfo</code>.
     */
    String USER_INFO = "javax.portlet.userinfo";
@@ -108,7 +106,6 @@ public interface PortletRequest
 
    /**
     * Returns the current portlet session or, if there is no current session, creates one and returns the new session.
-    * <p/>
     * Creating a new portlet session will result in creating a new <code>HttpSession</code> on which the portlet
     * session is based on.
     *
@@ -119,10 +116,8 @@ public interface PortletRequest
    /**
     * Returns the current portlet session or, if there is no current session and the given flag is <CODE>true</CODE>,
     * creates one and returns the new session.
-    * <p/>
     * If the given flag is <CODE>false</CODE> and there is no current portlet session, this method returns
     * <CODE>null</CODE>.
-    * <p/>
     * Creating a new portlet session will result in creating a new <code>HttpSession</code> on which the portlet
     * session is based on.
     *
@@ -135,13 +130,10 @@ public interface PortletRequest
    /**
     * Returns the value of the specified request property as a <code>String</code>. If the request did not include a
     * property of the specified name, this method returns <code>null</code>.
-    * <p/>
     * A portlet can access portal/portlet-container specific properties through this method and, if available, the
     * headers of the HTTP client request.
-    * <p/>
     * This method should only be used if the property has only one value. If the property might have more than one
     * value, use {@link #getProperties}.
-    * <p/>
     * If this method is used with a multivalued parameter, the value returned is equal to the first value in the
     * Enumeration returned by <code>getProperties</code>.
     *
@@ -156,7 +148,6 @@ public interface PortletRequest
    /**
     * Returns all the values of the specified request property as a <code>Enumeration</code> of <code>String</code>
     * objects.
-    * <p/>
     * If the request did not include any propertys of the specified name, this method returns an empty
     * <code>Enumeration</code>. The property name is case insensitive. You can use this method with any request
     * property.
@@ -201,7 +192,6 @@ public interface PortletRequest
     * portlet application is rooted at the base of the web server URL namespace (also known as "default" context), this
     * path must be an empty string. Otherwise, it must be the path the portlet application is rooted to, the path must
     * start with a '/' and it must not end with a '/' character.
-    * <p/>
     * To encode a URL the {@link PortletResponse#encodeURL} method must be used.
     *
     * @return a <code>String</code> specifying the portion of the request URL that indicates the context of the
@@ -241,10 +231,8 @@ public interface PortletRequest
    /**
     * Returns the value of the named attribute as an <code>Object</code>, or <code>null</code> if no attribute of the
     * given name exists.
-    * <p/>
     * Attribute names should follow the same conventions as package names. This specification reserves names matching
     * <code>java.*</code>, and <code>javax.*</code>.
-    * <p/>
     * In a distributed portlet web application the <code>Object</code> needs to be serializable.
     *
     * @param name a <code>String</code> specifying the name of the attribute
@@ -268,12 +256,9 @@ public interface PortletRequest
     * Returns the value of a request parameter as a <code>String</code>, or <code>null</code> if the parameter does not
     * exist. Request parameters are extra information sent with the request. The returned parameter are
     * "x-www-form-urlencoded" decoded.
-    * <p/>
     * Only parameters targeted to the current portlet are accessible.
-    * <p/>
     * This method should only be used if the parameter has only one value. If the parameter might have more than one
     * value, use {@link #getParameterValues}.
-    * <p/>
     * If this method is used with a multivalued parameter, the value returned is equal to the first value in the array
     * returned by <code>getParameterValues</code>.
     *
@@ -289,7 +274,6 @@ public interface PortletRequest
     * Returns an <code>Enumeration</code> of <code>String</code> objects containing the names of the parameters
     * contained in this request. If the request has no parameters, the method returns an empty
     * <code>Enumeration</code>.
-    * <p/>
     * Only parameters targeted to the current portlet are returned.
     *
     * @return an <code>Enumeration</code> of <code>String</code> objects, each <code>String</code> containing the name
@@ -300,7 +284,6 @@ public interface PortletRequest
    /**
     * Returns an array of <code>String</code> objects containing all of the values the given request parameter has, or
     * <code>null</code> if the parameter does not exist. The returned parameters are "x-www-form-urlencoded" decoded.
-    * <p/>
     * If the parameter has a single value, the array has a length of 1.
     *
     * @param name a <code>String</code> containing the name of the parameter the value of which is requested
@@ -314,9 +297,7 @@ public interface PortletRequest
    /**
     * Returns a <code>Map</code> of the parameters of this request. Request parameters are extra information sent with
     * the request. The returned parameters are "x-www-form-urlencoded" decoded.
-    * <p/>
     * The values in the returned <code>Map</code> are from type String array (<code>String[]</code>).
-    * <p/>
     * If no parameters exist this method returns an empty <code>Map</code>.
     *
     * @return an immutable <code>Map</code> containing parameter names as keys and parameter values as map values, or
@@ -335,7 +316,6 @@ public interface PortletRequest
 
    /**
     * Stores an attribute in this request.
-    * <p/>
     * <p>Attribute names should follow the same conventions as package names. Names beginning with <code>java.*</code>,
     * <code>javax.*</code>, and <code>com.sun.*</code> are reserved for use by Sun Microsystems. <br> If the value
     * passed into this method is <code>null</code>, the effect is the same as calling {@link #removeAttribute}.
@@ -350,7 +330,6 @@ public interface PortletRequest
    /**
     * Removes an attribute from this request.  This method is not generally needed, as attributes only persist as long
     * as the request is being handled.
-    * <p/>
     * <p>Attribute names should follow the same conventions as package names. Names beginning with <code>java.*</code>,
     * <code>javax.*</code>, and <code>com.sun.*</code> are reserved for use by Sun Microsystems.
     *
@@ -383,9 +362,7 @@ public interface PortletRequest
 
    /**
     * Returns the portal preferred content type for the response.
-    * <p/>
     * The content type only includes the MIME type, not the character set.
-    * <p/>
     * Only content types that the portlet has defined in its deployment descriptor are valid return values for this
     * method call. If the portlet has defined <code>'*'</code> or <code>'* / *'</code> as supported content types,
     * these may also be valid return values.
@@ -397,9 +374,7 @@ public interface PortletRequest
    /**
     * Gets a list of content types which the portal accepts for the response. This list is ordered with the most
     * preferable types listed first.
-    * <p/>
     * The content type only includes the MIME type, not the character set.
-    * <p/>
     * Only content types that the portlet has defined in its deployment descriptor are valid return values for this
     * method call. If the portlet has defined <code>'*'</code> or <code>'* / *'</code> as supported content types,
     * these may also be valid return values.
