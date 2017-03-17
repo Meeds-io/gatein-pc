@@ -74,6 +74,7 @@ public abstract class AbstractTestCase
          "xmlns=\"http://java.sun.com/xml/ns/javaee\"\n" +
          "xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n" +
          "xsi:schemaLocation=\"http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd\"\n" +
+         "metadata-complete=\"true\"\n" +
          "version=\"3.0\">" +
          "<servlet>\n" +
          "<servlet-name>EmbedServlet</servlet-name>\n" +
@@ -86,6 +87,11 @@ public abstract class AbstractTestCase
          "</servlet-mapping>\n" +
          "</web-app>\n").getBytes()));
       war.addAsWebInfResource(new ByteArrayAsset(descriptor.getBytes()), "portlet.xml");
+      war.addAsManifestResource(new ByteArrayAsset(("" +
+              "<Context>\n" +
+              "<JarScanner scanManifest=\"false\">\n" +
+              "</JarScanner>\n" +
+              "</Context>\n").getBytes()), "context.xml");
       return war;
    }
 

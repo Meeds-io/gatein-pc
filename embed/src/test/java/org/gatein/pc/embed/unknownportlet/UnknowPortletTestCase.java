@@ -35,6 +35,8 @@ import java.net.URL;
 /** @author <a href="mailto:julien.viet@exoplatform.com">Julien Viet</a> */
 public class UnknowPortletTestCase extends AbstractTestCase
 {
+   @ArquillianResource
+   URL deploymentURL;
 
    @Deployment
    public static WebArchive deployment()
@@ -46,7 +48,7 @@ public class UnknowPortletTestCase extends AbstractTestCase
 
    @Test
    @RunAsClient
-   public void testInteraction(@ArquillianResource URL deploymentURL) throws Exception
+   public void testInteraction() throws Exception
    {
       URL url = renderURL(deploymentURL, FooPortlet.class);
       HttpURLConnection conn = (HttpURLConnection)url.openConnection();

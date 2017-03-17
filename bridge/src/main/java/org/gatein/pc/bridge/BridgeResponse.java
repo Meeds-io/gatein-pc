@@ -30,6 +30,7 @@ import java.util.Locale;
 import javax.portlet.PortletResponse;
 import javax.portlet.RenderResponse;
 import javax.servlet.ServletOutputStream;
+import javax.servlet.WriteListener;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponseWrapper;
@@ -165,6 +166,16 @@ public class BridgeResponse extends HttpServletResponseWrapper
                public void write(int b) throws IOException
                {
                   out.write(b);
+               }
+
+               @Override
+               public boolean isReady() {
+                  return false;
+               }
+
+               @Override
+               public void setWriteListener(WriteListener writeListener) {
+                  // Ignore
                }
             };
          }

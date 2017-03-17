@@ -41,6 +41,8 @@ import java.util.Collections;
 /** @author <a href="mailto:julien.viet@exoplatform.com">Julien Viet</a> */
 public class ActionFormParameterTestCase extends AbstractTestCase
 {
+   @ArquillianResource
+   URL deploymentURL;
 
    @Deployment
    public static WebArchive deployment()
@@ -65,6 +67,7 @@ public class ActionFormParameterTestCase extends AbstractTestCase
    WebDriver driver;
 
    @Test
+   @RunAsClient
    @InSequence(0)
    public void init()
    {
@@ -79,13 +82,14 @@ public class ActionFormParameterTestCase extends AbstractTestCase
    @Test
    @RunAsClient
    @InSequence(1)
-   public void display(@ArquillianResource URL deploymentURL) throws Exception
+   public void display() throws Exception
    {
       URL url = renderURL(deploymentURL, ActionFormParameterPortlet.class);
       driver.get(url.toString());
    }
 
    @Test
+   @RunAsClient
    @InSequence(2)
    public void testDisplay()
    {
@@ -107,6 +111,7 @@ public class ActionFormParameterTestCase extends AbstractTestCase
    }
 
    @Test
+   @RunAsClient
    @InSequence(4)
    public void testInteraction()
    {

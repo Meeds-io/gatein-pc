@@ -39,6 +39,8 @@ import java.util.Collections;
 /** @author <a href="mailto:julien.viet@exoplatform.com">Julien Viet</a> */
 public class PublicRenderParameterTestCase extends AbstractTestCase
 {
+   @ArquillianResource
+   URL deploymentURL;
 
    static int phase;
 
@@ -73,6 +75,7 @@ public class PublicRenderParameterTestCase extends AbstractTestCase
    WebDriver driver;
 
    @Test
+   @RunAsClient
    public void init()
    {
       phase = 0;
@@ -81,13 +84,14 @@ public class PublicRenderParameterTestCase extends AbstractTestCase
    @Test
    @RunAsClient
    @InSequence(0)
-   public void testSetPortlet1(@ArquillianResource URL deploymentURL) throws Exception
+   public void testSetPortlet1() throws Exception
    {
       URL url = renderURL(deploymentURL, PublicRenderParameterPortlet1.class, PublicRenderParameterPortlet2.class);
       driver.get(url.toString());
    }
 
    @Test
+   @RunAsClient
    @InSequence(1)
    public void testNone()
    {
@@ -106,6 +110,7 @@ public class PublicRenderParameterTestCase extends AbstractTestCase
    }
 
    @Test
+   @RunAsClient
    @InSequence(3)
    public void testPortlet1()
    {
@@ -126,6 +131,7 @@ public class PublicRenderParameterTestCase extends AbstractTestCase
    }
 
    @Test
+   @RunAsClient
    @InSequence(5)
    public void testPortlet2()
    {

@@ -28,6 +28,7 @@ import org.gatein.pc.portlet.impl.jsr168.api.StateAwareResponseImpl;
 import javax.portlet.PortletResponse;
 import javax.portlet.MimeResponse;
 import javax.servlet.ServletOutputStream;
+import javax.servlet.WriteListener;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletResponseWrapper;
@@ -230,6 +231,19 @@ public abstract class DispatchedHttpServletResponse extends HttpServletResponseW
       {
          return new ServletOutputStream()
          {
+            @Override
+            public boolean isReady()
+            {
+               return false;
+            }
+
+            @Override
+            public void setWriteListener(WriteListener writeListener)
+            {
+               // Ignore
+            }
+
+            @Override
             public void write(int b) throws IOException
             {
                // Ignore
@@ -357,6 +371,17 @@ public abstract class DispatchedHttpServletResponse extends HttpServletResponseW
                public void write(int b) throws IOException
                {
                   out.write(b);
+               }
+
+               @Override
+               public boolean isReady()
+               {
+                  return false;
+               }
+
+               @Override
+               public void setWriteListener(WriteListener writeListener)
+               {
                }
             };
          }

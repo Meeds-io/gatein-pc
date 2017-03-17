@@ -44,6 +44,7 @@ public class LifeCycleTestCase extends AbstractTestCase
 
    @Test
    @InSequence(0)
+   @RunAsClient
    public void testBefore()
    {
       Assert.assertFalse(LifeCyclePortlet.started);
@@ -59,6 +60,7 @@ public class LifeCycleTestCase extends AbstractTestCase
 
    @Test
    @InSequence(2)
+   @RunAsClient
    public void testDeployed()
    {
       Assert.assertTrue(LifeCyclePortlet.started);
@@ -74,6 +76,7 @@ public class LifeCycleTestCase extends AbstractTestCase
 
    @Test
    @InSequence(4)
+   @RunAsClient
    public void testUndeployed()
    {
       Assert.assertFalse(LifeCyclePortlet.started);

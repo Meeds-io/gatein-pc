@@ -38,6 +38,8 @@ import java.util.Map;
 /** @author <a href="mailto:julien.viet@exoplatform.com">Julien Viet</a> */
 public class SendRedirectTestCase extends AbstractTestCase
 {
+   @ArquillianResource
+   URL deploymentURL;
 
    @Deployment
    public static WebArchive deployment()
@@ -50,7 +52,7 @@ public class SendRedirectTestCase extends AbstractTestCase
 
    @Test
    @RunAsClient
-   public void testInteraction(@ArquillianResource URL deploymentURL) throws Exception
+   public void testInteraction() throws Exception
    {
       URL url = renderURL(deploymentURL, SendRedirectPortlet.class);
       driver.get(url.toString());

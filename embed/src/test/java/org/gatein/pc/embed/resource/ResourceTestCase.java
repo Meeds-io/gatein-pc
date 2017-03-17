@@ -40,6 +40,8 @@ import java.util.Map;
 /** @author <a href="mailto:julien.viet@exoplatform.com">Julien Viet</a> */
 public class ResourceTestCase extends AbstractTestCase
 {
+   @ArquillianResource
+   URL deploymentURL;
 
    @Deployment
    public static WebArchive deployment()
@@ -53,7 +55,7 @@ public class ResourceTestCase extends AbstractTestCase
    @Test
    @RunAsClient
    @InSequence(0)
-   public void init(@ArquillianResource URL deploymentURL) throws Exception
+   public void init() throws Exception
    {
       Assert.assertEquals(0, ResourcePortlet.count);
       URL url = deploymentURL.toURI().resolve("embed/ResourcePortlet").toURL();
@@ -70,6 +72,7 @@ public class ResourceTestCase extends AbstractTestCase
    }
 
    @Test
+   @RunAsClient
    @InSequence(2)
    public void testParams()
    {
@@ -96,6 +99,7 @@ public class ResourceTestCase extends AbstractTestCase
    }
 
    @Test
+   @RunAsClient
    @InSequence(4)
    public void testInvoked()
    {
