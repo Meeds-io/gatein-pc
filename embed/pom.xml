@@ -71,7 +71,7 @@
     <!-- Arquillian container -->
     <dependency>
       <groupId>org.jboss.arquillian.container</groupId>
-      <artifactId>arquillian-tomcat-embedded-7</artifactId>
+      <artifactId>arquillian-tomcat-embedded-8</artifactId>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -82,11 +82,6 @@
     <dependency>
       <groupId>org.apache.tomcat.embed</groupId>
       <artifactId>tomcat-embed-jasper</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.tomcat.embed</groupId>
-      <artifactId>tomcat-embed-logging-juli</artifactId>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -108,22 +103,12 @@
     </dependency>
     <dependency>
       <groupId>org.jboss.arquillian.extension</groupId>
-      <artifactId>arquillian-drone-selenium</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.jboss.arquillian.extension</groupId>
       <artifactId>arquillian-drone-webdriver</artifactId>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-java</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.seleniumhq.selenium</groupId>
-      <artifactId>selenium-htmlunit-driver</artifactId>
       <scope>test</scope>
     </dependency>
     <dependency>

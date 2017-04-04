@@ -36,6 +36,8 @@ import java.net.URL;
 /** @author <a href="mailto:julien.viet@exoplatform.com">Julien Viet</a> */
 public class HtmlHeaderTestCase extends AbstractTestCase
 {
+   @ArquillianResource
+   URL deploymentURL;
 
    @Deployment()
    public static WebArchive deployment()
@@ -48,12 +50,11 @@ public class HtmlHeaderTestCase extends AbstractTestCase
 
    @Test
    @RunAsClient
-   public void testInteraction(@ArquillianResource URL deploymentURL) throws Exception
+   public void testInteraction() throws Exception
    {
       URL url = renderURL(deploymentURL, HtmlHeaderPortlet.class);
       driver.get(url.toString());
-      WebElement title = driver.findElement(By.tagName("title"));
-      Assert.assertEquals("_title_", title.getText());
+      Assert.assertEquals("_title_", driver.getTitle());
       WebElement script = driver.findElement(By.tagName("script"));
       Assert.assertTrue(script.getAttribute("src").endsWith("_src_"));
       Assert.assertEquals("_type_", script.getAttribute("type"));
@@ -70,6 +71,6 @@ public class HtmlHeaderTestCase extends AbstractTestCase
       WebElement style = driver.findElement(By.tagName("style"));
       Assert.assertEquals("_type_", style.getAttribute("type"));
       Assert.assertEquals("_media_", style.getAttribute("media"));
-      Assert.assertEquals("_style_", style.getText());
+      Assert.assertEquals("_style_", style.getAttribute("textContent"));
    }
 }

@@ -38,6 +38,8 @@ import java.util.regex.Pattern;
 /** @author <a href="mailto:julien.viet@exoplatform.com">Julien Viet</a> */
 public class XmlEscapingTestCase extends AbstractTestCase
 {
+   @ArquillianResource
+   URL deploymentURL;
 
    @Deployment
    public static WebArchive deployment()
@@ -47,7 +49,7 @@ public class XmlEscapingTestCase extends AbstractTestCase
 
    @Test
    @RunAsClient
-   public void testInteraction(@ArquillianResource URL deploymentURL) throws Exception
+   public void testInteraction() throws Exception
    {
       URL url = renderURL(deploymentURL, XmlEscapingPortlet.class);
       HttpURLConnection conn = (HttpURLConnection)url.openConnection();

@@ -6,15 +6,12 @@ import org.gatein.pc.test.StringCodecTestCase;
 import org.gatein.pc.test.TestPortletApplicationDeployer;
 import org.gatein.pc.test.unit.protocol.Conversation;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.exporter.ZipExporter;
 import org.jboss.shrinkwrap.api.spec.EnterpriseArchive;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
-import org.jboss.shrinkwrap.resolver.api.DependencyResolvers;
-import org.jboss.shrinkwrap.resolver.api.maven.MavenDependencyResolver;
+import org.jboss.shrinkwrap.resolver.api.maven.Maven;
 import org.junit.Test;
 
-import java.io.File;
 import java.net.URL;
 
 /** @author <a href="mailto:julien.viet@exoplatform.com">Julien Viet</a> */
@@ -64,10 +61,8 @@ public abstract class AbstractEarTestCase
       // Add dependencies
       // THIS IS COUPLED TO JBOSS7 BUT IT IS OK FOR NOW
       // AS ONLY JBOSS7 TESTING USES EAR
-      ear.addAsLibraries(DependencyResolvers.
-         use(MavenDependencyResolver.class).
-         loadEffectivePom("../dependencies/pom.xml").importAllDependencies().
-         resolveAsFiles());
+      ear.addAsLibraries(Maven.resolver().loadPomFromFile("../dependencies/pom.xml")
+              .importRuntimeAndTestDependencies().resolve().withTransitivity().asFile());
 
       //
       return ear;

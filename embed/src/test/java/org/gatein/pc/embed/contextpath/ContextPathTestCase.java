@@ -34,6 +34,8 @@ import java.net.URL;
 /** @author <a href="mailto:julien.viet@exoplatform.com">Julien Viet</a> */
 public class ContextPathTestCase extends AbstractTestCase
 {
+   @ArquillianResource
+   URL deploymentURL;
 
    @Deployment
    public static WebArchive deployment()
@@ -44,7 +46,7 @@ public class ContextPathTestCase extends AbstractTestCase
    @Test
    @RunAsClient
    @InSequence(0)
-   public void testInteraction(@ArquillianResource URL deploymentURL) throws Exception
+   public void testInteraction() throws Exception
    {
       URL url = renderURL(deploymentURL, ContextPathPortlet.class);
       HttpURLConnection conn = (HttpURLConnection)url.openConnection();
@@ -53,6 +55,7 @@ public class ContextPathTestCase extends AbstractTestCase
    }
 
    @Test
+   @RunAsClient
    @InSequence(1)
    public void testContextPath()
    {

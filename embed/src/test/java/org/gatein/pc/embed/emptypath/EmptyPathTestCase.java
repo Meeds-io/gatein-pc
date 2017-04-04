@@ -36,6 +36,8 @@ import java.net.URL;
 /** @author <a href="mailto:julien.viet@exoplatform.com">Julien Viet</a> */
 public class EmptyPathTestCase extends AbstractTestCase
 {
+   @ArquillianResource
+   URL deploymentURL;
 
    @Deployment
    public static WebArchive deployment()
@@ -47,7 +49,7 @@ public class EmptyPathTestCase extends AbstractTestCase
    @Test
    @RunAsClient
    @InSequence(0)
-   public void init(@ArquillianResource URL deploymentURL) throws Exception
+   public void init() throws Exception
    {
       URL u = deploymentURL.toURI().resolve("embed/").toURL();
       HttpURLConnection conn = (HttpURLConnection)u.openConnection();

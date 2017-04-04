@@ -31,7 +31,7 @@
       <!-- Arquillian container -->
       <dependency>
         <groupId>org.jboss.arquillian.container</groupId>
-        <artifactId>arquillian-tomcat-embedded-7</artifactId>
+        <artifactId>arquillian-tomcat-embedded-8</artifactId>
       </dependency>
       <dependency>
         <groupId>org.apache.tomcat.embed</groupId>
@@ -42,16 +42,16 @@
         <artifactId>tomcat-embed-jasper</artifactId>
       </dependency>
       <dependency>
-        <groupId>org.apache.tomcat.embed</groupId>
-        <artifactId>tomcat-embed-logging-juli</artifactId>
-      </dependency>
-      <dependency>
         <groupId>org.eclipse.jdt.core.compiler</groupId>
         <artifactId>ecj</artifactId>
       </dependency>
       <dependency>
         <groupId>javax.servlet.jsp</groupId>
         <artifactId>jsp-api</artifactId>
+      </dependency>
+      <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>javax.servlet-api</artifactId>
       </dependency>
 
    </dependencies>

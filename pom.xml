@@ -89,19 +89,26 @@
       <version.buildnumber.plugin>1.0</version.buildnumber.plugin>
 
       <!-- For testing -->
-      <version.junit>4.8.2</version.junit>
-      <version.arquillian>1.0.0.Final</version.arquillian>
-      <version.arquillian.tomcat>1.0.0.CR4</version.arquillian.tomcat>
+      <version.junit>4.12</version.junit>
+      <version.arquillian>1.1.12.Final</version.arquillian>
+      <version.arquillian.tomcat>1.0.0</version.arquillian.tomcat>
       <version.arquillian.jboss.weld>1.1.8.Final</version.arquillian.jboss.weld>
-      <version.shrinkwrap>1.0.0-cr-1</version.shrinkwrap>
-      <version.shrinkwrap.resolver>2.0.0-alpha-1</version.shrinkwrap.resolver>
-      <version.selenium>2.20.0</version.selenium>
-      <version.htmlunit>2.9</version.htmlunit>
-      <version.nekohtml>1.9.15</version.nekohtml>
-      <version.tomcat>7.0.30</version.tomcat>
+      <version.shrinkwrap>1.2.6</version.shrinkwrap>
+      <version.shrinkwrap.resolver>2.2.5</version.shrinkwrap.resolver>
+      <version.arquillian.drone>2.0.1.Final</version.arquillian.drone>
+      <version.arquillian.drone.selenium>2.53.1</version.arquillian.drone.selenium>
+      <version.selenium>2.53.1</version.selenium>
+      <version.htmlunit>2.21</version.htmlunit>
+      <version.guava>19.0</version.guava>
+      <version.xerces>2.11.0</version.xerces>
+      <version.tomcat>8.5.13</version.tomcat>
+      <version.servlet-api>3.1.0</version.servlet-api>
       <version.ecj>4.4.2</version.ecj>
+      <version.httpclient>4.5.2</version.httpclient>
+      <version.httpcore>4.4.4</version.httpcore>
       <version.commons-httpclient>3.1</version.commons-httpclient>
-      <version.commons-logging>1.1.1</version.commons-logging>
+      <version.commons-logging>1.2</version.commons-logging>
+      <version.commons-codec>1.10</version.commons-codec>
    </properties>
 
    <organization>
@@ -253,6 +260,16 @@
          </dependency>
 
          <!-- Dependencies for unit tests -->
+          <dependency>
+              <groupId>org.apache.httpcomponents</groupId>
+              <artifactId>httpclient</artifactId>
+              <version>${version.httpclient}</version>
+          </dependency>
+          <dependency>
+              <groupId>org.apache.httpcomponents</groupId>
+              <artifactId>httpcore</artifactId>
+              <version>${version.httpcore}</version>
+          </dependency>
          <dependency>
             <groupId>commons-httpclient</groupId>
             <artifactId>commons-httpclient</artifactId>
@@ -272,6 +289,11 @@
            <groupId>commons-logging</groupId>
            <artifactId>commons-logging</artifactId>
            <version>${version.commons-logging}</version>
+         </dependency>
+         <dependency>
+           <groupId>commons-codec</groupId>
+           <artifactId>commons-codec</artifactId>
+           <version>${version.commons-codec}</version>
          </dependency>
 
         <!-- Arquillian/Shrinkwrap stack -->
@@ -312,30 +334,24 @@
          </dependency>
 
         <!-- Drone -->
-        <dependency>
-          <groupId>org.jboss.arquillian.extension</groupId>
-          <artifactId>arquillian-drone-impl</artifactId>
-          <version>${version.arquillian}</version>
+        <dependency>                                      <!-- Selenium bom is optional - see note below -->
+          <groupId>org.jboss.arquillian.selenium</groupId>
+          <artifactId>selenium-bom</artifactId>
+          <version>${version.arquillian.drone.selenium}</version>
+          <type>pom</type>
+          <scope>import</scope>
         </dependency>
         <dependency>
           <groupId>org.jboss.arquillian.extension</groupId>
-          <artifactId>arquillian-drone-selenium</artifactId>
-          <version>${version.arquillian}</version>
-        </dependency>
-        <dependency>
-          <groupId>org.jboss.arquillian.extension</groupId>
-          <artifactId>arquillian-drone-webdriver</artifactId>
-          <version>${version.arquillian}</version>
+          <artifactId>arquillian-drone-bom</artifactId>
+          <version>${version.arquillian.drone}</version>
+          <type>pom</type>
+          <scope>import</scope>
         </dependency>
         <dependency>
           <groupId>org.seleniumhq.selenium</groupId>
-          <artifactId>selenium-java</artifactId>
-          <version>${version.selenium}</version>
-        </dependency>
-        <dependency>
-          <groupId>org.seleniumhq.selenium</groupId>
-          <artifactId>selenium-htmlunit-driver</artifactId>
-          <version>${version.selenium}</version>
+          <artifactId>htmlunit-driver</artifactId>
+          <version>${version.htmlunit}</version>
         </dependency>
         <dependency>
           <groupId>net.sourceforge.htmlunit</groupId>
@@ -343,15 +359,20 @@
           <version>${version.htmlunit}</version>
         </dependency>
         <dependency>
-          <groupId>net.sourceforge.nekohtml</groupId>
-          <artifactId>nekohtml</artifactId>
-          <version>${version.nekohtml}</version>
+          <groupId>com.google.guava</groupId>
+          <artifactId>guava</artifactId>
+          <version>${version.guava}</version>
+        </dependency>
+        <dependency>
+          <groupId>xerces</groupId>
+          <artifactId>xercesImpl</artifactId>
+          <version>${version.xerces}</version>
         </dependency>
 
         <!-- Arquillian Tomcat container -->
          <dependency>
             <groupId>org.jboss.arquillian.container</groupId>
-            <artifactId>arquillian-tomcat-embedded-7</artifactId>
+            <artifactId>arquillian-tomcat-embedded-8</artifactId>
             <version>${version.arquillian.tomcat}</version>
          </dependency>
          <dependency>
@@ -365,9 +386,9 @@
             <version>${version.tomcat}</version>
          </dependency>
          <dependency>
-            <groupId>org.apache.tomcat.embed</groupId>
-            <artifactId>tomcat-embed-logging-juli</artifactId>
-            <version>${version.tomcat}</version>
+           <groupId>javax.servlet</groupId>
+           <artifactId>javax.servlet-api</artifactId>
+           <version>${version.servlet-api}</version>
          </dependency>
          <dependency>
             <groupId>org.eclipse.jdt.core.compiler</groupId>

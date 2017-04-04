@@ -38,6 +38,8 @@ import java.net.URL;
 /** @author <a href="mailto:julien.viet@exoplatform.com">Julien Viet</a> */
 public class EventTestCase extends AbstractTestCase
 {
+   @ArquillianResource
+   URL deploymentURL;
 
    @Deployment
    public static WebArchive deployment()
@@ -64,6 +66,7 @@ public class EventTestCase extends AbstractTestCase
    WebDriver driver;
 
    @Test
+   @RunAsClient
    @InSequence(0)
    public void init()
    {
@@ -75,7 +78,7 @@ public class EventTestCase extends AbstractTestCase
    @Test
    @RunAsClient
    @InSequence(1)
-   public void testInteraction(@ArquillianResource URL deploymentURL) throws Exception
+   public void testInteraction() throws Exception
    {
       URL url = renderURL(deploymentURL, EventPortlet.class);
       driver.get(url.toString());
@@ -84,6 +87,7 @@ public class EventTestCase extends AbstractTestCase
    }
 
    @Test
+   @RunAsClient
    @InSequence(2)
    public void testInvoked()
    {

@@ -40,6 +40,8 @@ import java.net.URL;
 /** @author <a href="mailto:julien.viet@exoplatform.com">Julien Viet</a> */
 public class ActionBinaryTestCase extends AbstractTestCase
 {
+   @ArquillianResource
+   URL deploymentURL;
 
    @Deployment
    public static WebArchive deployment()
@@ -53,7 +55,7 @@ public class ActionBinaryTestCase extends AbstractTestCase
    @Test
    @RunAsClient
    @InSequence(0)
-   public void display(@ArquillianResource URL deploymentURL) throws Exception
+   public void display() throws Exception
    {
       URL url = renderURL(deploymentURL, ActionBinaryPortlet.class);
       driver.get(url.toString());
@@ -72,6 +74,7 @@ public class ActionBinaryTestCase extends AbstractTestCase
    }
 
    @Test
+   @RunAsClient
    @InSequence(1)
    public void check() throws Exception
    {

@@ -27,10 +27,7 @@ import org.gatein.common.util.ParameterMap;
 import org.gatein.common.http.QueryStringParser;
 import org.gatein.pc.portlet.impl.jsr168.api.PortletRequestImpl;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletInputStream;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletRequest;
+import javax.servlet.*;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpServletRequestWrapper;
@@ -747,6 +744,23 @@ public abstract class DispatchedHttpServletRequest extends HttpServletRequestWra
          public final int read() throws IOException
          {
             return in.read();
+         }
+
+         @Override
+         public boolean isFinished()
+         {
+            return false;
+         }
+
+         @Override
+         public boolean isReady()
+         {
+            return false;
+         }
+
+         @Override
+         public void setReadListener(ReadListener readListener)
+         {
          }
       }
    }

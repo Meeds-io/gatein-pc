@@ -34,6 +34,8 @@ import java.util.Map;
 /** @author <a href="mailto:julien.viet@exoplatform.com">Julien Viet</a> */
 public class RenderCookieTestCase extends AbstractTestCase
 {
+   @ArquillianResource
+   URL deploymentURL;
 
    @Deployment()
    public static WebArchive deployment()
@@ -43,7 +45,7 @@ public class RenderCookieTestCase extends AbstractTestCase
 
    @Test
    @RunAsClient
-   public void testInteraction(@ArquillianResource URL deploymentURL) throws Exception
+   public void testInteraction() throws Exception
    {
       URL url = renderURL(deploymentURL, RenderCookiePortlet.class);
       HttpURLConnection conn = (HttpURLConnection)url.openConnection();
