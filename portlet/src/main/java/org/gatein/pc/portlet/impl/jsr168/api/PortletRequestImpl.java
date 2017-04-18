@@ -447,8 +447,8 @@ public abstract class PortletRequestImpl implements PortletRequest
          // Here we can try an existing session but it may return null
          HttpSession hsession = realReq.getSession(false);
 
-         //
-         if (hsession != null)
+         // Avoid instantiating Portlet Session with an valid HTTP Session
+         if (hsession != null && isSessionValid(hsession))
          {
             PortletApplicationImpl portletApp = (PortletApplicationImpl)container.getPortletApplication();
             psession = new PortletSessionImpl(hsession, windowContext.getId(), portletApp.getPortletContext());
@@ -575,6 +575,21 @@ public abstract class PortletRequestImpl implements PortletRequest
 
       //
       return properties;
+   }
+
+   private boolean isSessionValid(HttpSession session)
+   {
+      try
+      {
+         session.isNew();
+         // Wildfly rely on this to test if session is valid
+         session.getLastAccessedTime();
+         return true;
+      }
+      catch (IllegalStateException e)
+      {
+         return false;
+      }
    }
 
    protected void initProperties(MultiValuedPropertyMap<String> properties)

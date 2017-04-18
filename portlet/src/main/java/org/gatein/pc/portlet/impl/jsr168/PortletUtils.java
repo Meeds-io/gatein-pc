@@ -28,6 +28,7 @@ import javax.portlet.PortletResponse;
 import javax.portlet.WindowState;
 import javax.portlet.filter.PortletRequestWrapper;
 import javax.portlet.filter.PortletResponseWrapper;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author <a href="mailto:julien@jboss.org">Julien Viet</a>
@@ -120,6 +121,28 @@ public class PortletUtils
          }
       }
       return tmp.toString();
+   }
+
+   /**
+    * Returns the original context path before dispatch is made
+    * This will ensure to get the original root path
+    * in all Servlet Containers (Tomcat / JBoss / Wildfly)
+    *
+    * @param request HTTP Request
+    * @return the root path retrieved from HTTP request URI
+    */
+   public static String getPortalContextPath(HttpServletRequest request) {
+     String requestContext = request.getContextPath();
+     if (!request.getRequestURI().contains(request.getContextPath())) {
+       if(request.getRequestURI().indexOf("/", 2) > 0) {
+         // URI is of type /CONTEXT/PATH
+         requestContext = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 2));
+       } else {
+         // URI is of type /CONTEXT
+         requestContext = request.getRequestURI();
+       }
+     }
+     return requestContext;
    }
 
    public static <U extends PortletRequest> U unwrap(PortletRequest wrapped, Class<U> unwrapped)

@@ -2,13 +2,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
    <parent>
       <groupId>org.exoplatform.gatein.pc</groupId>
-      <artifactId>pc-test-servers-jboss7</artifactId>
+      <artifactId>pc-test-servers-wildfly10</artifactId>
       <version>5.0.x-SNAPSHOT</version>
    </parent>
    <modelVersion>4.0.0</modelVersion>
-   <artifactId>pc-test-servers-jboss7-dependencies</artifactId>
+   <artifactId>pc-test-servers-wildfly10-dependencies</artifactId>
    <packaging>pom</packaging>
-   <name>GateIn - Portlet Container (test - dependencies for JBoss7)</name>
+   <name>GateIn - Portlet Container (test - dependencies for Wildfly 10)</name>
 
 
   <dependencies>

@@ -88,7 +88,7 @@
          </activation>
          <modules>
             <module>tomcat7</module>
-            <!--<module>jboss7</module>-->
+            <module>wildfly10</module>
             <module>glassfish3</module>
          </modules>
       </profile>
@@ -125,7 +125,7 @@
                  </property>
               </activation>
               <modules>
-                 <module>jboss7</module>
+                 <module>wildfly10</module>
               </modules>
            </profile>
            <profile>

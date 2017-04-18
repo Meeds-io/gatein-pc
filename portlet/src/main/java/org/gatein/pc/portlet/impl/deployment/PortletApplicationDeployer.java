@@ -213,7 +213,12 @@ public class PortletApplicationDeployer implements PortletApplicationRegistry
 
    public final void remove(ServletContext webApp)
    {
-      PortletApplicationDeployment deployment = deploymentMap.remove(webApp.getContextPath());
+      PortletApplicationDeployment deployment = null;
+      try {
+        deployment = deploymentMap.remove(webApp.getContextPath());
+      } catch (Exception e) {
+        // Nothing to do, this could happen when Wildfly is stopping
+      }
       if (deployment != null)
       {
          PortletApplicationLifeCycle portletApplicationLifeCycle = deployment.getPortletApplicationLifeCycle();
