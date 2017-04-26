@@ -41,6 +41,7 @@ import javax.servlet.http.HttpSessionBindingListener;
 import javax.servlet.http.HttpSessionBindingEvent;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * @author <a href="mailto:julien@jboss.org">Julien Viet</a>
@@ -49,8 +50,10 @@ import java.io.IOException;
 @TestCase({
    Assertion.EXT_SESSION_2
    })
-public class HTTPSessionInvalidationInvalidesPortletSession
+public class HTTPSessionInvalidationInvalidesPortletSession implements Serializable
 {
+
+  private static final long serialVersionUID = -4129569056920464851L;
 
    public HTTPSessionInvalidationInvalidesPortletSession(PortletTestCase seq)
    {
@@ -74,8 +77,9 @@ public class HTTPSessionInvalidationInvalidesPortletSession
       });
    }
 
-   private static class SessionInvalidator implements HttpSessionBindingListener
+   private static class SessionInvalidator implements HttpSessionBindingListener, Serializable
    {
+      private static final long serialVersionUID = -4844795605278357322L;
 
       /** . */
       private HttpSession realSession;

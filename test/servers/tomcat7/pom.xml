@@ -11,11 +11,16 @@
 
    <dependencies>
 
-     <dependency>
-       <groupId>org.slf4j</groupId>
-       <artifactId>slf4j-log4j12</artifactId>
-     </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-log4j12</artifactId>
+      </dependency>
 
+      <dependency>
+        <groupId>org.gatein.common</groupId>
+        <artifactId>common-common</artifactId>
+      </dependency>
+    
       <!-- -->
       <dependency>
         <groupId>org.exoplatform.gatein.pc</groupId>

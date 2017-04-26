@@ -232,6 +232,8 @@ public class PortletSessionImpl implements PortletSession
       try
       {
          session.isNew();
+         // Wildfly rely on this to test if session is valid
+         session.getLastAccessedTime();
          return true;
       }
       catch (IllegalStateException e)

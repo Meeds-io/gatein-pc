@@ -77,7 +77,12 @@
       <version.staxnav>0.9.6</version.staxnav>
 
       <!-- Servers -->
-      <version.jboss.as>7.1.1.Final</version.jboss.as>
+      <version.wildfly>10.1.0.Final</version.wildfly>
+
+      <!-- Wildfly -->
+      <version.arquillian.wildfly>2.0.2.Final</version.arquillian.wildfly>
+      <version.jboss.javaee>1.0.0.Final</version.jboss.javaee>
+      <version.jboss.logging>3.3.0.Final</version.jboss.logging>
 
      <!-- maven-release-plugin -->
       <useReleaseProfile>false</useReleaseProfile>
@@ -92,7 +97,7 @@
       <version.junit>4.12</version.junit>
       <version.arquillian>1.1.12.Final</version.arquillian>
       <version.arquillian.tomcat>1.0.0</version.arquillian.tomcat>
-      <version.arquillian.jboss.weld>1.1.8.Final</version.arquillian.jboss.weld>
+      <version.arquillian.jboss.weld>1.1.9.Final</version.arquillian.jboss.weld>
       <version.shrinkwrap>1.2.6</version.shrinkwrap>
       <version.shrinkwrap.resolver>2.2.5</version.shrinkwrap.resolver>
       <version.arquillian.drone>2.0.1.Final</version.arquillian.drone>
@@ -332,6 +337,11 @@
             <artifactId>shrinkwrap-resolver-impl-maven</artifactId>
             <version>${version.shrinkwrap.resolver}</version>
          </dependency>
+        <dependency>
+          <groupId>org.wildfly.arquillian</groupId>
+          <artifactId>wildfly-arquillian-container-managed</artifactId>
+          <version>${version.arquillian.wildfly}</version>
+        </dependency>
 
         <!-- Drone -->
         <dependency>                                      <!-- Selenium bom is optional - see note below -->
@@ -396,19 +406,30 @@
             <version>${version.ecj}</version>
          </dependency>
 
-         <!-- JBoss 7 -->
-         <dependency>
-            <groupId>org.jboss.as</groupId>
-            <artifactId>jboss-as-dist</artifactId>
-            <version>${version.jboss.as}</version>
-            <type>zip</type>
-         </dependency>
+        <!-- Wildfly 10 -->
+        <dependency>
+          <groupId>org.wildfly</groupId>
+          <artifactId>wildfly-dist</artifactId>
+          <version>${version.wildfly}</version>
+          <type>zip</type>
+        </dependency>
+        <dependency>
+          <groupId>org.jboss.spec</groupId>
+          <artifactId>jboss-javaee-7.0</artifactId>
+          <version>${version.jboss.javaee}</version>
+          <type>pom</type>
+        </dependency>
+        <dependency>
+          <groupId>org.jboss.logging</groupId>
+          <artifactId>jboss-logging</artifactId>
+          <version>${version.jboss.logging}</version>
+        </dependency>
 
       </dependencies>
    </dependencyManagement>
 
    <dependencies>
-     <!-- THIS MUST BE EMPTY (cf test/servers/jboss7/dependencies) -->
+     <!-- THIS MUST BE EMPTY (cf test/servers/wildfly10/dependencies) -->
    </dependencies>
 
    <modules>

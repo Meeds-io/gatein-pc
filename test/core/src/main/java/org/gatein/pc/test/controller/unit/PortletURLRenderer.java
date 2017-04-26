@@ -33,6 +33,7 @@ import org.gatein.pc.api.ContainerURL;
 import org.gatein.pc.api.URLFormat;
 
 import org.gatein.pc.controller.state.PageNavigationalState;
+import org.gatein.pc.portlet.impl.jsr168.PortletUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -80,7 +81,7 @@ public class PortletURLRenderer
       buffer.append(clientReq.getServerName());
       buffer.append(':');
       buffer.append(Integer.toString(clientReq.getServerPort()));
-      buffer.append(clientReq.getContextPath());
+      buffer.append(PortletUtils.getPortalContextPath(clientReq));
       buffer.append(clientReq.getServletPath());
 
       //
