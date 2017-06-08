@@ -65,7 +65,7 @@
       <jboss.snapshots.repo.url>http://repository.exoplatform.org/content/repositories/exo-snapshots/</jboss.snapshots.repo.url>
 
       <version.gatein.common>2.2.2.Final</version.gatein.common>
-      <version.gatein.dep>1.4.0.Final</version.gatein.dep>
+      <org.exoplatform.gatein.dep.version>1.5.x-SNAPSHOT</org.exoplatform.gatein.dep.version>
       <version.jsp-api>2.2</version.jsp-api>
       <version.jaxb-api>2.1.4</version.jaxb-api>
       <version.portlet-api>2.0</version.portlet-api>
@@ -152,9 +152,9 @@
 
          <!-- Import dependency management configuration -->
          <dependency>
-            <groupId>org.gatein</groupId>
+            <groupId>org.exoplatform.gatein</groupId>
             <artifactId>gatein-dep</artifactId>
-            <version>${version.gatein.dep}</version>
+            <version>${org.exoplatform.gatein.dep.version}</version>
             <type>pom</type>
             <scope>import</scope>
          </dependency>
