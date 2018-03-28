@@ -77,12 +77,12 @@
       <version.staxnav>0.9.6</version.staxnav>
 
       <!-- Servers -->
-      <version.wildfly>10.1.0.Final</version.wildfly>
+      <version.wildfly>11.0.0.Final</version.wildfly>
 
       <!-- Wildfly -->
       <version.arquillian.wildfly>2.0.2.Final</version.arquillian.wildfly>
       <version.jboss.javaee>1.0.0.Final</version.jboss.javaee>
-      <version.jboss.logging>3.3.0.Final</version.jboss.logging>
+      <version.jboss.logging>3.3.1.Final</version.jboss.logging>
 
      <!-- maven-release-plugin -->
       <useReleaseProfile>false</useReleaseProfile>
