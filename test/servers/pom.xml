@@ -88,7 +88,6 @@
          </activation>
          <modules>
             <module>tomcat7</module>
-            <module>wildfly11</module>
             <module>glassfish3</module>
          </modules>
       </profile>
@@ -114,18 +113,6 @@
               </activation>
               <modules>
                  <module>glassfish3</module>
-              </modules>
-           </profile>
-           <profile>
-              <id>jboss</id>
-              <activation>
-                 <property>
-                    <name>gatein.dev</name>
-                    <value>jboss</value>
-                 </property>
-              </activation>
-              <modules>
-                 <module>wildfly11</module>
               </modules>
            </profile>
            <profile>

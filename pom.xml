@@ -76,9 +76,6 @@
       <version.ccpp>1.0</version.ccpp>
       <version.staxnav>0.9.6</version.staxnav>
 
-      <!-- Servers -->
-      <version.wildfly>11.0.0.Final</version.wildfly>
-
       <!-- Wildfly -->
       <version.arquillian.wildfly>2.0.2.Final</version.arquillian.wildfly>
       <version.jboss.javaee>1.0.0.Final</version.jboss.javaee>
@@ -206,11 +203,6 @@
            <type>test-jar</type>
            <classifier>test-sources</classifier>
          </dependency>
-         <dependency>
-            <groupId>org.exoplatform.gatein.pc</groupId>
-            <artifactId>pc-test-servers-jboss7-dependencies</artifactId>
-            <version>${project.version}</version>
-         </dependency>
 
          <!-- GateIn dependencies -->
          <dependency>
@@ -337,11 +329,6 @@
             <artifactId>shrinkwrap-resolver-impl-maven</artifactId>
             <version>${version.shrinkwrap.resolver}</version>
          </dependency>
-        <dependency>
-          <groupId>org.wildfly.arquillian</groupId>
-          <artifactId>wildfly-arquillian-container-managed</artifactId>
-          <version>${version.arquillian.wildfly}</version>
-        </dependency>
 
         <!-- Drone -->
         <dependency>                                      <!-- Selenium bom is optional - see note below -->
@@ -405,25 +392,6 @@
             <artifactId>ecj</artifactId>
             <version>${version.ecj}</version>
          </dependency>
-
-        <!-- Wildfly 10 -->
-        <dependency>
-          <groupId>org.wildfly</groupId>
-          <artifactId>wildfly-dist</artifactId>
-          <version>${version.wildfly}</version>
-          <type>zip</type>
-        </dependency>
-        <dependency>
-          <groupId>org.jboss.spec</groupId>
-          <artifactId>jboss-javaee-7.0</artifactId>
-          <version>${version.jboss.javaee}</version>
-          <type>pom</type>
-        </dependency>
-        <dependency>
-          <groupId>org.jboss.logging</groupId>
-          <artifactId>jboss-logging</artifactId>
-          <version>${version.jboss.logging}</version>
-        </dependency>
 
       </dependencies>
    </dependencyManagement>
