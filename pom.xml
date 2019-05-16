@@ -33,7 +33,7 @@
 
    <groupId>org.exoplatform.gatein.pc</groupId>
    <artifactId>pc-parent</artifactId>
-   <version>5.2.1</version>
+   <version>5.2.x-acc222-SNAPSHOT</version>
    <packaging>pom</packaging>
 
    <name>GateIn - Portlet Container</name>
@@ -66,7 +66,7 @@
       <jboss.snapshots.repo.url>http://repository.exoplatform.org/content/repositories/exo-snapshots/</jboss.snapshots.repo.url>
 
       <version.gatein.common>2.2.2.Final</version.gatein.common>
-      <org.exoplatform.gatein.dep.version>1.7.1</org.exoplatform.gatein.dep.version>
+      <org.exoplatform.gatein.dep.version>1.7.x-acc222-SNAPSHOT</org.exoplatform.gatein.dep.version>
       <version.jsp-api>2.2</version.jsp-api>
       <version.jaxb-api>2.1.4</version.jaxb-api>
       <version.portlet-api>2.0</version.portlet-api>
