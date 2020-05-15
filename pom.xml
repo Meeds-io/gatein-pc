@@ -103,7 +103,7 @@
       <version.htmlunit>2.21</version.htmlunit>
       <version.guava>19.0</version.guava>
       <version.xerces>2.11.0</version.xerces>
-      <version.tomcat>8.5.45</version.tomcat>
+      <version.tomcat>8.5.54</version.tomcat>
       <version.servlet-api>3.1.0</version.servlet-api>
       <version.ecj>4.4.2</version.ecj>
       <version.httpclient>4.5.2</version.httpclient>
