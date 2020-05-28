@@ -100,7 +100,7 @@
       <version.arquillian.drone>2.0.1.Final</version.arquillian.drone>
       <version.arquillian.drone.selenium>2.53.1</version.arquillian.drone.selenium>
       <version.selenium>2.53.1</version.selenium>
-      <version.htmlunit>2.21</version.htmlunit>
+      <version.htmlunit>2.40.0</version.htmlunit>
       <version.guava>19.0</version.guava>
       <version.xerces>2.11.0</version.xerces>
       <version.tomcat>8.5.55</version.tomcat>
