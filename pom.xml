@@ -33,7 +33,7 @@
 
    <groupId>org.exoplatform.gatein.pc</groupId>
    <artifactId>pc-parent</artifactId>
-   <version>6.0.x-SNAPSHOT</version>
+   <version>6.0.0-M38</version>
    <packaging>pom</packaging>
 
    <name>GateIn - Portlet Container</name>
@@ -52,7 +52,8 @@
       <connection>scm:git:git://github.com/gatein/gatein-pc.git</connection>
       <developerConnection>scm:git:ssh://git@github.com/gatein/gatein-pc.git</developerConnection>
       <url>https://github.com/gatein/gatein-pc</url>
-   </scm>
+     <tag>6.0.0-M38</tag>
+  </scm>
 
    <properties>
       <maven.compiler.target>1.8</maven.compiler.target>
