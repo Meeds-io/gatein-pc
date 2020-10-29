@@ -65,7 +65,7 @@
       <jboss.snapshots.repo.url>http://repository.exoplatform.org/content/repositories/exo-snapshots/</jboss.snapshots.repo.url>
 
       <version.gatein.common>2.2.2.Final</version.gatein.common>
-      <org.exoplatform.gatein.dep.version>2.1.x-SNAPSHOT</org.exoplatform.gatein.dep.version>
+      <org.exoplatform.gatein.dep.version>2.1.0-M09</org.exoplatform.gatein.dep.version>
       <version.jsp-api>2.2</version.jsp-api>
       <version.jaxb-api>2.1.4</version.jaxb-api>
       <version.portlet-api>2.0</version.portlet-api>
