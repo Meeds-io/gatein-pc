@@ -91,7 +91,7 @@
       <version.buildnumber.plugin>1.0</version.buildnumber.plugin>
 
       <!-- For testing -->
-      <version.junit>4.12</version.junit>
+      <version.junit>4.13.1</version.junit>
       <version.arquillian>1.1.12.Final</version.arquillian>
       <version.arquillian.tomcat>1.0.0</version.arquillian.tomcat>
       <version.arquillian.jboss.weld>1.1.9.Final</version.arquillian.jboss.weld>
