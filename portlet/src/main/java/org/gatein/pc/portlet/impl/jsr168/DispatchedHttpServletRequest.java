@@ -256,7 +256,18 @@ public abstract class DispatchedHttpServletRequest extends HttpServletRequestWra
    {
       return getSpecAttribute(REQUEST_URI);
    }
+   public void  setRequestURI(String Uri)
+   {
+      setSpecAttribute(REQUEST_URI,Uri);
+   }
 
+   private void setSpecAttribute(int index,String value) {
+      if (((Dispatch)this.dispatches.getFirst()).getPath() == null) {
+         if (infos != null) {
+            infos[index] = value;
+         }
+      }
+   }
    public final String getServletPath()
    {
       return getSpecAttribute(SERVLET_PATH);
