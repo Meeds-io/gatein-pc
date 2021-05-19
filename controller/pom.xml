@@ -9,6 +9,10 @@
    <packaging>jar</packaging>
    <name>GateIn - Portlet Container (controller)</name>
 
+   <properties>
+     <exo.test.coverage.ratio>0.63</exo.test.coverage.ratio>
+   </properties>
+
    <dependencies>
 
       <!-- Internal dependencies -->

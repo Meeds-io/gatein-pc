@@ -9,6 +9,24 @@
    <packaging>jar</packaging>
    <name>GateIn - Portlet Container (embed)</name>
 
+   <properties>
+      <!-- eXo uses old version of this API, thus we declare the required version for test purpose -->
+      <org.apache.httpcomponents.httpclient.version>4.5.3</org.apache.httpcomponents.httpclient.version>
+      <exo.test.coverage.ratio>0.92</exo.test.coverage.ratio>
+   </properties>
+
+   <dependencyManagement>
+      <dependencies>
+        <dependency>
+          <groupId>${project.groupId}</groupId>
+          <artifactId>pc-test</artifactId>
+          <version>${project.version}</version>
+          <type>pom</type>
+          <scope>import</scope>
+        </dependency>
+      </dependencies>
+   </dependencyManagement>
+
   <dependencies>
     <dependency>
       <groupId>org.exoplatform.gatein.pc</groupId>
@@ -85,13 +103,8 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.jdt.core.compiler</groupId>
-      <artifactId>ecj</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
       <groupId>javax.servlet.jsp</groupId>
-      <artifactId>jsp-api</artifactId>
+      <artifactId>javax.servlet.jsp-api</artifactId>
       <scope>test</scope>
     </dependency>
 
@@ -122,6 +135,17 @@
       <scope>test</scope>
     </dependency>
 
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpclient</artifactId>
+      <version>${org.apache.httpcomponents.httpclient.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
   <build>

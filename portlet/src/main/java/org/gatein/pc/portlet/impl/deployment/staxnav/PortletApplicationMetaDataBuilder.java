@@ -214,7 +214,7 @@ public class PortletApplicationMetaDataBuilder
       }
       else
       {
-         throw new StaxNavException("Illegal portlet xml namespace " + rootNS);
+         throw new IllegalStateException("Illegal portlet xml namespace " + rootNS);
       }
 
       // Perform schema validation if required

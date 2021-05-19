@@ -9,14 +9,51 @@
    <packaging>pom</packaging>
    <name>GateIn - Portlet Container (test)</name>
 
+   <properties>
+      <!-- For testing -->
+      <version.arquillian.drone>2.0.1.Final</version.arquillian.drone>
+      <version.arquillian.drone.selenium>2.53.1</version.arquillian.drone.selenium>
+      <version.selenium>2.53.1</version.selenium>
+      <version.htmlunit>2.21</version.htmlunit>
+      <org.apache.httpcomponents.httpclient.version>4.5.3</org.apache.httpcomponents.httpclient.version>
+   </properties>
+
    <modules>
       <module>core</module>
       <module>servers</module>
    </modules>
 
-   <dependencies>
-     <!-- THIS MUST BE EMPTY (cf test/servers/jboss7/dependencies) -->
-   </dependencies>
+   <dependencyManagement>
+      <dependencies>
+        <!-- Drone -->
+        <dependency>                                      <!-- Selenium bom is optional - see note below -->
+          <groupId>org.jboss.arquillian.selenium</groupId>
+          <artifactId>selenium-bom</artifactId>
+          <version>${version.arquillian.drone.selenium}</version>
+          <type>pom</type>
+          <scope>import</scope>
+        </dependency>
+        <dependency>
+          <groupId>org.jboss.arquillian.extension</groupId>
+          <artifactId>arquillian-drone-bom</artifactId>
+          <version>${version.arquillian.drone}</version>
+          <type>pom</type>
+          <scope>import</scope>
+        </dependency>
+        <dependency>
+          <groupId>org.seleniumhq.selenium</groupId>
+          <artifactId>htmlunit-driver</artifactId>
+          <version>${version.htmlunit}</version>
+          <scope>test</scope>
+        </dependency>
+        <dependency>
+          <groupId>net.sourceforge.htmlunit</groupId>
+          <artifactId>htmlunit</artifactId>
+          <version>${version.htmlunit}</version>
+          <scope>test</scope>
+        </dependency>
+      </dependencies>
+   </dependencyManagement>
 
    <build>
     <pluginManagement>

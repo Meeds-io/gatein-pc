@@ -9,6 +9,10 @@
    <packaging>jar</packaging>
    <name>GateIn - Portlet Container (pc)</name>
 
+   <properties>
+     <exo.test.coverage.ratio>0.26</exo.test.coverage.ratio>
+   </properties>
+
    <dependencies>
       <dependency>
          <groupId>org.exoplatform.gatein.pc</groupId>
@@ -26,18 +30,17 @@
       </dependency>
       <dependency>
          <groupId>javax.servlet.jsp</groupId>
-         <artifactId>jsp-api</artifactId>
+         <artifactId>javax.servlet.jsp-api</artifactId>
          <scope>provided</scope>
       </dependency>
       <dependency>
-         <groupId>sun-jaxb</groupId>
+         <groupId>javax.xml.bind</groupId>
          <artifactId>jaxb-api</artifactId>
          <scope>provided</scope>
       </dependency>
       <dependency>
          <groupId>javax.ccpp</groupId>
          <artifactId>ccpp</artifactId>
-         <scope>provided</scope>
       </dependency>
       <dependency>
          <groupId>org.staxnav</groupId>

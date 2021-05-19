@@ -9,8 +9,11 @@
    <packaging>jar</packaging>
    <name>GateIn - Portlet Container (test - core)</name>
 
-   <dependencies>
+   <properties>
+     <exo.test.coverage.ratio>0.02</exo.test.coverage.ratio>
+   </properties>
 
+   <dependencies>
       <!-- PC dependencies -->
       <dependency>
          <groupId>org.gatein.common</groupId>
@@ -67,22 +70,27 @@
       <dependency>
          <groupId>org.jboss.arquillian.junit</groupId>
          <artifactId>arquillian-junit-container</artifactId>
+         <scope>compile</scope>
       </dependency>
       <dependency>
          <groupId>org.jboss.shrinkwrap</groupId>
          <artifactId>shrinkwrap-api</artifactId>
+         <scope>compile</scope>
       </dependency>
       <dependency>
          <groupId>org.jboss.shrinkwrap</groupId>
          <artifactId>shrinkwrap-impl-base</artifactId>
+         <scope>compile</scope>
       </dependency>
       <dependency>
          <groupId>org.jboss.shrinkwrap.resolver</groupId>
          <artifactId>shrinkwrap-resolver-api-maven</artifactId>
+         <scope>compile</scope>
       </dependency>
       <dependency>
          <groupId>org.jboss.shrinkwrap.resolver</groupId>
          <artifactId>shrinkwrap-resolver-impl-maven</artifactId>
+         <scope>compile</scope>
       </dependency>
 
       <dependency>
