@@ -5,9 +5,9 @@
       <version>6.2.x-SNAPSHOT</version>
    </parent>
    <modelVersion>4.0.0</modelVersion>
-   <artifactId>pc-test-servers-tomcat7</artifactId>
+   <artifactId>pc-test-servers-tomcat</artifactId>
    <packaging>jar</packaging>
-   <name>GateIn - Portlet Container (test - Tomcat7)</name>
+   <name>GateIn - Portlet Container (test - Tomcat)</name>
 
    <dependencies>
 
@@ -47,23 +47,25 @@
         <artifactId>tomcat-embed-jasper</artifactId>
       </dependency>
       <dependency>
-        <groupId>org.eclipse.jdt.core.compiler</groupId>
-        <artifactId>ecj</artifactId>
-      </dependency>
-      <dependency>
         <groupId>javax.servlet.jsp</groupId>
-        <artifactId>jsp-api</artifactId>
+        <artifactId>javax.servlet.jsp-api</artifactId>
       </dependency>
       <dependency>
         <groupId>javax.servlet</groupId>
         <artifactId>javax.servlet-api</artifactId>
       </dependency>
+      <dependency>
+        <groupId>commons-httpclient</groupId>
+        <artifactId>commons-httpclient</artifactId>
+      </dependency>
+      <dependency>
+        <groupId>commons-logging</groupId>
+        <artifactId>commons-logging</artifactId>
+      </dependency>
 
    </dependencies>
 
   <build>
-
-
     <!-- -->
     <pluginManagement>
       <plugins>

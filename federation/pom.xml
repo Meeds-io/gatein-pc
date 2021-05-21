@@ -9,6 +9,10 @@
    <packaging>jar</packaging>
    <name>GateIn - Portlet Container (federation)</name>
 
+   <properties>
+      <exo.test.coverage.ratio>0.37</exo.test.coverage.ratio>
+   </properties>
+
    <dependencies>
       <dependency>
          <groupId>org.exoplatform.gatein.pc</groupId>

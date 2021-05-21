@@ -26,9 +26,10 @@
    <modelVersion>4.0.0</modelVersion>
 
    <parent>
-      <groupId>org.gatein</groupId>
-      <artifactId>gatein-parent</artifactId>
-      <version>1.3.0.Final</version>
+      <artifactId>maven-parent-pom</artifactId>
+      <groupId>org.exoplatform</groupId>
+      <version>23-M08</version>
+      <relativePath />
    </parent>
 
    <groupId>org.exoplatform.gatein.pc</groupId>
@@ -41,376 +42,105 @@
       Platform are based. It provides a standard-compliant implementation of the JSR-286 Portlet 2.0 specification. It has been developed
       with reusability in mind so that advanced users, who don't require a full-fledged portal, can leverage the portlet management services
       it provides in their own applications. GateIn Portlet Container is available through the business-friendly LGPL open source license.</description>
-   <url>http://www.jboss.org/gatein/portletcontainer.html</url>
-   <inceptionYear>2003</inceptionYear>
-   <issueManagement>
-      <system>jira</system>
-      <url>https://issues.jboss.org/browse/GTNPC</url>
-   </issueManagement>
 
    <scm>
-      <connection>scm:git:git://github.com/gatein/gatein-pc.git</connection>
-      <developerConnection>scm:git:ssh://git@github.com/gatein/gatein-pc.git</developerConnection>
-      <url>https://github.com/gatein/gatein-pc</url>
+      <connection>scm:git:git://github.com/meeds-io/gatein-pc.git</connection>
+      <developerConnection>scm:git:ssh://git@github.com/meeds-io/gatein-pc.git</developerConnection>
+      <url>https://github.com/meeds-io/gatein-pc</url>
    </scm>
 
    <properties>
-      <maven.compiler.target>1.8</maven.compiler.target>
-      <maven.compiler.source>1.8</maven.compiler.source>
-
-      <!-- ***************** -->
-      <!-- Repository Deployment URLs for eXo -->
-      <!-- ***************** -->
-      <jboss.releases.repo.url>http://repository.exoplatform.org/service/local/staging/deploy/maven2/</jboss.releases.repo.url>
-      <jboss.snapshots.repo.url>http://repository.exoplatform.org/content/repositories/exo-snapshots/</jboss.snapshots.repo.url>
-
-      <version.gatein.common>2.2.2.Final</version.gatein.common>
-      <org.exoplatform.gatein.dep.version>2.2.x-SNAPSHOT</org.exoplatform.gatein.dep.version>
-      <version.jsp-api>2.2</version.jsp-api>
-      <version.jaxb-api>2.1.4</version.jaxb-api>
-      <version.portlet-api>2.0</version.portlet-api>
-      <version.apache.portals.bridges>1.0.4</version.apache.portals.bridges>
-      <version.apache.taglibs>1.1.2</version.apache.taglibs>
-      <version.apache.log4j>1.2.14</version.apache.log4j>
-      <version.discovery>0.4</version.discovery>
-      <version.ccpp>1.0</version.ccpp>
-      <version.staxnav>0.9.6</version.staxnav>
-
-      <!-- Wildfly -->
-      <version.arquillian.wildfly>2.0.2.Final</version.arquillian.wildfly>
-      <version.jboss.javaee>1.0.0.Final</version.jboss.javaee>
-      <version.jboss.logging>3.3.1.Final</version.jboss.logging>
-
-     <!-- maven-release-plugin -->
-      <useReleaseProfile>false</useReleaseProfile>
-      <version.release.plugin>2.5.1</version.release.plugin>
-      <pushChanges>false</pushChanges>
-      <autoVersionSubmodules>true</autoVersionSubmodules>
-
-      <!-- buildnumber-maven-plugin : needs 1.0 for git -->
-      <version.buildnumber.plugin>1.0</version.buildnumber.plugin>
-
-      <!-- For testing -->
-      <version.junit>4.12</version.junit>
-      <version.arquillian>1.1.12.Final</version.arquillian>
-      <version.arquillian.tomcat>1.0.0</version.arquillian.tomcat>
-      <version.arquillian.jboss.weld>1.1.9.Final</version.arquillian.jboss.weld>
-      <version.shrinkwrap>1.2.6</version.shrinkwrap>
-      <version.shrinkwrap.resolver>2.2.5</version.shrinkwrap.resolver>
-      <version.arquillian.drone>2.0.1.Final</version.arquillian.drone>
-      <version.arquillian.drone.selenium>2.53.1</version.arquillian.drone.selenium>
-      <version.selenium>2.53.1</version.selenium>
-      <version.htmlunit>2.21</version.htmlunit>
-      <version.guava>19.0</version.guava>
-      <version.xerces>2.11.0</version.xerces>
-      <version.tomcat>8.5.55</version.tomcat>
-      <version.servlet-api>3.1.0</version.servlet-api>
-      <version.ecj>4.4.2</version.ecj>
-      <version.httpclient>4.5.2</version.httpclient>
-      <version.httpcore>4.4.4</version.httpcore>
-      <version.commons-httpclient>3.1</version.commons-httpclient>
-      <version.commons-logging>1.2</version.commons-logging>
-      <version.commons-codec>1.10</version.commons-codec>
+      <org.exoplatform.core.version>6.2.x-SNAPSHOT</org.exoplatform.core.version>
    </properties>
-
-   <organization>
-     <name>GateIn</name>
-     <url>http://www.gatein.org</url>
-   </organization>
-
-   <licenses>
-     <license>
-       <name>LGPL, version 2.1</name>
-       <url>http://www.opensource.org/licenses/lgpl-license.php</url>
-     </license>
-   </licenses>
-
-   <developers>
-     <developer>
-       <id>julien.viet</id>
-       <name>Julien Viet</name>
-       <email>julien.viet@exoplatform.com</email>
-       <roles>
-         <role>Lead</role>
-       </roles>
-     </developer>
-      <developer>
-        <id>chris.laprun</id>
-        <name>Christophe Laprun</name>
-        <email>claprun@redhat.com</email>
-        <roles>
-          <role>Developer</role>
-        </roles>
-      </developer>
-   </developers>
 
    <dependencyManagement>
       <dependencies>
-
          <!-- Import dependency management configuration -->
          <dependency>
-            <groupId>org.exoplatform.gatein</groupId>
-            <artifactId>gatein-dep</artifactId>
-            <version>${org.exoplatform.gatein.dep.version}</version>
-            <type>pom</type>
-            <scope>import</scope>
+           <groupId>org.exoplatform.core</groupId>
+           <artifactId>core-parent</artifactId>
+           <version>${org.exoplatform.core.version}</version>
+           <type>pom</type>
+           <scope>import</scope>
          </dependency>
 
          <!-- Internal dependencies -->
          <dependency>
-            <groupId>org.exoplatform.gatein.pc</groupId>
+            <groupId>${project.groupId}</groupId>
             <artifactId>pc-portlet</artifactId>
             <version>${project.version}</version>
          </dependency>
          <dependency>
-            <groupId>org.exoplatform.gatein.pc</groupId>
+            <groupId>${project.groupId}</groupId>
             <artifactId>pc-portlet</artifactId>
             <type>test-jar</type>
             <version>${project.version}</version>
          </dependency>
          <dependency>
-            <groupId>org.exoplatform.gatein.pc</groupId>
+            <groupId>${project.groupId}</groupId>
             <artifactId>pc-portlet</artifactId>
             <type>test-jar</type>
             <classifier>tests</classifier>
             <version>${project.version}</version>
          </dependency>
          <dependency>
-            <groupId>org.exoplatform.gatein.pc</groupId>
+            <groupId>${project.groupId}</groupId>
             <artifactId>pc-controller</artifactId>
             <version>${project.version}</version>
          </dependency>
          <dependency>
-            <groupId>org.exoplatform.gatein.pc</groupId>
+            <groupId>${project.groupId}</groupId>
             <artifactId>pc-api</artifactId>
             <version>${project.version}</version>
          </dependency>
          <dependency>
-            <groupId>org.exoplatform.gatein.pc</groupId>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>pc-federation</artifactId>
+            <version>${project.version}</version>
+         </dependency>
+         <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>pc-bridge</artifactId>
+            <version>${project.version}</version>
+         </dependency>
+         <dependency>
+            <groupId>${project.groupId}</groupId>
             <artifactId>pc-test-core</artifactId>
             <version>${project.version}</version>
          </dependency>
          <dependency>
-           <groupId>org.exoplatform.gatein.pc</groupId>
+            <groupId>${project.groupId}</groupId>
            <artifactId>pc-test-core</artifactId>
            <version>${project.version}</version>
            <type>test-jar</type>
          </dependency>
          <dependency>
-           <groupId>org.exoplatform.gatein.pc</groupId>
+            <groupId>${project.groupId}</groupId>
            <artifactId>pc-test-core</artifactId>
            <version>${project.version}</version>
            <type>test-jar</type>
            <classifier>test-sources</classifier>
          </dependency>
-
-         <!-- GateIn dependencies -->
-         <dependency>
-            <groupId>org.gatein.common</groupId>
-            <artifactId>common-common</artifactId>
-            <version>${version.gatein.common}</version>
-         </dependency>
-         <dependency>
-            <groupId>org.gatein.common</groupId>
-            <artifactId>common-logging</artifactId>
-            <version>${version.gatein.common}</version>
-         </dependency>
-
-         <!-- API dependencies -->
-        <dependency>
-           <groupId>javax.portlet</groupId>
-           <artifactId>portlet-api</artifactId>
-           <version>${version.portlet-api}</version>
-           <exclusions>
-             <exclusion>
-               <groupId>javax.servlet</groupId>
-               <artifactId>servlet-api</artifactId>
-             </exclusion>
-           </exclusions>
-         </dependency>
-         <dependency>
-           <groupId>javax.servlet.jsp</groupId>
-           <artifactId>jsp-api</artifactId>
-           <version>${version.jsp-api}</version>
-         </dependency>
-         <dependency>
-           <groupId>sun-jaxb</groupId>
-           <artifactId>jaxb-api</artifactId>
-           <version>${version.jaxb-api}</version>
-         </dependency>
-         <dependency>
-           <groupId>javax.ccpp</groupId>
-           <artifactId>ccpp</artifactId>
-           <version>${version.ccpp}</version>
-         </dependency>
-
-         <!-- Thirdparty (runtime) dependencies -->
-         <dependency>
-            <groupId>org.staxnav</groupId>
-            <artifactId>staxnav.core</artifactId>
-            <version>${version.staxnav}</version>
-         </dependency>
-         <dependency>
-            <groupId>org.apache.portals.bridges</groupId>
-            <artifactId>portals-bridges-common</artifactId>
-            <version>${version.apache.portals.bridges}</version>
-         </dependency>
-
-         <!-- Dependencies for unit tests -->
-          <dependency>
-              <groupId>org.apache.httpcomponents</groupId>
-              <artifactId>httpclient</artifactId>
-              <version>${version.httpclient}</version>
-          </dependency>
-          <dependency>
-              <groupId>org.apache.httpcomponents</groupId>
-              <artifactId>httpcore</artifactId>
-              <version>${version.httpcore}</version>
-          </dependency>
-         <dependency>
-            <groupId>commons-httpclient</groupId>
-            <artifactId>commons-httpclient</artifactId>
-            <version>${version.commons-httpclient}</version>
-         </dependency>
-         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${version.junit}</version>
-         </dependency>
-         <dependency>
-           <groupId>log4j</groupId>
-           <artifactId>log4j</artifactId>
-           <version>${version.apache.log4j}</version>
-         </dependency>
-         <dependency>
-           <groupId>commons-logging</groupId>
-           <artifactId>commons-logging</artifactId>
-           <version>${version.commons-logging}</version>
-         </dependency>
-         <dependency>
-           <groupId>commons-codec</groupId>
-           <artifactId>commons-codec</artifactId>
-           <version>${version.commons-codec}</version>
-         </dependency>
-
-        <!-- Arquillian/Shrinkwrap stack -->
-         <dependency>
-            <groupId>org.jboss.arquillian.container</groupId>
-            <artifactId>arquillian-container-spi</artifactId>
-            <version>${version.arquillian}</version>
-         </dependency>
-         <dependency>
-            <groupId>org.jboss.arquillian.junit</groupId>
-            <artifactId>arquillian-junit-container</artifactId>
-            <version>${version.arquillian}</version>
-         </dependency>
-         <dependency>
-            <groupId>org.jboss.weld</groupId>
-            <artifactId>weld-core-test-arquillian</artifactId>
-            <version>${version.arquillian.jboss.weld}</version>
-         </dependency>
-         <dependency>
-            <groupId>org.jboss.shrinkwrap</groupId>
-            <artifactId>shrinkwrap-api</artifactId>
-            <version>${version.shrinkwrap}</version>
-         </dependency>
-         <dependency>
-            <groupId>org.jboss.shrinkwrap</groupId>
-            <artifactId>shrinkwrap-impl-base</artifactId>
-            <version>${version.shrinkwrap}</version>
-         </dependency>
-         <dependency>
-            <groupId>org.jboss.shrinkwrap.resolver</groupId>
-            <artifactId>shrinkwrap-resolver-api-maven</artifactId>
-            <version>${version.shrinkwrap.resolver}</version>
-         </dependency>
-         <dependency>
-            <groupId>org.jboss.shrinkwrap.resolver</groupId>
-            <artifactId>shrinkwrap-resolver-impl-maven</artifactId>
-            <version>${version.shrinkwrap.resolver}</version>
-         </dependency>
-
-        <!-- Drone -->
-        <dependency>                                      <!-- Selenium bom is optional - see note below -->
-          <groupId>org.jboss.arquillian.selenium</groupId>
-          <artifactId>selenium-bom</artifactId>
-          <version>${version.arquillian.drone.selenium}</version>
-          <type>pom</type>
-          <scope>import</scope>
-        </dependency>
-        <dependency>
-          <groupId>org.jboss.arquillian.extension</groupId>
-          <artifactId>arquillian-drone-bom</artifactId>
-          <version>${version.arquillian.drone}</version>
-          <type>pom</type>
-          <scope>import</scope>
-        </dependency>
-        <dependency>
-          <groupId>org.seleniumhq.selenium</groupId>
-          <artifactId>htmlunit-driver</artifactId>
-          <version>${version.htmlunit}</version>
-        </dependency>
-        <dependency>
-          <groupId>net.sourceforge.htmlunit</groupId>
-          <artifactId>htmlunit</artifactId>
-          <version>${version.htmlunit}</version>
-        </dependency>
-        <dependency>
-          <groupId>com.google.guava</groupId>
-          <artifactId>guava</artifactId>
-          <version>${version.guava}</version>
-        </dependency>
-        <dependency>
-          <groupId>xerces</groupId>
-          <artifactId>xercesImpl</artifactId>
-          <version>${version.xerces}</version>
-        </dependency>
-
-        <!-- Arquillian Tomcat container -->
-         <dependency>
-            <groupId>org.jboss.arquillian.container</groupId>
-            <artifactId>arquillian-tomcat-embedded-8</artifactId>
-            <version>${version.arquillian.tomcat}</version>
-         </dependency>
-         <dependency>
-            <groupId>org.apache.tomcat.embed</groupId>
-            <artifactId>tomcat-embed-core</artifactId>
-            <version>${version.tomcat}</version>
-         </dependency>
-         <dependency>
-            <groupId>org.apache.tomcat.embed</groupId>
-            <artifactId>tomcat-embed-jasper</artifactId>
-            <version>${version.tomcat}</version>
-         </dependency>
-         <dependency>
-           <groupId>javax.servlet</groupId>
-           <artifactId>javax.servlet-api</artifactId>
-           <version>${version.servlet-api}</version>
-         </dependency>
-         <dependency>
-            <groupId>org.eclipse.jdt.core.compiler</groupId>
-            <artifactId>ecj</artifactId>
-            <version>${version.ecj}</version>
-         </dependency>
-
       </dependencies>
    </dependencyManagement>
-
-   <dependencies>
-     <!-- THIS MUST BE EMPTY (cf test/servers/wildfly10/dependencies) -->
-   </dependencies>
 
    <modules>
       <module>api</module>
       <module>jsr168api</module>
       <module>portlet</module>
       <module>controller</module>
-      <module>test</module>
-      <module>embed</module>
       <module>bridge</module>
       <module>federation</module>
       <module>management</module>
-      <module>samples</module>
    </modules>
 
+   <profiles>
+     <profile>
+       <id>run-its</id>
+       <modules>
+         <module>test</module>
+         <module>embed</module>
+       </modules>
+     </profile>
+   </profiles>
 </project>

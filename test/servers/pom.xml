@@ -10,10 +10,6 @@
    <packaging>pom</packaging>
    <name>GateIn - Portlet Container (test - servers)</name>
 
-   <dependencies>
-     <!-- THIS MUST BE EMPTY (cf test/servers/jboss7/dependencies) -->
-   </dependencies>
-
    <build>
 
      <!-- -->
@@ -71,63 +67,6 @@
          </executions>
        </plugin>
      </plugins>
-
    </build>
-
-   <profiles>
-
-      <!-- ***************************************************************** -->
-      <!-- * Server profiles                                               * -->
-      <!-- ***************************************************************** -->
-      <profile>
-         <id>default</id>
-         <activation>
-            <property>
-               <name>!gatein.dev</name>
-            </property>
-         </activation>
-         <modules>
-            <module>tomcat7</module>
-            <module>glassfish3</module>
-         </modules>
-      </profile>
-      <profile>
-         <id>tomcat</id>
-         <activation>
-            <property>
-               <name>gatein.dev</name>
-               <value>tomcat</value>
-            </property>
-         </activation>
-         <modules>
-            <module>tomcat7</module>
-         </modules>
-      </profile>
-           <profile>
-              <id>glasshfish</id>
-              <activation>
-                 <property>
-                    <name>gatein.dev</name>
-                    <value>glasshfish</value>
-                 </property>
-              </activation>
-              <modules>
-                 <module>glassfish3</module>
-              </modules>
-           </profile>
-           <profile>
-              <id>jetty</id>
-              <activation>
-                 <property>
-                    <name>gatein.dev</name>
-                    <value>jetty</value>
-                 </property>
-              </activation>
-              <modules>
-                 <module>jetty7</module>
-              </modules>
-           </profile>
-
-   </profiles>
 
 </project>
