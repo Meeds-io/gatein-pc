@@ -10,10 +10,6 @@
    <packaging>pom</packaging>
    <name>GateIn - Portlet Container (test - servers)</name>
 
-  <modules>
-    <module>tomcat</module>
-  </modules>
-
    <build>
 
      <!-- -->

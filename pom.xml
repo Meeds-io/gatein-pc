@@ -129,11 +129,18 @@
       <module>jsr168api</module>
       <module>portlet</module>
       <module>controller</module>
-      <module>test</module>
-      <module>embed</module>
       <module>bridge</module>
       <module>federation</module>
       <module>management</module>
    </modules>
 
+   <profiles>
+     <profile>
+       <id>run-its</id>
+       <modules>
+         <module>test</module>
+         <module>embed</module>
+       </modules>
+     </profile>
+   </profiles>
 </project>
