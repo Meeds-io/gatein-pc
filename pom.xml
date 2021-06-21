@@ -144,7 +144,7 @@
          <module>embed</module>
        </modules>
      </profile>
-   <!-- This profile is used to allow github action to build branches. The github action is used for sonar analysis -->
+      <!-- This profile is used to allow github action to build branches. The github action is used for sonar analysis -->
       <profile>
          <id>project-repositories</id>
          <activation>
