@@ -11,7 +11,7 @@
 
    <properties>
       <!-- eXo uses old version of this API, thus we declare the required version for test purpose -->
-      <org.apache.httpcomponents.httpclient.version>4.5.3</org.apache.httpcomponents.httpclient.version>
+      <org.apache.httpcomponents.httpclient.version>4.5.13</org.apache.httpcomponents.httpclient.version>
       <exo.test.coverage.ratio>0.92</exo.test.coverage.ratio>
    </properties>
 
