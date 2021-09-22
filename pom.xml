@@ -34,7 +34,7 @@
 
    <groupId>org.exoplatform.gatein.pc</groupId>
    <artifactId>pc-parent</artifactId>
-   <version>6.3.0-20210922</version>
+   <version>6.3.x-SNAPSHOT</version>
    <packaging>pom</packaging>
 
    <name>GateIn - Portlet Container</name>
@@ -47,11 +47,10 @@
       <connection>scm:git:git://github.com/meeds-io/gatein-pc.git</connection>
       <developerConnection>scm:git:ssh://git@github.com/meeds-io/gatein-pc.git</developerConnection>
       <url>https://github.com/meeds-io/gatein-pc</url>
-     <tag>6.3.0-20210922</tag>
-  </scm>
+   </scm>
 
    <properties>
-      <org.exoplatform.core.version>6.3.0-20210922</org.exoplatform.core.version>
+      <org.exoplatform.core.version>6.3.x-SNAPSHOT</org.exoplatform.core.version>
       <!-- Sonar properties -->
       <sonar.organization>meeds-io</sonar.organization>
    </properties>
