@@ -22,13 +22,13 @@
  ******************************************************************************/
 package org.gatein.pc.portlet.impl.jsr168;
 
-import org.gatein.common.logging.LoggerFactory;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.gatein.pc.portlet.container.PortletApplication;
 import org.gatein.pc.portlet.container.PortletFilterContext;
 import org.gatein.pc.portlet.container.object.PortletFilterObject;
 import org.gatein.pc.portlet.impl.info.ContainerFilterInfo;
 import org.gatein.pc.api.LifeCyclePhase;
-import org.gatein.common.logging.Logger;
 
 import javax.portlet.PortletContext;
 import javax.portlet.filter.ActionFilter;
@@ -58,7 +58,7 @@ public class PortletFilterImpl implements PortletFilterObject
    }
 
    /** . */
-   private final Logger log;
+   private final Log                             log;
 
    /** . */
    private final ContainerFilterInfo info;
@@ -75,7 +75,7 @@ public class PortletFilterImpl implements PortletFilterObject
    public PortletFilterImpl(ContainerFilterInfo info)
    {
       this.info = info;
-      this.log = LoggerFactory.getLogger(PortletFilterImpl.class);
+      this.log = ExoLogger.getLogger(PortletFilterImpl.class);
    }
 
    public <T> T instance(Class<T> type)

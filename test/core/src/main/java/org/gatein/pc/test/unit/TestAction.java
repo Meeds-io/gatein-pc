@@ -32,9 +32,9 @@ import java.util.HashMap;
 
 import static org.gatein.pc.test.unit.Assert.*;
 
-import org.gatein.common.logging.LoggerFactory;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.gatein.common.util.Tools;
-import org.gatein.common.logging.Logger;
 
 /**
  * @author <a href="mailto:boleslaw.dawidowicz@jboss.org">Boleslaw Dawidowicz</a>
@@ -44,13 +44,13 @@ public abstract class TestAction
 {
 
    /** . */
-   private Logger log = null;
+   private Log log = null;
 
-   protected final Logger getLogger()
+   protected final Log getLogger()
    {
       if (log == null)
       {
-         log = LoggerFactory.getLogger(getClass());
+        log = ExoLogger.getLogger(getClass());
       }
       return log;
    }

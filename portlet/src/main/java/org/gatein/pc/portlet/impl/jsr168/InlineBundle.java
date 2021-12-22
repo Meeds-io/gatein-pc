@@ -22,8 +22,8 @@
  ******************************************************************************/
 package org.gatein.pc.portlet.impl.jsr168;
 
-import org.gatein.common.logging.Logger;
-import org.gatein.common.logging.LoggerFactory;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.gatein.pc.portlet.impl.info.ContainerPortletInfo;
 import org.gatein.pc.api.info.MetaInfo;
 
@@ -41,7 +41,7 @@ import java.util.Locale;
 public class InlineBundle extends ListResourceBundle
 {
 
-   private static final Logger log = LoggerFactory.getLogger(InlineBundle.class);
+  private static final Log log = ExoLogger.getLogger(InlineBundle.class);
 
    /** . */
    private final Object[][] content;

@@ -21,8 +21,8 @@
  */
 package org.gatein.pc.portlet.aspects;
 
-import org.gatein.common.logging.Logger;
-import org.gatein.common.logging.LoggerFactory;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.gatein.pc.api.PortletInvokerException;
 import org.gatein.pc.api.invocation.PortletInvocation;
 import org.gatein.pc.api.invocation.response.PortletInvocationResponse;
@@ -42,7 +42,7 @@ public class SessionInvalidatorInterceptor extends PortletInvokerInterceptor
 
    private static final String IDENTITY_TOKEN = "javax.portlet.identity.token";
 
-   private final static Logger log = LoggerFactory.getLogger(SessionInvalidatorInterceptor.class);
+   private final static Log   log            = ExoLogger.getLogger(SessionInvalidatorInterceptor.class);
 
    public PortletInvocationResponse invoke(PortletInvocation invocation) throws IllegalArgumentException, PortletInvokerException
    {

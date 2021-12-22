@@ -23,7 +23,8 @@
 
 package org.gatein.pc.controller.impl;
 
-import org.gatein.common.logging.LoggerFactory;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.gatein.pc.api.Portlet;
 import org.gatein.pc.api.PortletInvokerException;
 import org.gatein.pc.controller.ControllerContext;
@@ -43,7 +44,6 @@ import org.gatein.pc.api.invocation.ResourceInvocation;
 import org.gatein.pc.api.invocation.RenderInvocation;
 import org.gatein.pc.api.invocation.response.PortletInvocationResponse;
 import org.gatein.pc.api.spi.PortalContext;
-import org.gatein.common.logging.Logger;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -60,7 +60,7 @@ public abstract class AbstractControllerContext implements ControllerContext
 {
 
    /** . */
-   private static Logger log = LoggerFactory.getLogger(AbstractControllerContext.class);
+   private static Log                 log            = ExoLogger.getLogger(AbstractControllerContext.class);
 
    /** . */
    public static final PortalContext PORTAL_CONTEXT = new AbstractPortalContext(Collections.singletonMap("javax.portlet.markup.head.element.support", "true"));

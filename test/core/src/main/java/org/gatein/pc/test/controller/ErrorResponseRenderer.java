@@ -23,8 +23,8 @@
 
 package org.gatein.pc.test.controller;
 
-import org.gatein.common.logging.Logger;
-import org.gatein.common.logging.LoggerFactory;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.gatein.pc.api.invocation.response.ErrorResponse;
 
 import java.io.IOException;
@@ -37,7 +37,7 @@ public class ErrorResponseRenderer implements Renderer
 {
 
    /** . */
-   private static final Logger log = LoggerFactory.getLogger(ErrorResponseRenderer.class);
+   private static final Log log = ExoLogger.getLogger(ErrorResponseRenderer.class);
 
    /** . */
    private ErrorResponse response;

@@ -22,9 +22,9 @@
  ******************************************************************************/
 package org.gatein.pc.portlet.impl.jsr168;
 
-import org.gatein.common.logging.Logger;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.gatein.common.concurrent.Valve;
-import org.gatein.common.logging.LoggerFactory;
 import org.gatein.pc.api.PortletInvokerException;
 import org.gatein.pc.api.invocation.ActionInvocation;
 import org.gatein.pc.api.invocation.EventInvocation;
@@ -98,7 +98,7 @@ public class PortletContainerImpl implements PortletContainerObject
 {
 
    /** Logger. */
-   protected final Logger log;
+   protected final Log                                             log;
 
    /** Return info. */
    final ContainerPortletInfo info;
@@ -161,7 +161,7 @@ public class PortletContainerImpl implements PortletContainerObject
       //
       this.info = info;
       this.valve = new Valve();
-      this.log = LoggerFactory.getLogger("org.gatein.pc.container." + info.getClassName().replace('.', '_'));
+      this.log = ExoLogger.getLogger("org.gatein.pc.container." + info.getClassName().replace('.', '_'));
       this.status = LifeCycleStatus.INITIALIZED;
       this.filters = new HashSet<PortletFilterImpl>();
    }

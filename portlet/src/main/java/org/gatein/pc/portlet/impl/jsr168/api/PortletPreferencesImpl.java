@@ -22,8 +22,8 @@
  ******************************************************************************/
 package org.gatein.pc.portlet.impl.jsr168.api;
 
-import org.gatein.common.logging.Logger;
-import org.gatein.common.logging.LoggerFactory;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.gatein.pc.api.state.PropertyChange;
 import org.gatein.pc.api.state.PropertyContext;
 import org.gatein.pc.api.info.PreferenceInfo;
@@ -53,7 +53,7 @@ public class PortletPreferencesImpl implements PortletPreferences
 {
 
    /** The logger. */
-   protected static final Logger log = LoggerFactory.getLogger(PortletPreferencesImpl.class);
+   protected static final Log                 log    = ExoLogger.getLogger(PortletPreferencesImpl.class);
 
    /** Indicates the object is used during a action phase. */
    public static final int ACTION = 1;

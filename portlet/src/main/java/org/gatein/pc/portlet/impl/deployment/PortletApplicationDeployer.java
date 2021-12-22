@@ -22,9 +22,9 @@
  ******************************************************************************/
 package org.gatein.pc.portlet.impl.deployment;
 
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.gatein.common.io.IOTools;
-import org.gatein.common.logging.Logger;
-import org.gatein.common.logging.LoggerFactory;
 import org.gatein.pc.portlet.container.ContainerPortletInvoker;
 import org.gatein.pc.portlet.container.PortletContainer;
 import org.gatein.pc.portlet.container.managed.LifeCycleStatus;
@@ -60,7 +60,7 @@ public class PortletApplicationDeployer implements PortletApplicationRegistry
    private PortletApplicationRegistry registry;
 
    /** . */
-   protected final Logger log = LoggerFactory.getLogger(PortletApplicationDeployer.class);
+   protected final Log                                   log             = ExoLogger.getLogger(PortletApplicationDeployer.class);
 
    /** . */
    private Map<String, PortletApplicationDeployment> deploymentMap = new HashMap<String, PortletApplicationDeployment>();

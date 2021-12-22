@@ -19,11 +19,11 @@
 
 package org.gatein.pc.portlet.impl.deployment.staxnav;
 
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.gatein.common.i18n.LocaleFormat;
 import org.gatein.common.i18n.LocalizedString;
 import org.gatein.common.io.IOTools;
-import org.gatein.common.logging.Logger;
-import org.gatein.common.logging.LoggerFactory;
 import org.gatein.common.util.ConversionException;
 import org.gatein.pc.api.LifeCyclePhase;
 import org.gatein.pc.api.Mode;
@@ -90,7 +90,8 @@ public class PortletApplicationMetaDataBuilder
 {
 
    /** . */
-   private static final Logger log = LoggerFactory.getLogger(PortletApplicationMetaDataBuilder.class);
+   private static final Log                             log                 =
+                                                            ExoLogger.getLogger(PortletApplicationMetaDataBuilder.class);
 
    /** . */
    private static final QName XML_LANG = new QName("http://www.w3.org/XML/1998/namespace", "lang");

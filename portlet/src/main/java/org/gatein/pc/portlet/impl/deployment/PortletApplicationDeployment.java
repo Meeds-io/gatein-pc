@@ -22,8 +22,8 @@
  ******************************************************************************/
 package org.gatein.pc.portlet.impl.deployment;
 
-import org.gatein.common.logging.Logger;
-import org.gatein.common.logging.LoggerFactory;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.gatein.pc.portlet.impl.info.ContainerInfoBuilder;
 import org.gatein.pc.portlet.impl.info.ContainerInfoBuilderContext;
 import org.gatein.pc.portlet.impl.info.ContainerPortletInfo;
@@ -51,7 +51,7 @@ public class PortletApplicationDeployment
 {
 
    /** . */
-   private final Logger log;
+   private final Log                               log;
 
    /** . */
    private final ServletContext webApp;
@@ -73,7 +73,7 @@ public class PortletApplicationDeployment
       this.listener = listener;
       this.webApp = webApp;
       this.metaData = metaData;
-      this.log = LoggerFactory.getLogger(PortletApplicationDeployment.class + "." + webApp.getContextPath().replace('.', '_'));
+      this.log = ExoLogger.getLogger(PortletApplicationDeployment.class + "." + webApp.getContextPath().replace('.', '_'));
    }
 
    public PortletApplicationLifeCycle getPortletApplicationLifeCycle()

@@ -22,13 +22,13 @@
  ******************************************************************************/
 package org.gatein.pc.portlet.impl.container;
 
-import org.gatein.common.logging.LoggerFactory;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.gatein.pc.portlet.container.managed.ManagedObject;
 import org.gatein.pc.portlet.container.managed.LifeCycleStatus;
 import org.gatein.pc.portlet.container.managed.ManagedObjectFailedEvent;
 import org.gatein.pc.portlet.container.managed.ManagedObjectRegistryEventListener;
 import org.gatein.pc.portlet.container.managed.ManagedObjectLifeCycleEvent;
-import org.gatein.common.logging.Logger;
 
 import java.util.Set;
 import java.util.HashSet;
@@ -44,7 +44,7 @@ public abstract class LifeCycle implements ManagedObject
    private static final ThreadLocal<Set<Object>> faileds = new ThreadLocal<Set<Object>>();
 
    /** . */
-   private Logger log = LoggerFactory.getLogger(LifeCycle.class);
+   private Log                                  log     = ExoLogger.getLogger(LifeCycle.class);
 
    /** . */
    private LifeCycleStatus status = LifeCycleStatus.INITIALIZED;
