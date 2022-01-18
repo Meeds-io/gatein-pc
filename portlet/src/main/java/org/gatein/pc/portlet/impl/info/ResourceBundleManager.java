@@ -10,8 +10,6 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import org.gatein.common.i18n.LocalizedString;
 import org.gatein.common.i18n.ResourceBundleFactory;
-import org.gatein.common.logging.Logger;
-import org.gatein.common.logging.LoggerFactory;
 
 /**
  * <p>Manage a set of resource bundles. Obtention of bundles is delegated to a ResourceBundleFactory. A bundle

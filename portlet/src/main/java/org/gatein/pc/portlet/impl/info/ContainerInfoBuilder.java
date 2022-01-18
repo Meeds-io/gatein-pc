@@ -24,8 +24,6 @@ package org.gatein.pc.portlet.impl.info;
 
 import org.gatein.common.i18n.LocaleFormat;
 import org.gatein.common.i18n.LocalizedString;
-import org.gatein.common.logging.Logger;
-import org.gatein.common.logging.LoggerFactory;
 import org.gatein.common.reflect.NoSuchClassException;
 import org.gatein.common.util.ConversionException;
 import org.gatein.pc.api.LifeCyclePhase;

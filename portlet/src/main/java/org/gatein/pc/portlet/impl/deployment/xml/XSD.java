@@ -19,8 +19,8 @@
 
 package org.gatein.pc.portlet.impl.deployment.xml;
 
-import org.gatein.common.logging.Logger;
-import org.gatein.common.logging.LoggerFactory;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.w3c.dom.bootstrap.DOMImplementationRegistry;
 import org.w3c.dom.ls.DOMImplementationLS;
 import org.w3c.dom.ls.LSInput;
@@ -50,7 +50,7 @@ public class XSD
 {
 
    /** . */
-   private static final Logger log = LoggerFactory.getLogger(XSD.class);
+   private static final Log                log = ExoLogger.getLogger(XSD.class);
 
    private final static Map<String, String> a = new HashMap<String, String>();
 

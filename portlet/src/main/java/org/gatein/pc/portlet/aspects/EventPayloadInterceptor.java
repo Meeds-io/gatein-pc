@@ -22,9 +22,9 @@
  */
 package org.gatein.pc.portlet.aspects;
 
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.gatein.common.io.IOTools;
-import org.gatein.common.logging.Logger;
-import org.gatein.common.logging.LoggerFactory;
 import org.gatein.pc.api.PortletInvokerException;
 import org.gatein.pc.api.info.EventInfo;
 import org.gatein.pc.api.info.EventingInfo;
@@ -56,7 +56,7 @@ public class EventPayloadInterceptor extends PortletInvokerInterceptor
 {
 
    /** . */
-   private final static Logger log = LoggerFactory.getLogger(EventPayloadInterceptor.class);
+   private final static Log log = ExoLogger.getLogger(EventPayloadInterceptor.class);
 
    public PortletInvocationResponse invoke(PortletInvocation invocation) throws IllegalArgumentException, PortletInvokerException
    {

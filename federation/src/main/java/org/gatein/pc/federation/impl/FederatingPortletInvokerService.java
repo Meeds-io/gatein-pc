@@ -22,8 +22,8 @@
  */
 package org.gatein.pc.federation.impl;
 
-import org.gatein.common.logging.Logger;
-import org.gatein.common.logging.LoggerFactory;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.gatein.pc.api.InvokerUnavailableException;
 import org.gatein.pc.api.NoSuchPortletException;
 import org.gatein.pc.api.Portlet;
@@ -60,7 +60,8 @@ public class FederatingPortletInvokerService implements FederatingPortletInvoker
 {
 
    /** . */
-   private static final Logger log = LoggerFactory.getLogger(FederatingPortletInvokerService.class);
+   private static final Log                             log             =
+                                                            ExoLogger.getLogger(FederatingPortletInvokerService.class);
 
    /** The registred FederatedPortletInvokers. */
    private volatile Map<String, FederatedPortletInvoker> invokerCache = new HashMap<String, FederatedPortletInvoker>();

@@ -22,8 +22,8 @@
  ******************************************************************************/
 package org.gatein.pc.portlet.impl.info;
 
-import org.gatein.common.logging.Logger;
-import org.gatein.common.logging.LoggerFactory;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.gatein.pc.api.Mode;
 import org.gatein.pc.api.WindowState;
 import org.gatein.common.net.media.MediaType;
@@ -45,7 +45,7 @@ import java.util.Set;
  */
 public class ContainerCapabilitiesInfo implements CapabilitiesInfo
 {
-   private final static Logger log = LoggerFactory.getLogger(ContainerCapabilitiesInfo.class);
+  private final static Log                        log = ExoLogger.getLogger(ContainerCapabilitiesInfo.class);
 
    /** . */
    private final MediaTypeMapImpl<ModeInfo> supportedModes;

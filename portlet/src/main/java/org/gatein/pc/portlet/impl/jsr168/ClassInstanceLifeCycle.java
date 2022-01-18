@@ -22,8 +22,8 @@
  ******************************************************************************/
 package org.gatein.pc.portlet.impl.jsr168;
 
+import org.exoplatform.services.log.Log;
 import org.gatein.pc.portlet.container.PortletInitializationException;
-import org.gatein.common.logging.Logger;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -36,7 +36,7 @@ public class ClassInstanceLifeCycle<T>
 {
 
    /** . */
-   private Logger log;
+   private Log        log;
 
    /** . */
    private Class<T> expectedClass;
@@ -54,7 +54,7 @@ public class ClassInstanceLifeCycle<T>
    private T instance;
 
    public ClassInstanceLifeCycle(
-      Logger log,
+                                 Log log,
       Class<T> expectedClass,
       ClassLoader classLoader,
       String className,

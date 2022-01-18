@@ -22,8 +22,8 @@
  ******************************************************************************/
 package org.gatein.pc.test.unit.web;
 
-import org.gatein.common.logging.Logger;
-import org.gatein.common.logging.LoggerFactory;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.gatein.pc.test.unit.JoinPoint;
 import org.gatein.pc.test.unit.PortletTestCase;
 import org.gatein.pc.test.unit.PortletTestServlet;
@@ -89,7 +89,7 @@ public abstract class AbstractUniversalTestPortlet implements Portlet, EventPort
    }
 
    /** . */
-   private final Logger log = createLogger();
+   private final Log      log               = createLogger();
 
    /** Joinpoint for render phase. */
    private final JoinPoint renderJoinPoint = JoinPoint.createJoinPoint(getClass(), JoinPointType.PORTLET_RENDER);
@@ -432,17 +432,17 @@ public abstract class AbstractUniversalTestPortlet implements Portlet, EventPort
    }
 
    /** Can be subclassed to provide an alternative way to create the logger. */
-   protected Logger createLogger()
+   protected Log createLogger()
    {
       if (log != null)
       {
          throw new IllegalStateException("The logger should not be re");
       }
-      return LoggerFactory.getLogger(getClass());
+      return ExoLogger.getLogger(getClass());
    }
 
    /** Return the logger. */
-   public final Logger getLogger()
+   public final Log getLogger()
    {
       return log;
    }

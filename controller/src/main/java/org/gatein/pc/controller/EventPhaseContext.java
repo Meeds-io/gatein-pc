@@ -22,9 +22,8 @@
  ******************************************************************************/
 package org.gatein.pc.controller;
 
-import org.gatein.common.logging.Logger;
+import org.exoplatform.services.log.Log;
 import org.gatein.pc.api.info.PortletInfo;
-import org.gatein.pc.api.invocation.response.PortletInvocationResponse;
 import org.gatein.pc.controller.event.EventControllerContext;
 import org.gatein.pc.controller.event.WindowEvent;
 
@@ -43,7 +42,7 @@ public class EventPhaseContext implements Iterator<WindowEvent>
    private static final EventControllerContextSafeInvoker safeInvoker = new EventControllerContextSafeInvoker();
 
    /** . */
-   private final Logger log;
+   private final Log                                     log;
 
    /** . */
    LinkedList<WindowEvent> toConsumeEvents;
@@ -60,7 +59,7 @@ public class EventPhaseContext implements Iterator<WindowEvent>
    /** . */
    final ControllerContext context;
 
-   EventPhaseContext(PortletController controller, ControllerContext context, Logger log)
+   EventPhaseContext(PortletController controller, ControllerContext context, Log log)
    {
       this.controller = controller;
       this.context = context;

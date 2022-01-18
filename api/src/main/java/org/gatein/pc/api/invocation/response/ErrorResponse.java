@@ -22,7 +22,7 @@
  ******************************************************************************/
 package org.gatein.pc.api.invocation.response;
 
-import org.gatein.common.logging.Logger;
+import org.exoplatform.services.log.Log;
 import org.gatein.common.util.Exceptions;
 
 /**
@@ -92,7 +92,7 @@ public class ErrorResponse extends PortletInvocationResponse
     * @param log        the logger
     * @param logMessage the additional message to log
     */
-   public void logErrorTo(Logger log, String logMessage)
+   public void logErrorTo(Log log, String logMessage)
    {
       if (cause != null)
       {

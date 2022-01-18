@@ -22,8 +22,8 @@
  ******************************************************************************/
 package org.gatein.pc.test.unit.web;
 
-import org.gatein.common.logging.Logger;
-import org.gatein.common.logging.LoggerFactory;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.gatein.pc.test.unit.JoinPoint;
 import org.gatein.pc.test.unit.PortletTestCase;
 import org.gatein.pc.test.unit.PortletTestServlet;
@@ -50,7 +50,7 @@ public abstract class AbstractUniversalTestServlet extends HttpServlet
 {
 
    /** The logger. */
-   private final Logger log = LoggerFactory.getLogger(getClass());
+   private final Log      log              = ExoLogger.getLogger(getClass());
 
    /** Jointpoint for service method. */
    private final JoinPoint serviceJoinPoint = JoinPoint.createJoinPoint(getClass(), JoinPointType.SERVLET_SERVICE);

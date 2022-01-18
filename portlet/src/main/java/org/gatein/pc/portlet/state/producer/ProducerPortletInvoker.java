@@ -22,8 +22,8 @@
  ******************************************************************************/
 package org.gatein.pc.portlet.state.producer;
 
-import org.gatein.common.logging.Logger;
-import org.gatein.common.logging.LoggerFactory;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.gatein.pc.api.InvalidPortletIdException;
 import org.gatein.pc.api.NoSuchPortletException;
 import org.gatein.pc.api.Portlet;
@@ -82,7 +82,7 @@ public class ProducerPortletInvoker extends PortletInvokerInterceptor
    private StateConverter stateConverter;
 
    /** . */
-   private final Logger log = LoggerFactory.getLogger(ProducerPortletInvoker.class);
+   private final Log                     log = ExoLogger.getLogger(ProducerPortletInvoker.class);
 
    public ProducerPortletInvoker()
    {

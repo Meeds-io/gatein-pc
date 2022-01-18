@@ -22,11 +22,11 @@
  ******************************************************************************/
 package org.gatein.pc.controller;
 
-import org.gatein.common.logging.LoggerFactory;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.gatein.pc.controller.event.EventControllerContext;
 import org.gatein.pc.controller.event.WindowEvent;
 import org.gatein.pc.api.invocation.response.PortletInvocationResponse;
-import org.gatein.common.logging.Logger;
 
 import java.util.Collections;
 
@@ -40,7 +40,7 @@ class EventControllerContextSafeInvoker
 {
 
    /** . */
-   private final Logger log = LoggerFactory.getLogger(EventControllerContextSafeInvoker.class);
+   private final Log log = ExoLogger.getLogger(EventControllerContextSafeInvoker.class);
 
    public Iterable<WindowEvent> eventProduced(EventControllerContext controllerContext, EventPhaseContext phaseContext, WindowEvent sourceEvent, WindowEvent producedEvent)
    {

@@ -13,8 +13,8 @@ import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.httpclient.auth.AuthScope;
 import org.apache.commons.httpclient.params.HttpMethodParams;
 
-import org.apache.log4j.Logger;
-
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.gatein.common.io.IOTools;
 import org.gatein.pc.test.unit.protocol.request.Request;
 import org.gatein.pc.test.unit.protocol.response.Response;
@@ -46,7 +46,7 @@ public class Conversation
 {
 
    /** . */
-   private final Logger log = Logger.getLogger(getClass());
+   private final Log       log = ExoLogger.getLogger(getClass());
 
    /** . */
    private final URL baseURL;

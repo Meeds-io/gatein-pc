@@ -22,8 +22,8 @@
  ******************************************************************************/
 package org.gatein.pc.portlet.impl.jsr168.api;
 
-import org.gatein.common.logging.Logger;
-import org.gatein.common.logging.LoggerFactory;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.gatein.common.net.media.MediaType;
 import org.gatein.common.util.Tools;
 import org.gatein.common.util.ParameterMap;
@@ -81,7 +81,7 @@ public abstract class PortletRequestImpl implements PortletRequest
 {
 
    /** . */
-   protected static final Logger log = LoggerFactory.getLogger(PortletRequestImpl.class);
+   protected static final Log                        log = ExoLogger.getLogger(PortletRequestImpl.class);
 
    /** . */
    protected PortletInvocation invocation;
