@@ -30,20 +30,8 @@
            <groupId>org.exoplatform.gatein.pc</groupId>
            <artifactId>pc-api</artifactId>
        </dependency>
-       <dependency>
-           <groupId>org.exoplatform.kernel</groupId>
-           <artifactId>exo.kernel.commons</artifactId>
-       </dependency>
 
        <!-- Various dependencies -->
-       <dependency>
-           <groupId>commons-logging</groupId>
-           <artifactId>commons-logging</artifactId>
-       </dependency>
-       <dependency>
-           <groupId>commons-httpclient</groupId>
-           <artifactId>commons-httpclient</artifactId>
-       </dependency>
       <dependency>
         <groupId>javax.ccpp</groupId>
         <artifactId>ccpp</artifactId>
