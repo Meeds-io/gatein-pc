@@ -66,6 +66,12 @@ public interface PreferenceInfo
    Boolean isReadOnly();
 
    /**
+    * Return true if the preference is mandatory, false otherwise or null if it cannot be determined
+    *
+    * @return code>true</code> if the described preference is mandatory, <code>false</code> otherwise.
+    */
+   Boolean isMandatory();
+   /**
     * Return the default value or null if it cannot be determined (for instance WSRP v1 does not define it).
     *
     * @return the default value

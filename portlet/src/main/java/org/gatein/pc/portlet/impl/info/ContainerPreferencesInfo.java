@@ -74,10 +74,11 @@ public class ContainerPreferencesInfo implements PreferencesInfo
       String name,
       List<String> value,
       boolean readOnly,
+      Boolean mandatory,
       LocalizedString displayName,
       LocalizedString description)
    {
-      ContainerPreferenceInfo pref = new ContainerPreferenceInfo(name, displayName, description, readOnly, value);
+      ContainerPreferenceInfo pref = new ContainerPreferenceInfo(name, displayName, description, readOnly, mandatory, value);
       content.put(pref.getKey(), pref);
    }
 

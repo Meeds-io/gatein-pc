@@ -335,9 +335,13 @@ public class PortletApplicationMetaDataBuilder
                {
                   portletPreferenceMD.setReadOnly(portletNav.parseContent(ValueType.BOOLEAN));
                }
+               
+               if (portletNav.next(Element.mandatory)) {
+                 portletPreferenceMD.setMandatory(portletNav.parseContent(ValueType.BOOLEAN));
+               }
                portletPreferencesMD.addPortletPreference(portletPreferenceMD);
-            }
-            if (portletNav.next(Element.preferences_validator))
+             }
+             if (portletNav.next(Element.preferences_validator))
             {
                portletPreferencesMD.setPreferenceValidator(portletNav.getContent());
             }

@@ -47,6 +47,8 @@ public class PreferenceInfoSupport implements PreferenceInfo
    /** . */
    private Boolean readOnly;
 
+   private  Boolean mandatory;
+
    /** . */
    private List<String> defaultValue;
 
@@ -84,6 +86,14 @@ public class PreferenceInfoSupport implements PreferenceInfo
    public Boolean isReadOnly()
    {
       return readOnly;
+   }
+
+   public Boolean isMandatory() {
+      return mandatory;
+   }
+
+   public void setMandatory(Boolean mandatory) {
+      this.mandatory = mandatory;
    }
 
    public void setReadOnly(Boolean readOnly)

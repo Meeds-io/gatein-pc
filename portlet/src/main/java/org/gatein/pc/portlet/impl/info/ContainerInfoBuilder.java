@@ -1034,8 +1034,13 @@ public class ContainerInfoBuilder
             List<String> value = portletPreferenceMD.getValue();
             LocalizedString displayName = bundleMgr.getLocalizedValue("javax.portlet.preference.name." + portletPreferenceMD.getName(), portletPreferenceMD.getName());
             LocalizedString description = bundleMgr.getLocalizedValue("javax.portlet.preference.description." + portletPreferenceMD.getName(), portletPreferenceMD.getName());
-            containerPreferences.addContainerPreference(portletPreferenceMD.getName(), value, portletPreferenceMD.isReadOnly(), displayName, description);
-         }
+            containerPreferences.addContainerPreference(portletPreferenceMD.getName(),
+                                                        value,
+                                                        portletPreferenceMD.isReadOnly(),
+                                                        portletPreferenceMD.isMandatory(),
+                                                        displayName,
+                                                        description);
+          }
       }
 
       //

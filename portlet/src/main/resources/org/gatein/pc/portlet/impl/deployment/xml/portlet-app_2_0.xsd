@@ -491,6 +491,8 @@
 			<element name="name" type="portlet:nameType"/>
 			<element name="value" type="portlet:valueType" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="read-only" type="portlet:read-onlyType" minOccurs="0"/>
+			<element name="mandatory" type="portlet:mandatory"
+					 minOccurs="0" />
 		</sequence>
 		<attribute name="id" type="portlet:string" use="optional"/>
 	</complexType>
@@ -521,6 +523,18 @@
 		<restriction base="portlet:string">
 			<enumeration value="true"/>
 			<enumeration value="false"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="mandatory">
+		<annotation>
+			<documentation>
+				mandatory indicates that a portlet preference is
+				mandatory or not (true, false)
+			</documentation>
+		</annotation>
+		<restriction base="portlet:string">
+			<enumeration value="true" />
+			<enumeration value="false" />
 		</restriction>
 	</simpleType>
 	<complexType name="resource-bundleType">

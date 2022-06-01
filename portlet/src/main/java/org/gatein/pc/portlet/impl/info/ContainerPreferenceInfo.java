@@ -38,15 +38,18 @@ public class ContainerPreferenceInfo implements PreferenceInfo
    private LocalizedString displayName;
    private LocalizedString description;
    private Boolean readOnly;
+
+   private Boolean mandatory;
    private List<String> value;
 
-   public ContainerPreferenceInfo(String key, LocalizedString displayName, LocalizedString description, boolean readOnly, List<String> value)
+   public ContainerPreferenceInfo(String key, LocalizedString displayName, LocalizedString description, boolean readOnly, Boolean mandatory, List<String> value)
    {
       this.key = key;
       this.displayName = displayName;
       this.description = description;
       this.readOnly = Boolean.valueOf(readOnly);
       this.value = value;
+      this.mandatory = mandatory;
    }
 
    public String getKey()
@@ -67,6 +70,11 @@ public class ContainerPreferenceInfo implements PreferenceInfo
    public Boolean isReadOnly()
    {
       return readOnly;
+   }
+
+   @Override
+   public Boolean isMandatory() {
+      return mandatory;
    }
 
    /**

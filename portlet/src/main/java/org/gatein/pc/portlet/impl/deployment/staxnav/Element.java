@@ -76,6 +76,8 @@ public enum Element
 
    read_only,
 
+   mandatory,
+
    preferences_validator,
 
    security_role_ref,

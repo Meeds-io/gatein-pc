@@ -33,7 +33,7 @@ import javax.xml.bind.annotation.XmlType;
  * @author <a href="mailto:emuckenh@redhat.com">Emanuel Muckenhuber</a>
  * @version $Revision$
  */
-@XmlType(name = "portlet-preferenceType", propOrder={"name", "value", "readOnly"})
+@XmlType(name = "portlet-preferenceType", propOrder={"name", "value", "readOnly", "mandatory"})
 public class PortletPreferenceMetaData
 {
 
@@ -48,6 +48,9 @@ public class PortletPreferenceMetaData
 
    /** Is read only */
    private boolean readOnly;
+
+   /** Is mandatory */
+   private Boolean mandatory;
    
    public PortletPreferenceMetaData() {}
    
@@ -109,4 +112,12 @@ public class PortletPreferenceMetaData
       this.readOnly = readOnly;
    }
 
+   @XmlElement(name = "mandatory")
+   public Boolean isMandatory() {
+      return mandatory;
+   }
+
+   public void setMandatory(Boolean mandatory) {
+      this.mandatory = mandatory;
+   }
 }
