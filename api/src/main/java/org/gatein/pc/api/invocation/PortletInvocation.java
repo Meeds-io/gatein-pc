@@ -37,8 +37,8 @@ import org.gatein.pc.api.spi.ServerContext;
 import org.gatein.pc.api.spi.UserContext;
 import org.gatein.pc.api.spi.WindowContext;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.util.Map;
 
 /**
@@ -169,7 +169,7 @@ public abstract class PortletInvocation
     * Set the http servlet request.
     *
     * @param dresp the dispatched response
-    * @deprecated use {@link #setResponse(javax.servlet.http.HttpServletResponse)}
+    * @deprecated use {@link #setResponse(jakarta.servlet.http.HttpServletResponse)}
     */
    public void setDispatchedResponse(HttpServletResponse dresp)
    {
@@ -211,7 +211,7 @@ public abstract class PortletInvocation
     * Set the dispatched http servlet request.
     *
     * @param dreq the dispatched request
-    * @deprecated use {@link #setRequest(javax.servlet.http.HttpServletRequest)}
+    * @deprecated use {@link #setRequest(jakarta.servlet.http.HttpServletRequest)}
     */
    public void setDispatchedRequest(HttpServletRequest dreq)
    {

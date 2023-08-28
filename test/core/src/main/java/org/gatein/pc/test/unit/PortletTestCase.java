@@ -22,7 +22,7 @@
  ******************************************************************************/
 package org.gatein.pc.test.unit;
 
-import javax.servlet.ServletContext;
+import jakarta.servlet.ServletContext;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;

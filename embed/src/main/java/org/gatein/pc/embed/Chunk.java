@@ -21,7 +21,7 @@ package org.gatein.pc.embed;
 
 import org.gatein.common.util.Tools;
 
-import javax.servlet.ServletException;
+import jakarta.servlet.ServletException;
 import java.io.ByteArrayOutputStream;
 import java.nio.ByteBuffer;
 import java.nio.CharBuffer;

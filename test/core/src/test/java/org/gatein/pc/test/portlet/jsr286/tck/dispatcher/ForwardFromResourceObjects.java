@@ -47,10 +47,10 @@ import javax.portlet.PortletException;
 import javax.portlet.ResourceRequest;
 import javax.portlet.ResourceResponse;
 import javax.portlet.PortletRequestDispatcher;
-import javax.servlet.Servlet;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.Servlet;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 import java.util.LinkedList;
@@ -120,7 +120,6 @@ public class ForwardFromResourceObjects
             //SPEC:278
             assertNull(request.getRemoteAddr());
             assertNull(request.getRemoteHost());
-            assertNull(request.getRealPath("toto"));
             assertNull(request.getLocalAddr());
             assertNull(request.getLocalName());
             assertNull(request.getRequestURL());
@@ -260,7 +259,6 @@ public class ForwardFromResourceObjects
 
             //SPEC:287
             assertNull(response.encodeRedirectURL("lolo"));
-            assertNull(response.encodeRedirectUrl("blah"));
 
 
             //SPEC:288
@@ -275,7 +273,6 @@ public class ForwardFromResourceObjects
             //assertEquals(portletResponse.getWriter(), response.getWriter());
             assertEquals(portletResponse.getLocale(), response.getLocale());
             assertEquals(portletResponse.encodeURL("http://www.jboss.com/"), response.encodeURL("http://www.jboss.com/"));
-            assertEquals(portletResponse.encodeURL("http://www.jboss.com/"), response.encodeUrl("http://www.jboss.com/"));
 
             return new EndTestResponse();
          }

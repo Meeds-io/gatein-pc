@@ -37,7 +37,7 @@ import org.gatein.pc.controller.request.PortletResourceRequest;
 import org.gatein.pc.controller.state.PageNavigationalState;
 import org.gatein.pc.controller.state.WindowNavigationalState;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
 import java.util.Map;
 

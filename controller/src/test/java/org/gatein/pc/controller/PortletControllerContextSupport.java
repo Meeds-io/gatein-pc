@@ -44,7 +44,7 @@ import org.gatein.pc.portlet.support.PortletInvokerSupport;
 import org.gatein.pc.portlet.support.PortletSupport;
 import org.gatein.common.util.ParameterMap;
 
-import javax.servlet.http.Cookie;
+import jakarta.servlet.http.Cookie;
 import java.util.List;
 
 /**

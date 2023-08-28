@@ -26,8 +26,8 @@ package org.gatein.pc.test.controller;
 import org.gatein.common.util.MultiValuedPropertyMap;
 import org.gatein.pc.api.invocation.response.ResponseProperties;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 

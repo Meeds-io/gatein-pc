@@ -24,7 +24,7 @@ package org.gatein.pc.portlet.impl.spi;
 
 import org.gatein.pc.api.spi.RequestContext;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;

@@ -24,7 +24,7 @@ package org.gatein.pc.portlet.impl.jsr286.taglib;
 
 import org.gatein.pc.portlet.impl.jsr168.taglib.GenerateURLTagTEI;
 
-import javax.servlet.jsp.tagext.TagData;
+import jakarta.servlet.jsp.tagext.TagData;
 
 /**
  * @author Boleslaw Dawidowicz

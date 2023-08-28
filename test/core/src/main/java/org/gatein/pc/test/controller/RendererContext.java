@@ -28,9 +28,9 @@ import org.gatein.pc.api.Portlet;
 import org.gatein.pc.api.PortletInvokerException;
 import org.gatein.pc.api.invocation.response.PortletInvocationResponse;
 
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.Cookie;
 import java.util.Collection;
 import java.util.List;
 

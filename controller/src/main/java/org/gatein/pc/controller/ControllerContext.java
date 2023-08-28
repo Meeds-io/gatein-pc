@@ -34,7 +34,7 @@ import org.gatein.pc.api.invocation.RenderInvocation;
 import org.gatein.pc.api.invocation.response.PortletInvocationResponse;
 import org.gatein.pc.api.spi.PortletInvocationContext;
 
-import javax.servlet.http.Cookie;
+import jakarta.servlet.http.Cookie;
 import java.util.List;
 
 /**

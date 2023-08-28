@@ -24,7 +24,8 @@ package org.gatein.pc.api.spi;
 
 import org.gatein.common.util.MultiValuedPropertyMap;
 
-import javax.servlet.http.Cookie;
+import jakarta.servlet.http.Cookie;
+
 import java.util.List;
 
 /**

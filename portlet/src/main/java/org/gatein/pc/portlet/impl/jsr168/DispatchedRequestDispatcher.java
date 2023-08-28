@@ -22,12 +22,12 @@
  ******************************************************************************/
 package org.gatein.pc.portlet.impl.jsr168;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequestWrapper;
-import javax.servlet.ServletResponseWrapper;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.ServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletRequestWrapper;
+import jakarta.servlet.ServletResponseWrapper;
 import java.io.IOException;
 
 /**

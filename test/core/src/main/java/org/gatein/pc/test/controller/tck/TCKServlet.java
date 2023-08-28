@@ -34,10 +34,10 @@ import org.gatein.pc.controller.request.ControllerRequest;
 import org.gatein.pc.api.invocation.response.ResponseProperties;
 import org.gatein.pc.api.Portlet;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.Set;

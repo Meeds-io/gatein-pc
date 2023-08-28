@@ -41,7 +41,7 @@ import org.gatein.pc.api.invocation.response.ResponseProperties;
 import org.gatein.pc.api.invocation.response.UpdateNavigationalStateResponse;
 import org.gatein.pc.api.spi.PortletInvocationContext;
 
-import javax.servlet.http.Cookie;
+import jakarta.servlet.http.Cookie;
 import java.util.List;
 import java.util.Map;
 
@@ -49,219 +49,211 @@ import java.util.Map;
  * @author <a href="mailto:chris.laprun@jboss.com">Chris Laprun</a>
  * @version $Revision: 10580 $
  */
-class PortletRequestHandler extends RequestHandler<PortletRequest>
-{
+class PortletRequestHandler extends RequestHandler<PortletRequest> {
 
-   /** . */
-   private static final EventControllerContextSafeInvoker safeInvoker = new EventControllerContextSafeInvoker();
+  /** . */
+  private static final EventControllerContextSafeInvoker safeInvoker = new EventControllerContextSafeInvoker();
 
-   public PortletRequestHandler(PortletController controller)
-   {
-      super(PortletRequest.class, controller);
-   }
+  public PortletRequestHandler(PortletController controller) {
+    super(PortletRequest.class, controller);
+  }
 
-   ControllerResponse processResponse(
-      ControllerContext context,
-      PortletRequest portletRequest,
-      PortletInvocationResponse response) throws PortletInvokerException
-   {
-      // The page navigational state we will operate on during the request
-      // Either we have nothing in the request so we create a new one
-      // Or we have one but we copy it as we should not modify the input state provided
-      PageNavigationalState pageNavigationalState = portletRequest.getPageNavigationalState();
-      if (pageNavigationalState == null)
-      {
-         pageNavigationalState = new PageNavigationalState(true);
-      }
-      else
-      {
-         pageNavigationalState = new PageNavigationalState(pageNavigationalState, true);
+  ControllerResponse processResponse(ControllerContext context,
+                                     PortletRequest portletRequest,
+                                     PortletInvocationResponse response) throws PortletInvokerException {
+    // The page navigational state we will operate on during the request
+    // Either we have nothing in the request so we create a new one
+    // Or we have one but we copy it as we should not modify the input state
+    // provided
+    PageNavigationalState pageNavigationalState = portletRequest.getPageNavigationalState();
+    if (pageNavigationalState == null) {
+      pageNavigationalState = new PageNavigationalState(true);
+    } else {
+      pageNavigationalState = new PageNavigationalState(pageNavigationalState, true);
+    }
+
+    //
+    ResponseProperties requestProperties = new ResponseProperties();
+
+    //
+    if (response instanceof UpdateNavigationalStateResponse) {
+      // Update portlet NS
+      UpdateNavigationalStateResponse updateResponse = (UpdateNavigationalStateResponse) response;
+
+      //
+      updateNavigationalState(context, portletRequest.getWindowId(), updateResponse, pageNavigationalState);
+
+      //
+      ResponseProperties update = updateResponse.getProperties();
+      if (update != null) {
+        requestProperties.append(update);
       }
 
       //
-      ResponseProperties requestProperties = new ResponseProperties();
+      EventControllerContext eventCC = context.getEventControllerContext();
 
       //
-      if (response instanceof UpdateNavigationalStateResponse)
-      {
-         // Update portlet NS
-         UpdateNavigationalStateResponse updateResponse = (UpdateNavigationalStateResponse)response;
+      EventPhaseContext phaseContext = new EventPhaseContext(controller, context, log);
 
-         //
-         updateNavigationalState(context, portletRequest.getWindowId(), updateResponse, pageNavigationalState);
+      // Feed session it with the events that may have been produced
+      for (UpdateNavigationalStateResponse.Event portletEvent : updateResponse.getEvents()) {
+        if (!phaseContext.push(new WindowEvent(portletEvent.getName(),
+                                               portletEvent.getPayload(),
+                                               portletRequest.getWindowId()))) {
+          return new PageUpdateResponse(updateResponse, requestProperties, pageNavigationalState, PortletResponse.INTERRUPTED);
+        }
+      }
 
-         //
-         ResponseProperties update = updateResponse.getProperties();
-         if (update != null)
-         {
-            requestProperties.append(update);
-         }
+      // Deliver events
+      while (phaseContext.hasNext()) {
+        WindowEvent toConsumeEvent = phaseContext.next();
 
-         //
-         EventControllerContext eventCC = context.getEventControllerContext();
+        // Apply consumed event quota if necessary
+        int consumedEventThreshold = controller.getConsumedEventThreshold();
+        if (consumedEventThreshold >= 0) {
+          if (phaseContext.consumedEventSize + 1 > consumedEventThreshold) {
+            log.trace("Event distribution interrupted because the maximum number of consumed event is reached");
+            safeInvoker.eventDiscarded(eventCC, phaseContext, toConsumeEvent, EventControllerContext.CONSUMED_EVENT_FLOODED);
+            return new PageUpdateResponse(updateResponse, requestProperties, pageNavigationalState, PortletResponse.INTERRUPTED);
+          }
+        }
 
-         //
-         EventPhaseContext phaseContext = new EventPhaseContext(controller, context, log);
+        //
+        PortletInvocationResponse eventResponse;
+        try {
+          eventResponse = deliverEvent(context,
+                                       toConsumeEvent,
+                                       pageNavigationalState,
+                                       getCookies(requestProperties));
+        } catch (Exception e) {
+          log.trace("Event delivery of " + toConsumeEvent + " failed", e);
+          safeInvoker.eventFailed(eventCC, phaseContext, toConsumeEvent, e);
+          continue;
+        }
 
-         // Feed session it with the events that may have been produced
-         for (UpdateNavigationalStateResponse.Event portletEvent : updateResponse.getEvents())
-         {
-            if (!phaseContext.push(new WindowEvent(portletEvent.getName(), portletEvent.getPayload(), portletRequest.getWindowId())))
-            {
-               return new PageUpdateResponse(updateResponse, requestProperties, pageNavigationalState, PortletResponse.INTERRUPTED);
-            }
-         }
+        // Now it is consumed
+        phaseContext.consumedEventSize++;
 
-         // Deliver events
-         while (phaseContext.hasNext())
-         {
-            WindowEvent toConsumeEvent = phaseContext.next();
+        // Update nav state if needed
+        if (eventResponse instanceof UpdateNavigationalStateResponse) {
+          UpdateNavigationalStateResponse eventStateResponse = (UpdateNavigationalStateResponse) eventResponse;
 
-            // Apply consumed event quota if necessary
-            int consumedEventThreshold = controller.getConsumedEventThreshold();
-            if (consumedEventThreshold >= 0)
-            {
-               if (phaseContext.consumedEventSize + 1 > consumedEventThreshold)
-               {
-                  log.trace("Event distribution interrupted because the maximum number of consumed event is reached");
-                  safeInvoker.eventDiscarded(eventCC, phaseContext, toConsumeEvent, EventControllerContext.CONSUMED_EVENT_FLOODED);
-                  return new PageUpdateResponse(updateResponse, requestProperties, pageNavigationalState, PortletResponse.INTERRUPTED);
-               }
-            }
+          // Update ns
+          updateNavigationalState(context, toConsumeEvent.getWindowId(), eventStateResponse, pageNavigationalState);
+
+          // Add events to source event queue
+          for (UpdateNavigationalStateResponse.Event portletEvent : eventStateResponse.getEvents()) {
+            WindowEvent toRouteEvent = new WindowEvent(portletEvent.getName(),
+                                                       portletEvent.getPayload(),
+                                                       toConsumeEvent.getWindowId());
 
             //
-            PortletInvocationResponse eventResponse;
-            try
-            {
-               eventResponse = deliverEvent(context, toConsumeEvent, pageNavigationalState, requestProperties.getCookies());
+            if (!phaseContext.push(toConsumeEvent, toRouteEvent)) {
+              return new PageUpdateResponse(updateResponse,
+                                            requestProperties,
+                                            pageNavigationalState,
+                                            PortletResponse.INTERRUPTED);
             }
-            catch (Exception e)
-            {
-               log.trace("Event delivery of " + toConsumeEvent + " failed", e);
-               safeInvoker.eventFailed(eventCC, phaseContext, toConsumeEvent, e);
-               continue;
-            }
+          }
 
-            // Now it is consumed
-            phaseContext.consumedEventSize++;
+          //
+          ResponseProperties updateProperties = eventStateResponse.getProperties();
+          if (updateProperties != null) {
+            requestProperties.append(updateProperties);
+          }
+        }
 
-            // Update nav state if needed
-            if (eventResponse instanceof UpdateNavigationalStateResponse)
-            {
-               UpdateNavigationalStateResponse eventStateResponse = (UpdateNavigationalStateResponse)eventResponse;
-
-               // Update ns
-               updateNavigationalState(context, toConsumeEvent.getWindowId(), eventStateResponse, pageNavigationalState);
-
-               // Add events to source event queue
-               for (UpdateNavigationalStateResponse.Event portletEvent : eventStateResponse.getEvents())
-               {
-                  WindowEvent toRouteEvent = new WindowEvent(portletEvent.getName(), portletEvent.getPayload(), toConsumeEvent.getWindowId());
-
-                  //
-                  if (!phaseContext.push(toConsumeEvent,  toRouteEvent))
-                  {
-                     return new PageUpdateResponse(updateResponse, requestProperties, pageNavigationalState, PortletResponse.INTERRUPTED);
-                  }
-               }
-
-               //
-               ResponseProperties updateProperties = eventStateResponse.getProperties();
-               if (updateProperties != null)
-               {
-                  requestProperties.append(updateProperties);
-               }
-            }
-
-            // And we make a callback
-            safeInvoker.eventConsumed(eventCC, phaseContext, toConsumeEvent, eventResponse);
-         }
-
-         //
-         return new PageUpdateResponse(updateResponse, requestProperties, pageNavigationalState, PortletResponse.DISTRIBUTION_DONE);
-      }
-      else
-      {
-         return new PortletResponse(response, PortletResponse.DISTRIBUTION_DONE);
-      }
-   }
-
-   private PortletInvocationResponse deliverEvent(
-      ControllerContext context,
-      WindowEvent event,
-      PageNavigationalState pageNavigationalState,
-      List<Cookie> requestCookies) throws PortletInvokerException
-   {
-      WindowNavigationalState windowNS = pageNavigationalState.getWindowNavigationalState(event.getWindowId());
-
-      //
-      if (windowNS == null)
-      {
-         windowNS = new WindowNavigationalState();
+        // And we make a callback
+        safeInvoker.eventConsumed(eventCC, phaseContext, toConsumeEvent, eventResponse);
       }
 
       //
-      Map<String, String[]> publicNS = context.getStateControllerContext().getPublicWindowNavigationalState(context, pageNavigationalState, event.getWindowId());
+      return new PageUpdateResponse(updateResponse, requestProperties, pageNavigationalState, PortletResponse.DISTRIBUTION_DONE);
+    } else {
+      return new PortletResponse(response, PortletResponse.DISTRIBUTION_DONE);
+    }
+  }
 
-      //
-      PortletInvocationContext portletInvocationContext = context.createPortletInvocationContext(event.getWindowId(), pageNavigationalState);
-      EventInvocation eventInvocation = new EventInvocation(portletInvocationContext);
+  private PortletInvocationResponse deliverEvent(ControllerContext context,
+                                                 WindowEvent event,
+                                                 PageNavigationalState pageNavigationalState,
+                                                 List<Cookie> requestCookies) throws PortletInvokerException {
+    WindowNavigationalState windowNS = pageNavigationalState.getWindowNavigationalState(event.getWindowId());
 
-      //
-      eventInvocation.setMode(windowNS.getMode());
-      eventInvocation.setWindowState(windowNS.getWindowState());
-      eventInvocation.setNavigationalState(windowNS.getPortletNavigationalState());
-      eventInvocation.setPublicNavigationalState(publicNS);
-      eventInvocation.setName(event.getName());
-      eventInvocation.setPayload(event.getPayload());
+    //
+    if (windowNS == null) {
+      windowNS = new WindowNavigationalState();
+    }
 
-      //
-      return context.invoke(event.getWindowId(), requestCookies, eventInvocation);
-   }
+    //
+    Map<String, String[]> publicNS =
+                                   context.getStateControllerContext()
+                                          .getPublicWindowNavigationalState(context, pageNavigationalState, event.getWindowId());
 
-   private void updateNavigationalState(
-      ControllerContext context,
-      String windowId,
-      UpdateNavigationalStateResponse update,
-      PageNavigationalState page)
-      throws PortletInvokerException
-   {
-      WindowNavigationalState windowNS = page.getWindowNavigationalState(windowId);
+    //
+    PortletInvocationContext portletInvocationContext = context.createPortletInvocationContext(event.getWindowId(),
+                                                                                               pageNavigationalState);
+    EventInvocation eventInvocation = new EventInvocation(portletInvocationContext);
 
-      //
-      if (windowNS == null)
-      {
-         windowNS = new WindowNavigationalState();
-      }
+    //
+    eventInvocation.setMode(windowNS.getMode());
+    eventInvocation.setWindowState(windowNS.getWindowState());
+    eventInvocation.setNavigationalState(windowNS.getPortletNavigationalState());
+    eventInvocation.setPublicNavigationalState(publicNS);
+    eventInvocation.setName(event.getName());
+    eventInvocation.setPayload(event.getPayload());
 
-      //
-      Mode mode = windowNS.getMode();
-      if (update.getMode() != null)
-      {
-         mode = update.getMode();
-      }
-      WindowState windowState = windowNS.getWindowState();
-      if (update.getWindowState() != null)
-      {
-         windowState = update.getWindowState();
-      }
-      StateString portletNS = windowNS.getPortletNavigationalState();
-      if (update.getNavigationalState() != null)
-      {
-         portletNS = update.getNavigationalState();
-      }
-      windowNS = new WindowNavigationalState(portletNS, mode, windowState);
-      page.setWindowNavigationalState(windowId, windowNS);
+    //
+    return context.invoke(event.getWindowId(), requestCookies, eventInvocation);
+  }
 
-      // Now update shared state scoped at page
-      Map<String, String[]> publicNS = update.getPublicNavigationalStateUpdates();
-      if (publicNS != null)
-      {
-         context.getStateControllerContext().updatePublicNavigationalState(
-            context,
-            page,
-            windowId,
-            publicNS);
-      }
-   }
+  private void updateNavigationalState(ControllerContext context,
+                                       String windowId,
+                                       UpdateNavigationalStateResponse update,
+                                       PageNavigationalState page) throws PortletInvokerException {
+    WindowNavigationalState windowNS = page.getWindowNavigationalState(windowId);
+
+    //
+    if (windowNS == null) {
+      windowNS = new WindowNavigationalState();
+    }
+
+    //
+    Mode mode = windowNS.getMode();
+    if (update.getMode() != null) {
+      mode = update.getMode();
+    }
+    WindowState windowState = windowNS.getWindowState();
+    if (update.getWindowState() != null) {
+      windowState = update.getWindowState();
+    }
+    StateString portletNS = windowNS.getPortletNavigationalState();
+    if (update.getNavigationalState() != null) {
+      portletNS = update.getNavigationalState();
+    }
+    windowNS = new WindowNavigationalState(portletNS, mode, windowState);
+    page.setWindowNavigationalState(windowId, windowNS);
+
+    // Now update shared state scoped at page
+    Map<String, String[]> publicNS = update.getPublicNavigationalStateUpdates();
+    if (publicNS != null) {
+      context.getStateControllerContext().updatePublicNavigationalState(context, page, windowId, publicNS);
+    }
+  }
+
+  private static List<Cookie> getCookies(ResponseProperties properties) {
+    if (properties.getCookies() == null) {
+      return null;
+    }
+    return properties.getCookies().stream().map(cookie -> {
+      Cookie jakartaCookie = new Cookie(cookie.getName(), cookie.getValue());
+      jakartaCookie.setDomain(cookie.getDomain());
+      jakartaCookie.setHttpOnly(cookie.isHttpOnly());
+      jakartaCookie.setMaxAge(cookie.getMaxAge());
+      jakartaCookie.setPath(cookie.getPath());
+      jakartaCookie.setSecure(cookie.getSecure());
+      return jakartaCookie;
+    }).toList();
+  }
+
 }

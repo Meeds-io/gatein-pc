@@ -22,12 +22,12 @@
  ******************************************************************************/
 package org.gatein.pc.test.portlet.jsr286.ext.dispatcher;
 
-import javax.servlet.Filter;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import javax.servlet.FilterChain;
+import jakarta.servlet.Filter;
+import jakarta.servlet.FilterConfig;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.ServletResponse;
+import jakarta.servlet.FilterChain;
 import java.io.IOException;
 import java.util.Set;
 import java.util.HashSet;

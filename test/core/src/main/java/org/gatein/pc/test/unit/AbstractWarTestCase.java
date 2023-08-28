@@ -13,11 +13,8 @@ import org.junit.Test;
 import java.io.File;
 import java.net.JarURLConnection;
 import java.net.URL;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedList;
-import java.util.List;
-import java.util.TreeMap;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 

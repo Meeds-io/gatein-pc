@@ -24,9 +24,9 @@ package org.gatein.pc.portlet.impl.spi;
 
 import org.gatein.pc.api.spi.ServerContext;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.ServletContext;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletContext;
 
 /**
  * @author <a href="mailto:julien@jboss.org">Julien Viet</a>

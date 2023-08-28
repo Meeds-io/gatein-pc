@@ -23,9 +23,11 @@
 package org.gatein.pc.portlet.support.spi;
 
 import org.gatein.pc.api.spi.ClientContext;
+
+import jakarta.servlet.http.Cookie;
+
 import org.gatein.common.util.MultiValuedPropertyMap;
 
-import javax.servlet.http.Cookie;
 import java.util.List;
 
 /**

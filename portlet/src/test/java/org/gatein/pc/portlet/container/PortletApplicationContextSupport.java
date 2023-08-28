@@ -22,7 +22,7 @@
  ******************************************************************************/
 package org.gatein.pc.portlet.container;
 
-import javax.servlet.ServletContext;
+import jakarta.servlet.ServletContext;
 
 /**
  * @author <a href="mailto:julien@jboss.org">Julien Viet</a>

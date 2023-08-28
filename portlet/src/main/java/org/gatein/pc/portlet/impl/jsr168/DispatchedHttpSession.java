@@ -22,10 +22,9 @@
  ******************************************************************************/
 package org.gatein.pc.portlet.impl.jsr168;
 
-import javax.servlet.http.HttpSession;
-import javax.servlet.http.HttpSessionContext;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.ServletContext;
+import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.ServletContext;
 import javax.portlet.PortletSession;
 import java.util.Enumeration;
 import java.util.ArrayList;
@@ -82,11 +81,6 @@ public class DispatchedHttpSession implements HttpSession
    public int getMaxInactiveInterval()
    {
       return delegate.getMaxInactiveInterval();
-   }
-
-   public HttpSessionContext getSessionContext()
-   {
-      throw new UnsupportedOperationException();
    }
 
    public Object getAttribute(String s)

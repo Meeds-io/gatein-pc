@@ -27,10 +27,10 @@ import org.gatein.common.util.ParameterMap;
 import org.gatein.common.http.QueryStringParser;
 import org.gatein.pc.portlet.impl.jsr168.api.PortletRequestImpl;
 
-import javax.servlet.*;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpSession;
-import javax.servlet.http.HttpServletRequestWrapper;
+import jakarta.servlet.*;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpServletRequestWrapper;
 import javax.portlet.PortletSession;
 import javax.portlet.PortletRequest;
 import javax.portlet.ClientDataRequest;
@@ -77,20 +77,20 @@ public abstract class DispatchedHttpServletRequest extends HttpServletRequestWra
 
    /** . */
    private static final String[] INCLUDE_KEYS = {
-      "javax.servlet.include.request_uri",
-      "javax.servlet.include.servlet_path",
-      "javax.servlet.include.path_info",
-      "javax.servlet.include.query_string",
-      "javax.servlet.include.context_path"
+      "jakarta.servlet.include.request_uri",
+      "jakarta.servlet.include.servlet_path",
+      "jakarta.servlet.include.path_info",
+      "jakarta.servlet.include.query_string",
+      "jakarta.servlet.include.context_path"
    };
 
    /** . */
    private static final String[] FORWARD_KEYS = {
-      "javax.servlet.forward.request_uri",
-      "javax.servlet.forward.servlet_path",
-      "javax.servlet.forward.path_info",
-      "javax.servlet.forward.query_string",
-      "javax.servlet.forward.context_path"
+      "jakarta.servlet.forward.request_uri",
+      "jakarta.servlet.forward.servlet_path",
+      "jakarta.servlet.forward.path_info",
+      "jakarta.servlet.forward.query_string",
+      "jakarta.servlet.forward.context_path"
    };
 
    /** . */
@@ -449,7 +449,7 @@ public abstract class DispatchedHttpServletRequest extends HttpServletRequestWra
 
    public final Cookie[] getCookies()
    {
-      return preq.getCookies();
+      return null;
    }
 
    // Must be equivalent to the method of the PortletRequest with the provision defined in PLT.16.1.1
@@ -630,7 +630,7 @@ public abstract class DispatchedHttpServletRequest extends HttpServletRequestWra
    }
 
    /**
-    * Returns the an implementation of <code>javax.servlet.http.HttpSession</code> that wraps this
+    * Returns the an implementation of <code>jakarta.servlet.http.HttpSession</code> that wraps this
     * portlet session and use the specified scope for manipulating attributes. This session is used
     * during the request dispatch to a servlet.
     *

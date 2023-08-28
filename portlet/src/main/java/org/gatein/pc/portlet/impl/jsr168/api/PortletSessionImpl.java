@@ -24,7 +24,7 @@ package org.gatein.pc.portlet.impl.jsr168.api;
 
 import javax.portlet.PortletContext;
 import javax.portlet.PortletSession;
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpSession;
 import java.util.Enumeration;
 import java.util.Map;
 import java.util.Collections;

@@ -41,7 +41,7 @@ import org.gatein.pc.portlet.impl.container.PortletContainerLifeCycle;
 import org.gatein.pc.portlet.impl.deployment.staxnav.PortletApplicationMetaDataBuilder;
 import org.gatein.pc.portlet.impl.metadata.PortletApplication10MetaData;
 
-import javax.servlet.ServletContext;
+import jakarta.servlet.ServletContext;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
