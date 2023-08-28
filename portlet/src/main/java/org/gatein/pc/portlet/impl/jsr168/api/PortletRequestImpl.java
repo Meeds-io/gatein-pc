@@ -22,53 +22,56 @@
  ******************************************************************************/
 package org.gatein.pc.portlet.impl.jsr168.api;
 
-import org.exoplatform.services.log.ExoLogger;
-import org.exoplatform.services.log.Log;
-import org.gatein.common.net.media.MediaType;
-import org.gatein.common.util.Tools;
-import org.gatein.common.util.ParameterMap;
-import org.gatein.common.util.MultiValuedPropertyMap;
-import org.gatein.common.util.SimpleMultiValuedPropertyMap;
-import org.gatein.pc.portlet.impl.jsr168.PortletApplicationImpl;
-import org.gatein.pc.portlet.impl.jsr168.PortletContainerImpl;
-import org.gatein.pc.portlet.impl.jsr168.PortletUtils;
-import org.gatein.pc.portlet.impl.jsr168.PortletRequestAttributes;
-import org.gatein.pc.portlet.impl.jsr168.PortletRequestParameterMap;
-import org.gatein.pc.portlet.impl.info.ContainerSecurityInfo;
-import org.gatein.pc.portlet.impl.info.ContainerPreferencesInfo;
-import org.gatein.pc.portlet.impl.info.ContainerNavigationInfo;
-import org.gatein.pc.portlet.impl.info.ContainerPortletInfo;
-import org.gatein.pc.api.invocation.PortletInvocation;
-import org.gatein.pc.api.spi.ServerContext;
-import org.gatein.pc.api.spi.SecurityContext;
-import org.gatein.pc.api.spi.UserContext;
-import org.gatein.pc.api.spi.WindowContext;
-import org.gatein.pc.api.spi.ClientContext;
-import org.gatein.pc.api.state.PropertyContext;
-import org.gatein.pc.api.info.CapabilitiesInfo;
-import org.gatein.pc.api.info.ModeInfo;
-import org.gatein.pc.api.info.PortletManagedModeInfo;
-import org.gatein.pc.api.Mode;
+import java.security.Principal;
+import java.util.Collections;
+import java.util.Enumeration;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Set;
 
 import javax.portlet.PortalContext;
 import javax.portlet.PortletMode;
 import javax.portlet.PortletPreferences;
 import javax.portlet.PortletRequest;
+import javax.portlet.PortletSession;
 import javax.portlet.PreferencesValidator;
 import javax.portlet.RenderRequest;
 import javax.portlet.WindowState;
-import javax.portlet.PortletSession;
-import javax.servlet.http.HttpSession;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequestWrapper;
-import java.security.Principal;
-import java.util.Collections;
-import java.util.Enumeration;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Set;
-import java.util.List;
-import java.util.HashSet;
+
+import org.gatein.common.net.media.MediaType;
+import org.gatein.common.util.MultiValuedPropertyMap;
+import org.gatein.common.util.ParameterMap;
+import org.gatein.common.util.SimpleMultiValuedPropertyMap;
+import org.gatein.common.util.Tools;
+import org.gatein.pc.api.Mode;
+import org.gatein.pc.api.info.CapabilitiesInfo;
+import org.gatein.pc.api.info.ModeInfo;
+import org.gatein.pc.api.info.PortletManagedModeInfo;
+import org.gatein.pc.api.invocation.PortletInvocation;
+import org.gatein.pc.api.spi.ClientContext;
+import org.gatein.pc.api.spi.SecurityContext;
+import org.gatein.pc.api.spi.ServerContext;
+import org.gatein.pc.api.spi.UserContext;
+import org.gatein.pc.api.spi.WindowContext;
+import org.gatein.pc.api.state.PropertyContext;
+import org.gatein.pc.portlet.impl.info.ContainerNavigationInfo;
+import org.gatein.pc.portlet.impl.info.ContainerPortletInfo;
+import org.gatein.pc.portlet.impl.info.ContainerPreferencesInfo;
+import org.gatein.pc.portlet.impl.info.ContainerSecurityInfo;
+import org.gatein.pc.portlet.impl.jsr168.PortletApplicationImpl;
+import org.gatein.pc.portlet.impl.jsr168.PortletContainerImpl;
+import org.gatein.pc.portlet.impl.jsr168.PortletRequestAttributes;
+import org.gatein.pc.portlet.impl.jsr168.PortletRequestParameterMap;
+import org.gatein.pc.portlet.impl.jsr168.PortletUtils;
+
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
+
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequestWrapper;
+import jakarta.servlet.http.HttpSession;
 
 /**
  * PortletRequest implemention. The parameter implementation is left to subclasses that can implement it differently.
@@ -159,7 +162,7 @@ public abstract class PortletRequestImpl implements PortletRequest
       }
 
       //
-      String dispatchedPath = (String)invocation.getRequest().getAttribute("javax.servlet.include.context_path");
+      String dispatchedPath = (String)invocation.getRequest().getAttribute("jakarta.servlet.include.context_path");
       if (dispatchedPath == null)
       {
          // It can be null when the request dispatch is done in the same war (i.e the portlet

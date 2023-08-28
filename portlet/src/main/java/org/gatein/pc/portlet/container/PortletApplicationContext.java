@@ -22,7 +22,7 @@
  ******************************************************************************/
 package org.gatein.pc.portlet.container;
 
-import javax.servlet.ServletContext;
+import jakarta.servlet.ServletContext;
 
 /**
  * The context provided to a portlet application by its envronment. For now it manages the application external resources

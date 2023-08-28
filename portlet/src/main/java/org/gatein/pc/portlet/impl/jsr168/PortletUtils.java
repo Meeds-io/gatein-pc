@@ -28,7 +28,7 @@ import javax.portlet.PortletResponse;
 import javax.portlet.WindowState;
 import javax.portlet.filter.PortletRequestWrapper;
 import javax.portlet.filter.PortletResponseWrapper;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 /**
  * @author <a href="mailto:julien@jboss.org">Julien Viet</a>

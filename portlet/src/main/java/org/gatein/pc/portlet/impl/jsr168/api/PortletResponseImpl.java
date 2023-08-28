@@ -31,8 +31,9 @@ import org.w3c.dom.Element;
 
 import java.lang.reflect.UndeclaredThrowableException;
 import javax.portlet.PortletResponse;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletResponseWrapper;
+
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletResponseWrapper;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.ParserConfigurationException;

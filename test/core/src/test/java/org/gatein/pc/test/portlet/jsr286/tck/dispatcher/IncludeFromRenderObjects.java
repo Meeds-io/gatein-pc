@@ -45,11 +45,11 @@ import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 import javax.portlet.PortletException;
 import javax.portlet.PortletRequestDispatcher;
-import javax.servlet.Servlet;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Cookie;
+import jakarta.servlet.Servlet;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Cookie;
 import java.io.IOException;
 import java.util.List;
 import java.util.LinkedList;
@@ -142,7 +142,6 @@ public class IncludeFromRenderObjects
             //SPEC:104
             assertNull(request.getRemoteAddr());
             assertNull(request.getRemoteHost());
-            assertNull(request.getRealPath("toto"));
             assertNull(request.getLocalAddr());
             assertNull(request.getLocalName());
             assertNull(request.getRequestURL());
@@ -278,7 +277,6 @@ public class IncludeFromRenderObjects
 
             //SPEC:115
             assertNull(response.encodeRedirectURL("lolo"));
-            assertNull(response.encodeRedirectUrl("blah"));
 
             //SPEC:116
             assertEquals(portletResponse.getCharacterEncoding(), response.getCharacterEncoding());
@@ -290,7 +288,6 @@ public class IncludeFromRenderObjects
             //Cannot invoke both writer and outputstream in single request
             //assertEquals(portletResponse.getWriter(), response.getWriter());
             assertEquals(portletResponse.encodeURL("http://www.jboss.com/"), response.encodeURL("http://www.jboss.com/"));
-            assertEquals(portletResponse.encodeURL("http://www.jboss.com/"), response.encodeUrl("http://www.jboss.com/"));
 
 
             //SPEC:118

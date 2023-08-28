@@ -11,11 +11,9 @@
 
    <properties>
       <!-- For testing -->
-      <version.arquillian.drone>2.0.1.Final</version.arquillian.drone>
-      <version.arquillian.drone.selenium>2.53.1</version.arquillian.drone.selenium>
-      <version.selenium>2.53.1</version.selenium>
-      <version.htmlunit>2.37.0</version.htmlunit>
-      <org.apache.httpcomponents.httpclient.version>4.5.3</org.apache.httpcomponents.httpclient.version>
+      <version.arquillian.drone>2.5.6</version.arquillian.drone>
+      <version.arquillian.drone.selenium>3.13.0</version.arquillian.drone.selenium>
+      <version.htmlunit>2.28</version.htmlunit>
    </properties>
 
    <modules>
@@ -26,7 +24,7 @@
    <dependencyManagement>
       <dependencies>
         <!-- Drone -->
-        <dependency>                                      <!-- Selenium bom is optional - see note below -->
+        <dependency>
           <groupId>org.jboss.arquillian.selenium</groupId>
           <artifactId>selenium-bom</artifactId>
           <version>${version.arquillian.drone.selenium}</version>

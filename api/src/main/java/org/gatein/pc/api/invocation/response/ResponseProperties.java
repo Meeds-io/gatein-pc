@@ -26,8 +26,11 @@ import org.gatein.common.util.MultiValuedPropertyMap;
 import org.gatein.common.util.SimpleMultiValuedPropertyMap;
 import org.w3c.dom.Element;
 
-import javax.servlet.http.Cookie;
+import jakarta.servlet.http.Cookie;
+
 import java.util.List;
+
+import java.util.Collections;
 import java.util.LinkedList;
 
 /**

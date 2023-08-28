@@ -52,10 +52,10 @@ import javax.portlet.EventRequest;
 import javax.portlet.EventResponse;
 import javax.portlet.PortletRequest;
 import javax.portlet.PortletResponse;
-import javax.servlet.Servlet;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.Servlet;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.Writer;
 import java.io.OutputStream;
@@ -200,7 +200,6 @@ public class ForwardFromActionEventObjects
       //SPEC:243
       assertNull(request.getRemoteAddr());
       assertNull(request.getRemoteHost());
-      assertNull(request.getRealPath("toto"));
       assertNull(request.getLocalAddr());
       assertNull(request.getLocalName());
       assertNull(request.getRequestURL());
@@ -371,7 +370,7 @@ public class ForwardFromActionEventObjects
 
       //SPEC:255
       assertNull(response.encodeRedirectURL("lolo"));
-      assertNull(response.encodeRedirectUrl("bobo"));
+      assertNull(response.encodeRedirectURL("bobo"));
       assertNull(response.getCharacterEncoding());
       assertNull(response.getContentType());
       assertNull(response.getLocale());
@@ -393,7 +392,7 @@ public class ForwardFromActionEventObjects
 
       //SPEC:257
       assertEquals(portletResponse.encodeURL("http://www.jboss.com/"), response.encodeURL("http://www.jboss.com/"));
-      assertEquals(portletResponse.encodeURL("http://www.jboss.com/"), response.encodeUrl("http://www.jboss.com/"));
+      assertEquals(portletResponse.encodeURL("http://www.jboss.com/"), response.encodeURL("http://www.jboss.com/"));
 
       //SPEC:259
       //TODO: addCookie

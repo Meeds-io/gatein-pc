@@ -32,7 +32,7 @@ import javax.portlet.PortletURL;
 import javax.portlet.WindowState;
 import javax.portlet.WindowStateException;
 import javax.portlet.BaseURL;
-import javax.servlet.jsp.JspException;
+import jakarta.servlet.jsp.JspException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;

@@ -37,9 +37,9 @@ import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 import javax.portlet.PortletException;
 import javax.portlet.PortletSession;
-import javax.servlet.http.HttpSessionBindingListener;
-import javax.servlet.http.HttpSessionBindingEvent;
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpSessionBindingListener;
+import jakarta.servlet.http.HttpSessionBindingEvent;
+import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.Serializable;
 

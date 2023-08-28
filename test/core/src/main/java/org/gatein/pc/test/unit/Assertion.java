@@ -189,7 +189,7 @@ public enum Assertion
 
    JSR168_46(new TCK(46), "The PortletContext must handle the same temporary working directory the" +
       " ServletContext handles. It must be accessible as a context attribute using the same constant defined in the" +
-      " Servlet Specification 2.3 SVR 3 Servlet Context Chapter, javax.servlet.context.tempdir."),
+      " Servlet Specification 2.3 SVR 3 Servlet Context Chapter, jakarta.servlet.context.tempdir."),
 
    JSR168_47(new TCK(47), Status.postponed("spec?"), ""),
 
@@ -445,9 +445,9 @@ public enum Assertion
 
    JSR168_127(new TCK(127), "Except for servlets obtained by using the getNamedDispatcher method, a" +
       " servlet or JSP being used from within an include call has access to the path used to obtain the" +
-      " PortletRequestDispatcher. The following request attributes must be set: javax.servlet.include.request_uri," +
-      " javax.servlet.include.context_path javax.servlet.include.servlet_path, javax.servlet.include.path_info," +
-      " javax.servlet.include.query_string"),
+      " PortletRequestDispatcher. The following request attributes must be set: jakarta.servlet.include.request_uri," +
+      " jakarta.servlet.include.context_path jakarta.servlet.include.servlet_path, jakarta.servlet.include.path_info," +
+      " jakarta.servlet.include.query_string"),
 
    JSR168_128(new TCK(128), "javax.portlet.config, javax.portlet.request, javax.portlet.response." +
       " These attributes must be the same Portlet API objects accessible to the portlet doing the include call."),
@@ -664,7 +664,7 @@ public enum Assertion
    JSR286_63(new TCK(63, "PLT.10.3"), JSR168_45, "The PortletContext must offer access to the same set of resources the " +
       "ServletContext exposes."),
    JSR286_64(new TCK(64, "PLT.10.3"), JSR168_46, "It must be accessible as a context attribute using the same constant " +
-      "defined in the Servlet Specification SVR 3 Servlet Context Chapter, javax.servlet.context.tempdir."),
+      "defined in the Servlet Specification SVR 3 Servlet Context Chapter, jakarta.servlet.context.tempdir."),
    JSR286_65(new TCK(64, "PLT.10.3"), "The portlet context must follow the same behavior and functionality that " +
       "the servlet context has for virtual hosting and reloading considerations. (see Servlet Specification SVR 3 " +
       "Servlet Context Chapter)"),
@@ -970,9 +970,9 @@ public enum Assertion
       "as HTTP GET requests."),
    JSR286_183(new TCK(183, "PLT.19.3.1"), "Except for servlets obtained by using the getNamedDispatcher method, a " +
       "servlet or JSP being used from within an include call has access to the path used to obtain the " +
-      "PortletRequestDispatcher. The following request attributes must be set: javax.servlet.include.request_uri, " +
-      "javax.servlet.include.context_path, javax.servlet.include.servlet_path, javax.servlet.include.path_info, " +
-      "javax.servlet.include.query_string"),
+      "PortletRequestDispatcher. The following request attributes must be set: jakarta.servlet.include.request_uri, " +
+      "jakarta.servlet.include.context_path, jakarta.servlet.include.servlet_path, jakarta.servlet.include.path_info, " +
+      "jakarta.servlet.include.query_string"),
    JSR286_184(new TCK(184, "PLT.19.3.2"), "These attributes must be the same Portlet API objects accessible to the " +
       "portlet doing the include call."),
 
@@ -1111,8 +1111,8 @@ public enum Assertion
    JSR286_238(new TCK(238, "PLT.19.4"), "Before the forward method of the RequestDispatcher interface returns, the " +
       "response content must be sent and committed, and closed by the portlet container."),
    JSR286_239(new TCK(239, "PLT.19.4.2"), "The following request attributes must be set: " +
-      "javax.servlet.forward.request_uri, javax.servlet.forward.context_path, javax.servlet.forward.servlet_path, " +
-      "javax.servlet.forward.path_info, javax.servlet.forward.query_string"),
+      "jakarta.servlet.forward.request_uri, jakarta.servlet.forward.context_path, jakarta.servlet.forward.servlet_path, " +
+      "jakarta.servlet.forward.path_info, jakarta.servlet.forward.query_string"),
    JSR286_240(new TCK(240, "PLT.19.4.2"), "The values of these attributes must be equal to the return values of the " +
       "HttpServletRequest methods getRequestURI, getContextPath, getServletPath, getPathInfo, getQueryString " +
       "respectively, invoked on the request object passed to the first servlet object in the forward call chain."),

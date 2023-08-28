@@ -28,7 +28,7 @@ import org.gatein.pc.api.spi.SecurityContext;
 import org.gatein.pc.portlet.container.PortletContainer;
 
 import javax.portlet.PortletRequest;
-import javax.servlet.http.HttpServletRequestWrapper;
+import jakarta.servlet.http.HttpServletRequestWrapper;
 import java.util.Map;
 import java.util.Enumeration;
 import java.util.Set;

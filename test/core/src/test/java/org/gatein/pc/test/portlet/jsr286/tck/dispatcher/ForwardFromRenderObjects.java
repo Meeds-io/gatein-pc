@@ -44,10 +44,10 @@ import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 import javax.portlet.PortletException;
 import javax.portlet.PortletRequestDispatcher;
-import javax.servlet.Servlet;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.Servlet;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Locale;
 import java.util.List;
@@ -146,7 +146,6 @@ public class ForwardFromRenderObjects
             //SPEC:262
             assertNull(request.getRemoteAddr());
             assertNull(request.getRemoteHost());
-            assertNull(request.getRealPath("toto"));
             assertNull(request.getLocalAddr());
             assertNull(request.getLocalName());
             assertNull(request.getRequestURL());
@@ -282,7 +281,6 @@ public class ForwardFromRenderObjects
 
             //SPEC:273
             assertNull(response.encodeRedirectURL("lolo"));
-            assertNull(response.encodeRedirectUrl("blah"));
 
             //SPEC:274
             assertEquals(portletResponse.getCharacterEncoding(), response.getCharacterEncoding());
@@ -296,7 +294,6 @@ public class ForwardFromRenderObjects
             //Cannot invoke both writer and outputstream in single request
             //assertEquals(portletResponse.getWriter(), response.getWriter());
             assertEquals(portletResponse.encodeURL("http://www.jboss.com/"), response.encodeURL("http://www.jboss.com/"));
-            assertEquals(portletResponse.encodeURL("http://www.jboss.com/"), response.encodeUrl("http://www.jboss.com/"));
 
 
             //SPEC:276

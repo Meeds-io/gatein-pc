@@ -27,7 +27,7 @@ import org.gatein.pc.portlet.container.ContainerPortletInvoker;
 import org.gatein.pc.portlet.impl.deployment.DeploymentException;
 import org.gatein.pc.portlet.impl.deployment.PortletApplicationDeployer;
 
-import javax.servlet.ServletContext;
+import jakarta.servlet.ServletContext;
 import java.util.ArrayList;
 import java.util.HashMap;
 

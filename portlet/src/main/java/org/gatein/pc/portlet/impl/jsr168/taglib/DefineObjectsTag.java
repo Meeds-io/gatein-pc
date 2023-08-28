@@ -25,7 +25,7 @@ package org.gatein.pc.portlet.impl.jsr168.taglib;
 import javax.portlet.PortletConfig;
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
-import javax.servlet.jsp.JspException;
+import jakarta.servlet.jsp.JspException;
 
 /**
  * The defineObjects tag for the JSR 168 Portlet specification.

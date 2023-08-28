@@ -36,7 +36,7 @@ import org.gatein.pc.controller.state.PageNavigationalState;
 import org.gatein.pc.controller.state.WindowNavigationalState;
 import org.gatein.pc.api.Mode;
 
-import javax.servlet.http.Cookie;
+import jakarta.servlet.http.Cookie;
 import java.util.Map;
 import java.util.List;
 

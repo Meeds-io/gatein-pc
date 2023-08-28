@@ -23,7 +23,7 @@
 package org.gatein.pc.portlet.impl.jsr168.taglib;
 
 import javax.portlet.PortletResponse;
-import javax.servlet.jsp.JspException;
+import jakarta.servlet.jsp.JspException;
 import java.io.IOException;
 
 /**

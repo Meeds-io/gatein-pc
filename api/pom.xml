@@ -28,13 +28,12 @@
       <version>6.6.x-exo-SNAPSHOT</version>
    </parent>
    <modelVersion>4.0.0</modelVersion>
-   <groupId>org.exoplatform.gatein.pc</groupId>
    <artifactId>pc-api</artifactId>
    <packaging>jar</packaging>
    <name>GateIn - Portlet Container (api)</name>
 
   <properties>
-    <exo.test.coverage.ratio>0.19</exo.test.coverage.ratio>
+    <exo.test.coverage.ratio>0.11</exo.test.coverage.ratio>
   </properties>
 
    <dependencies>
@@ -51,9 +50,14 @@
            <artifactId>jaxb-api</artifactId>
        </dependency>
        <dependency>
-           <groupId>javax.servlet</groupId>
-           <artifactId>javax.servlet-api</artifactId>
-           <scope>provided</scope>
+         <groupId>jakarta.servlet</groupId>
+         <artifactId>jakarta.servlet-api</artifactId>
+         <scope>provided</scope>
+       </dependency>
+       <dependency>
+         <groupId>javax.portlet</groupId>
+         <artifactId>portlet-api</artifactId>
+         <scope>provided</scope>
        </dependency>
        <dependency>
          <groupId>junit</groupId>
@@ -66,4 +70,34 @@
        </dependency>
    </dependencies>
 
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>unpack</id>
+            <phase>process-classes</phase>
+            <goals>
+              <goal>unpack</goal>
+            </goals>
+            <configuration>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>javax.portlet</groupId>
+                  <artifactId>portlet-api</artifactId>
+                  <type>jar</type>
+                  <overWrite>true</overWrite>
+                  <outputDirectory>target/classes</outputDirectory>
+                  <includes>javax/portlet/**</includes>
+                  <excludes>javax/portlet/PortletResponse.class,javax/portlet/PortletRequest.class,javax/portlet/filter/PortletRequestWrapper.class,javax/portlet/filter/PortletResponseWrapper.class</excludes>
+                </artifactItem>
+              </artifactItems>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 </project>

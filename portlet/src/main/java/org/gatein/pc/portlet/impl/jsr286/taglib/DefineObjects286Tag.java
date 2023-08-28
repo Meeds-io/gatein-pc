@@ -24,7 +24,7 @@ package org.gatein.pc.portlet.impl.jsr286.taglib;
 
 import org.gatein.pc.portlet.impl.jsr168.taglib.PortletTag;
 
-import javax.servlet.jsp.JspException;
+import jakarta.servlet.jsp.JspException;
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 import javax.portlet.ActionRequest;

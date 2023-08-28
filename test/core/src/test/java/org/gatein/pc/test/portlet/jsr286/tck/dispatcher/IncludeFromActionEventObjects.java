@@ -52,11 +52,11 @@ import javax.portlet.PortletRequest;
 import javax.portlet.PortletResponse;
 import javax.portlet.EventRequest;
 import javax.portlet.EventResponse;
-import javax.servlet.Servlet;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Cookie;
+import jakarta.servlet.Servlet;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Cookie;
 import java.io.IOException;
 import java.io.Writer;
 import java.io.OutputStream;
@@ -202,7 +202,6 @@ public class IncludeFromActionEventObjects
       //SPEC:185
       assertNull(request.getRemoteAddr());
       assertNull(request.getRemoteHost());
-      assertNull(request.getRealPath("toto"));
       assertNull(request.getLocalAddr());
       assertNull(request.getLocalName());
       assertNull(request.getRequestURL());
@@ -373,7 +372,7 @@ public class IncludeFromActionEventObjects
 
       //SPEC:197
       assertNull(response.encodeRedirectURL("lolo"));
-      assertNull(response.encodeRedirectUrl("bobo"));
+      assertNull(response.encodeRedirectURL("bobo"));
       assertNull(response.getCharacterEncoding());
       assertNull(response.getContentType());
       assertNull(response.getLocale());
@@ -398,8 +397,6 @@ public class IncludeFromActionEventObjects
 
       //SPEC:200
       assertEquals(portletResponse.encodeURL("http://www.jboss.com/"), response.encodeURL("http://www.jboss.com/"));
-      assertEquals(portletResponse.encodeURL("http://www.jboss.com/"), response.encodeUrl("http://www.jboss.com/"));
-
 
       //SPEC:202
       assertEquals(false, response.containsHeader("toto"));

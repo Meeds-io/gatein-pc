@@ -23,7 +23,7 @@
 package org.gatein.pc.test.unit;
 
 import javax.portlet.PortletRequest;
-import javax.servlet.http.Cookie;
+import jakarta.servlet.http.Cookie;
 import java.util.Map;
 import java.util.List;
 import java.util.ArrayList;

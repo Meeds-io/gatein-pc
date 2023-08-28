@@ -38,9 +38,9 @@ import javax.portlet.ResourceRequest;
 import javax.portlet.ResourceResponse;
 import javax.portlet.PortletSession;
 import javax.portlet.PortletPreferences;
-import javax.servlet.ServletRequest;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.jsp.tagext.TagSupport;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.jsp.tagext.TagSupport;
 import java.util.Map;
 import java.util.HashMap;
 

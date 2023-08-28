@@ -34,7 +34,7 @@ import org.gatein.pc.api.invocation.response.ContentResponse;
 import org.gatein.pc.controller.state.PageNavigationalState;
 import org.w3c.dom.Element;
 
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
