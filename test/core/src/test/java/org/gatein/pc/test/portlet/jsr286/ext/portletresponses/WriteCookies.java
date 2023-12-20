@@ -46,7 +46,7 @@ import javax.portlet.EventRequest;
 import javax.portlet.EventResponse;
 import javax.portlet.ResourceRequest;
 import javax.portlet.ResourceResponse;
-import javax.servlet.http.Cookie;
+import jakarta.servlet.http.Cookie;
 import java.io.IOException;
 import java.util.Map;
 

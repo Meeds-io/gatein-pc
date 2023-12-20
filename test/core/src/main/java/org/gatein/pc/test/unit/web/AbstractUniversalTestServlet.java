@@ -34,10 +34,10 @@ import org.gatein.pc.test.unit.PortletTestContext;
 import org.gatein.pc.test.unit.protocol.DriverServlet;
 import org.gatein.pc.test.unit.protocol.response.Response;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
@@ -104,7 +104,7 @@ public abstract class AbstractUniversalTestServlet extends HttpServlet
     * Returns Sequence for current testId Returns null if there is no Sequence for current testId
     *
     * @return
-    * @throws javax.servlet.ServletException if there is no SequenceRegistry
+    * @throws jakarta.servlet.ServletException if there is no SequenceRegistry
     */
    protected PortletTestCase getSequence(String testId) throws ServletException
    {

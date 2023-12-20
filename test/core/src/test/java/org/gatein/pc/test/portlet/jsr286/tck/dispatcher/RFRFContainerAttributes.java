@@ -32,7 +32,7 @@ import javax.portlet.PortletRequest;
 import javax.portlet.PortletResponse;
 import javax.portlet.PortletException;
 import javax.portlet.PortletContext;
-import javax.servlet.ServletContext;
+import jakarta.servlet.ServletContext;
 import java.io.IOException;
 import java.util.Map;
 import java.util.HashMap;
@@ -49,16 +49,16 @@ public class RFRFContainerAttributes extends DispatchedContainerAttributes
    private static Map<String, String> buildAttributes(ServletContext ctx)
    {
       Map<String, String> map = new HashMap<String, String>();
-      map.put("javax.servlet.include.request_uri", null);
-      map.put("javax.servlet.include.context_path", null);
-      map.put("javax.servlet.include.servlet_path", null);
-      map.put("javax.servlet.include.path_info", null);
-      map.put("javax.servlet.include.query_string", null);
-      map.put("javax.servlet.forward.request_uri", ctx.getContextPath() + "/requestForwardHopServlet/pathinfo1");
-      map.put("javax.servlet.forward.context_path", ctx.getContextPath());
-      map.put("javax.servlet.forward.servlet_path", "/requestForwardHopServlet");
-      map.put("javax.servlet.forward.path_info", "/pathinfo1");
-      map.put("javax.servlet.forward.query_string", "foo1=bar1");
+      map.put("jakarta.servlet.include.request_uri", null);
+      map.put("jakarta.servlet.include.context_path", null);
+      map.put("jakarta.servlet.include.servlet_path", null);
+      map.put("jakarta.servlet.include.path_info", null);
+      map.put("jakarta.servlet.include.query_string", null);
+      map.put("jakarta.servlet.forward.request_uri", ctx.getContextPath() + "/requestForwardHopServlet/pathinfo1");
+      map.put("jakarta.servlet.forward.context_path", ctx.getContextPath());
+      map.put("jakarta.servlet.forward.servlet_path", "/requestForwardHopServlet");
+      map.put("jakarta.servlet.forward.path_info", "/pathinfo1");
+      map.put("jakarta.servlet.forward.query_string", "foo1=bar1");
       return Collections.unmodifiableMap(map);
    }
 

@@ -102,11 +102,6 @@
          </dependency>
          <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>pc-bridge</artifactId>
-            <version>${project.version}</version>
-         </dependency>
-         <dependency>
-            <groupId>${project.groupId}</groupId>
             <artifactId>pc-test-core</artifactId>
             <version>${project.version}</version>
          </dependency>
@@ -123,27 +118,21 @@
            <type>test-jar</type>
            <classifier>test-sources</classifier>
          </dependency>
+
       </dependencies>
    </dependencyManagement>
 
    <modules>
       <module>api</module>
-      <module>jsr168api</module>
       <module>portlet</module>
       <module>controller</module>
-      <module>bridge</module>
       <module>federation</module>
       <module>management</module>
+      <module>test</module>
+      <module>embed</module>
    </modules>
 
    <profiles>
-     <profile>
-       <id>run-its</id>
-       <modules>
-         <module>test</module>
-         <module>embed</module>
-       </modules>
-     </profile>
       <!-- This profile is used to allow github action to build branches. The github action is used for sonar analysis -->
       <profile>
          <id>project-repositories</id>

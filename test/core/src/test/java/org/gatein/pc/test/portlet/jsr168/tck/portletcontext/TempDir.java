@@ -42,10 +42,10 @@ import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 import javax.portlet.PortletException;
 import javax.portlet.PortletRequestDispatcher;
-import javax.servlet.Servlet;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.Servlet;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.File;
 
@@ -63,7 +63,7 @@ public class TempDir
          protected Response run(Portlet portlet, RenderRequest request, RenderResponse response, PortletTestContext context) throws IOException, PortletException
          {
             AbstractUniversalTestPortlet aport = (AbstractUniversalTestPortlet)portlet;
-            File tempDir = (File)aport.getPortletContext().getAttribute("javax.servlet.context.tempdir");
+            File tempDir = (File)aport.getPortletContext().getAttribute("jakarta.servlet.context.tempdir");
             assertNotNull(tempDir);
             aport.getPortletContext().setAttribute("tempDirPath", tempDir.getAbsolutePath());
             PortletRequestDispatcher dispatcher = aport.getPortletContext().getNamedDispatcher("UniversalServletA");
@@ -86,7 +86,7 @@ public class TempDir
          {
             AbstractUniversalTestServlet serv = ((AbstractUniversalTestServlet)servlet);
             String path = (String)serv.getServletContext().getAttribute("tempDirPath");
-            File tempDir = (File)serv.getServletContext().getAttribute("javax.servlet.context.tempdir");
+            File tempDir = (File)serv.getServletContext().getAttribute("jakarta.servlet.context.tempdir");
             if (path != null && tempDir != null)
             {
                UTP1.local.set(path.equals(tempDir.getAbsolutePath()) ? Boolean.TRUE : Boolean.FALSE);

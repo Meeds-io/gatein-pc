@@ -22,8 +22,8 @@
  ******************************************************************************/
 package org.gatein.pc.portlet.impl.jsr168.taglib;
 
-import javax.servlet.jsp.JspException;
-import javax.servlet.jsp.tagext.TagSupport;
+import jakarta.servlet.jsp.JspException;
+import jakarta.servlet.jsp.tagext.TagSupport;
 
 /**
  * The additional parameters definitions for the actionURL and renderURL tags for the JSR 168 Portlet specification.
@@ -75,7 +75,7 @@ public class URLParameterTag extends TagSupport
    /**
     * No body to process
     *
-    * @see javax.servlet.jsp.tagext.Tag#doStartTag()
+    * @see jakarta.servlet.jsp.tagext.Tag#doStartTag()
     */
    public int doStartTag() throws JspException
    {
@@ -85,7 +85,7 @@ public class URLParameterTag extends TagSupport
    /**
     * Include the parameter in the surround tag parameters
     *
-    * @see javax.servlet.jsp.tagext.Tag#doEndTag()
+    * @see jakarta.servlet.jsp.tagext.Tag#doEndTag()
     */
    public int doEndTag() throws JspException
    {

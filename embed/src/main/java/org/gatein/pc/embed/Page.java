@@ -25,7 +25,7 @@ import org.gatein.pc.api.PortletInvoker;
 import org.gatein.pc.api.PortletInvokerException;
 import org.gatein.pc.api.WindowState;
 
-import javax.servlet.ServletException;
+import jakarta.servlet.ServletException;
 import javax.xml.namespace.QName;
 import java.util.ArrayList;
 import java.util.Collection;

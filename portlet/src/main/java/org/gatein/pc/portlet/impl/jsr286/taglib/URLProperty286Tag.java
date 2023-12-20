@@ -22,8 +22,8 @@
 
 package org.gatein.pc.portlet.impl.jsr286.taglib;
 
-import javax.servlet.jsp.JspException;
-import javax.servlet.jsp.tagext.TagSupport;
+import jakarta.servlet.jsp.JspException;
+import jakarta.servlet.jsp.tagext.TagSupport;
 
 /**
  * @author Boleslaw Dawidowicz
@@ -73,7 +73,7 @@ public class URLProperty286Tag extends TagSupport
    /**
     * No body to process
     *
-    * @see javax.servlet.jsp.tagext.Tag#doStartTag()
+    * @see jakarta.servlet.jsp.tagext.Tag#doStartTag()
     */
    public int doStartTag() throws JspException
    {
@@ -83,7 +83,7 @@ public class URLProperty286Tag extends TagSupport
    /**
     * Include the property in the surround tag properties
     *
-    * @see javax.servlet.jsp.tagext.Tag#doEndTag()
+    * @see jakarta.servlet.jsp.tagext.Tag#doEndTag()
     */
    public int doEndTag() throws JspException
    {

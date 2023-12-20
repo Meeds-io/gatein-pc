@@ -22,9 +22,9 @@
  ******************************************************************************/
 package org.gatein.pc.portlet.impl.jsr168.taglib;
 
-import javax.servlet.jsp.tagext.TagData;
-import javax.servlet.jsp.tagext.TagExtraInfo;
-import javax.servlet.jsp.tagext.VariableInfo;
+import jakarta.servlet.jsp.tagext.TagData;
+import jakarta.servlet.jsp.tagext.TagExtraInfo;
+import jakarta.servlet.jsp.tagext.VariableInfo;
 
 /**
  * The additional variable definitions for the actionURL tag for the JSR 168 Portlet specification.

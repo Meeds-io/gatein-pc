@@ -28,7 +28,7 @@ import org.gatein.pc.api.invocation.resolver.MapAttributeResolver;
 import org.gatein.pc.api.invocation.resolver.PrincipalAttributeResolver;
 import org.gatein.pc.api.spi.UserContext;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.List;

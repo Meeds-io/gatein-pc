@@ -30,8 +30,8 @@ import org.gatein.pc.api.URLFormat;
 import org.gatein.pc.controller.state.PageNavigationalState;
 import org.gatein.pc.portlet.impl.spi.AbstractPortletInvocationContext;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 /**
  * An implementation of the <code>PortletInvocationContext</code> interface that is related to a specific

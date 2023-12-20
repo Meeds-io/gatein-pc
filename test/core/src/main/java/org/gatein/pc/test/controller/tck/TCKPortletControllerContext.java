@@ -39,9 +39,9 @@ import org.gatein.pc.api.invocation.PortletInvocation;
 import org.gatein.common.io.Serialization;
 import org.gatein.pc.test.controller.unit.PageNavigationalStateSerialization;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.ServletContext;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletContext;
 import java.io.IOException;
 import java.util.Set;
 

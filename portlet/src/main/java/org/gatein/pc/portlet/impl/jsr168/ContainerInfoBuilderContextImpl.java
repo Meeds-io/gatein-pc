@@ -30,7 +30,7 @@ import org.gatein.pc.portlet.impl.info.ContainerInfoBuilderContext;
 import org.gatein.common.i18n.ResourceBundleFactory;
 import org.gatein.common.reflect.NoSuchClassException;
 
-import javax.servlet.ServletContext;
+import jakarta.servlet.ServletContext;
 import java.util.Map;
 import java.util.HashMap;
 import java.lang.reflect.Constructor;

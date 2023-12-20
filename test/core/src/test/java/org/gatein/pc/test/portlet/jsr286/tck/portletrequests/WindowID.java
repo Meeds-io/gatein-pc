@@ -32,8 +32,8 @@ import org.gatein.pc.test.unit.protocol.response.Response;
 import org.gatein.pc.test.unit.protocol.response.EndTestResponse;
 import static org.gatein.pc.test.unit.Assert.*;
 
-import javax.servlet.http.HttpSessionBindingEvent;
-import javax.servlet.http.HttpSessionBindingListener;
+import jakarta.servlet.http.HttpSessionBindingEvent;
+import jakarta.servlet.http.HttpSessionBindingListener;
 import javax.portlet.Portlet;
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;

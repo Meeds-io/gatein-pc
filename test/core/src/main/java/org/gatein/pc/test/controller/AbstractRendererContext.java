@@ -29,9 +29,9 @@ import org.gatein.pc.controller.state.PageNavigationalState;
 import org.gatein.pc.api.invocation.response.PortletInvocationResponse;
 import org.gatein.pc.api.PortletInvokerException;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Cookie;
 import java.util.List;
 
 /**

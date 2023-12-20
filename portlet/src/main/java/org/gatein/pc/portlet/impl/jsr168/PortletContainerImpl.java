@@ -82,7 +82,7 @@ import javax.portlet.filter.FilterConfig;
 import javax.portlet.filter.PortletFilter;
 import javax.portlet.filter.RenderFilter;
 import javax.portlet.filter.ResourceFilter;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;

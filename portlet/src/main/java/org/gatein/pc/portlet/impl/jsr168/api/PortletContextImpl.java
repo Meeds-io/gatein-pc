@@ -28,8 +28,8 @@ import org.gatein.pc.api.info.RuntimeOptionInfo;
 
 import javax.portlet.PortletContext;
 import javax.portlet.PortletRequestDispatcher;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletContext;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;

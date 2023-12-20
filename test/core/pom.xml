@@ -29,6 +29,12 @@
        <dependency>
            <groupId>org.exoplatform.gatein.pc</groupId>
            <artifactId>pc-api</artifactId>
+           <exclusions>
+             <exclusion>
+               <groupId>javax.portlet</groupId>
+               <artifactId>portlet-api</artifactId>
+             </exclusion>
+           </exclusions>
        </dependency>
 
        <!-- Various dependencies -->
@@ -37,12 +43,9 @@
         <artifactId>ccpp</artifactId>
       </dependency>
       <dependency>
-         <groupId>javax.portlet</groupId>
-         <artifactId>portlet-api</artifactId>
-      </dependency>
-      <dependency>
-        <groupId>javax.servlet</groupId>
-        <artifactId>javax.servlet-api</artifactId>
+        <groupId>jakarta.servlet</groupId>
+        <artifactId>jakarta.servlet-api</artifactId>
+        <scope>provided</scope>
       </dependency>
       <dependency>
          <groupId>junit</groupId>
@@ -57,6 +60,11 @@
       <dependency>
          <groupId>org.jboss.arquillian.junit</groupId>
          <artifactId>arquillian-junit-container</artifactId>
+         <scope>compile</scope>
+      </dependency>
+      <dependency>
+         <groupId>org.jboss.arquillian.test</groupId>
+         <artifactId>arquillian-test-api</artifactId>
          <scope>compile</scope>
       </dependency>
        <dependency>
@@ -79,6 +87,10 @@
            <artifactId>shrinkwrap-resolver-impl-maven</artifactId>
            <scope>compile</scope>
        </dependency>
+      <dependency>
+        <groupId>commons-httpclient</groupId>
+        <artifactId>commons-httpclient</artifactId>
+      </dependency>
 
    </dependencies>
 

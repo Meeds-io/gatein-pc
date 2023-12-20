@@ -26,8 +26,8 @@ import org.gatein.pc.api.spi.ClientContext;
 import org.gatein.common.util.MultiValuedPropertyMap;
 import org.gatein.common.util.SimpleMultiValuedPropertyMap;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.Cookie;
 import java.util.List;
 import java.util.Enumeration;
 import java.util.ArrayList;
@@ -120,6 +120,6 @@ public class AbstractClientContext implements ClientContext
 
    public List<Cookie> getCookies()
    {
-      return cookies;
+     return cookies;
    }
 }

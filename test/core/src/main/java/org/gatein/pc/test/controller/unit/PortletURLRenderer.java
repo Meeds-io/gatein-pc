@@ -35,8 +35,8 @@ import org.gatein.pc.api.URLFormat;
 import org.gatein.pc.controller.state.PageNavigationalState;
 import org.gatein.pc.portlet.impl.jsr168.PortletUtils;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.util.Collections;
 import java.util.Map;
 

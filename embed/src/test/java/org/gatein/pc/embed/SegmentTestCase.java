@@ -26,7 +26,7 @@ import org.gatein.pc.embed.Query;
 import org.gatein.pc.embed.Segment;
 import org.junit.Test;
 
-import javax.servlet.ServletException;
+import jakarta.servlet.ServletException;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -37,9 +37,9 @@ import org.gatein.pc.portlet.impl.state.producer.PortletStatePersistenceManagerS
 import org.gatein.pc.portlet.state.producer.ProducerPortletInvoker;
 import org.gatein.pc.test.TestPortletApplicationDeployer;
 
-import javax.servlet.ServletContext;
-import javax.servlet.ServletContextEvent;
-import javax.servlet.ServletContextListener;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletContextEvent;
+import jakarta.servlet.ServletContextListener;
 
 /**
  * @author <a href="mailto:julien.viet@exoplatform.com">Julien Viet</a>

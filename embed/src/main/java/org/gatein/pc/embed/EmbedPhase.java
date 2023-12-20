@@ -58,10 +58,10 @@ import org.w3c.dom.Text;
 
 import javax.portlet.MimeResponse;
 import javax.portlet.ResourceResponse;
-import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import javax.xml.namespace.QName;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -177,7 +177,7 @@ abstract class EmbedPhase
                {
                   if (props.getCookies() != null)
                   {
-                     cookies.addAll(props.getCookies());
+                    cookies.addAll(getCookies(props));
                   }
 
                   //
@@ -667,7 +667,7 @@ abstract class EmbedPhase
    {
       if (properties != null)
       {
-         sendCookies(properties.getCookies(), resp);
+        sendCookies(getCookies(properties), resp);
       }
    }
 
@@ -742,4 +742,20 @@ abstract class EmbedPhase
             break;
       }
    }
+
+   private static List<Cookie> getCookies(ResponseProperties properties) {
+     if (properties.getCookies() == null) {
+       return null;
+     }
+     return properties.getCookies().stream().map(cookie -> {
+       Cookie jakartaCookie = new Cookie(cookie.getName(), cookie.getValue());
+       jakartaCookie.setDomain(cookie.getDomain());
+       jakartaCookie.setHttpOnly(cookie.isHttpOnly());
+       jakartaCookie.setMaxAge(cookie.getMaxAge());
+       jakartaCookie.setPath(cookie.getPath());
+       jakartaCookie.setSecure(cookie.getSecure());
+       return jakartaCookie;
+     }).toList();
+   }
+
 }

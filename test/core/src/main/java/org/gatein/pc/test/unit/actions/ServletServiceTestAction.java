@@ -29,10 +29,10 @@ import org.gatein.pc.test.unit.protocol.response.Response;
 import org.gatein.pc.test.unit.protocol.response.FailureResponse;
 import org.gatein.pc.test.unit.Failure;
 
-import javax.servlet.Servlet;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.Servlet;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**

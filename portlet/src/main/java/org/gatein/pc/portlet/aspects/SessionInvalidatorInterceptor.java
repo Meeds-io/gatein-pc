@@ -28,8 +28,8 @@ import org.gatein.pc.api.invocation.PortletInvocation;
 import org.gatein.pc.api.invocation.response.PortletInvocationResponse;
 import org.gatein.pc.portlet.PortletInvokerInterceptor;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import java.util.Collections;
 
 /**

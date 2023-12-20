@@ -22,9 +22,9 @@
 
 package org.gatein.pc.portlet.impl.jsr286.taglib;
 
-import javax.servlet.jsp.tagext.VariableInfo;
-import javax.servlet.jsp.tagext.TagData;
-import javax.servlet.jsp.tagext.TagExtraInfo;
+import jakarta.servlet.jsp.tagext.VariableInfo;
+import jakarta.servlet.jsp.tagext.TagData;
+import jakarta.servlet.jsp.tagext.TagExtraInfo;
 import javax.portlet.PortletConfig;
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
