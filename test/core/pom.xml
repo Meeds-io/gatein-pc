@@ -29,12 +29,6 @@
        <dependency>
            <groupId>org.exoplatform.gatein.pc</groupId>
            <artifactId>pc-api</artifactId>
-           <exclusions>
-             <exclusion>
-               <groupId>javax.portlet</groupId>
-               <artifactId>portlet-api</artifactId>
-             </exclusion>
-           </exclusions>
        </dependency>
 
        <!-- Various dependencies -->
