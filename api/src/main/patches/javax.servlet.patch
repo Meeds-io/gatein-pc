@@ -1,0 +1,48 @@
+diff -uNr portlet-api-orig/javax/portlet/filter/PortletRequestWrapper.java portlet-api/javax/portlet/filter/PortletRequestWrapper.java
+--- portlet-api-orig/javax/portlet/filter/PortletRequestWrapper.java	2008-11-19 17:09:58.000000000 +0100
++++ portlet-api/javax/portlet/filter/PortletRequestWrapper.java	2023-12-21 08:38:11.964726000 +0100
+@@ -41,7 +41,7 @@
+ import javax.portlet.PortletRequest;
+ import javax.portlet.PortletSession;
+ import javax.portlet.WindowState;
+-import javax.servlet.http.Cookie;
++import jakarta.servlet.http.Cookie;
+ 
+ /**
+  * The <code>PortletRequestWrapper</code> provides a convenient 
+diff -uNr portlet-api-orig/javax/portlet/filter/PortletResponseWrapper.java portlet-api/javax/portlet/filter/PortletResponseWrapper.java
+--- portlet-api-orig/javax/portlet/filter/PortletResponseWrapper.java	2008-11-19 17:09:58.000000000 +0100
++++ portlet-api/javax/portlet/filter/PortletResponseWrapper.java	2023-12-21 08:38:11.964726000 +0100
+@@ -31,7 +31,7 @@
+ package javax.portlet.filter;
+ 
+ import javax.portlet.PortletResponse;
+-import javax.servlet.http.Cookie;
++import jakarta.servlet.http.Cookie;
+ 
+ /**
+  * The <code>PortletResponseWrapper</code> provides a convenient 
+diff -uNr portlet-api-orig/javax/portlet/PortletRequest.java portlet-api/javax/portlet/PortletRequest.java
+--- portlet-api-orig/javax/portlet/PortletRequest.java	2008-11-19 17:09:58.000000000 +0100
++++ portlet-api/javax/portlet/PortletRequest.java	2023-12-21 08:38:11.968726000 +0100
+@@ -905,7 +905,7 @@
+    *          <code>null</code> if no cookies exist.
+    * @see MimeResponse#addProperty(Cookie) 
+    */
+-  public javax.servlet.http.Cookie[] getCookies();
++  public jakarta.servlet.http.Cookie[] getCookies();
+   
+   /**
+    * Returns a <code>Map</code> of the private parameters of this request.
+diff -uNr portlet-api-orig/javax/portlet/PortletResponse.java portlet-api/javax/portlet/PortletResponse.java
+--- portlet-api-orig/javax/portlet/PortletResponse.java	2008-11-19 17:09:58.000000000 +0100
++++ portlet-api/javax/portlet/PortletResponse.java	2023-12-21 08:38:11.968726000 +0100
+@@ -155,7 +155,7 @@
+      * @since 2.0
+      */
+ 
+-    public void addProperty(javax.servlet.http.Cookie cookie);
++    public void addProperty(jakarta.servlet.http.Cookie cookie);
+ 
+ 
+     /**
