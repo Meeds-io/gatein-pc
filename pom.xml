@@ -94,6 +94,12 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>pc-api</artifactId>
             <version>${project.version}</version>
+           <exclusions>
+             <exclusion>
+               <groupId>javax.portlet</groupId>
+               <artifactId>portlet-api</artifactId>
+             </exclusion>
+           </exclusions>
          </dependency>
          <dependency>
             <groupId>${project.groupId}</groupId>
