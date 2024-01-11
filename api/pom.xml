@@ -34,6 +34,7 @@
 
   <properties>
     <exo.test.coverage.ratio>0.11</exo.test.coverage.ratio>
+    <maven.javadoc.skip>true</maven.javadoc.skip>
   </properties>
 
    <dependencies>
@@ -57,7 +58,7 @@
        <dependency>
          <groupId>javax.portlet</groupId>
          <artifactId>portlet-api</artifactId>
-         <scope>provided</scope>
+         <classifier>sources</classifier>
        </dependency>
        <dependency>
          <groupId>junit</groupId>
@@ -71,14 +72,41 @@
    </dependencies>
 
   <build>
+    <finalName>${project.artifactId}</finalName>
+    <resources>
+      <resource>
+        <directory>src/main/java</directory>
+      </resource>
+      <resource>
+        <directory>src/main/resources</directory>
+      </resource>
+      <resource>
+        <directory>target/portlet-api</directory>
+      </resource>
+    </resources>
+    <testResources>
+      <testResource>
+        <directory>src/test/java</directory>
+      </testResource>
+      <testResource>
+        <directory>src/test/resources</directory>
+      </testResource>
+    </testResources>
     <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <encoding>ISO-8859-1</encoding>
+        </configuration>
+      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-dependency-plugin</artifactId>
         <executions>
           <execution>
             <id>unpack</id>
-            <phase>process-classes</phase>
+            <phase>generate-sources</phase>
             <goals>
               <goal>unpack</goal>
             </goals>
@@ -87,17 +115,54 @@
                 <artifactItem>
                   <groupId>javax.portlet</groupId>
                   <artifactId>portlet-api</artifactId>
-                  <type>jar</type>
-                  <overWrite>true</overWrite>
-                  <outputDirectory>target/classes</outputDirectory>
-                  <includes>javax/portlet/**</includes>
-                  <excludes>javax/portlet/PortletResponse.class,javax/portlet/PortletRequest.class,javax/portlet/filter/PortletRequestWrapper.class,javax/portlet/filter/PortletResponseWrapper.class</excludes>
+                  <classifier>sources</classifier>
+                  <overWrite>false</overWrite>
                 </artifactItem>
               </artifactItems>
+              <outputDirectory>${project.build.directory}/portlet-api</outputDirectory>
             </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>add-source</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>${project.build.directory}/portlet-api</source>
+              </sources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-patch-plugin</artifactId>
+        <version>1.2</version>
+        <configuration>
+          <targetDirectory>${project.build.directory}</targetDirectory>
+        </configuration>
+        <executions>
+          <execution>
+            <id>javax.servlet-patch</id>
+            <configuration>
+              <patchFile>${basedir}/src/main/patches/javax.servlet.patch</patchFile>
+              <patchTrackingFile>${project.build.directory}/javax.servlet-patches-applied.txt</patchTrackingFile>
+            </configuration>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>apply</goal>
+            </goals>
           </execution>
         </executions>
       </plugin>
     </plugins>
   </build>
+
 </project>
